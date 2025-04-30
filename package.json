@@ -1,0 +1,14 @@
+{
+  "name": "fire-truck-api-cache",
+  "version": "1.0.0",
+  "description": "Caching system for Goa Fire Department GPS API",
+  "main": "fetch-data.js",
+  "scripts": {
+    "start": "node fetch-data.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0",
+    "csv-parse": "^5.3.5"
+  },
+  "type": "module"
+} 
