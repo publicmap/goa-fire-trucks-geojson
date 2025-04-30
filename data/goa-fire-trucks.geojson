@@ -1,9 +1,1843 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "timestamp": "2025-04-30T19:26:59.769Z",
+    "timestamp": "2025-04-30T19:34:29.572Z",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
-    "count": 0
+    "count": 47
   },
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7939617,
+          15.5328883
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Pilerne",
+        "Vehicle_No": "GA 07 G 0680-PIL(QUICK RESPONSE VEHICLE)",
+        "Vehicle_Name": "4G",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "864180052940132",
+        "DeviceModel": "L400",
+        "Location": "At Fire Station Pilerne",
+        "POI": "At Fire Station Pilerne",
+        "Datetime": "01-05-2025 01:04:18",
+        "Status": "73.7939617",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817429,
+          15.486755
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 0308-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717923",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.24 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:03:54",
+        "Power": "01-05-2025 01:03:51",
+        "Door1": "15.486755",
+        "Door2": "73.817429",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.829414,
+          15.522858
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Porvorim",
+        "Vehicle_No": "GA 07 G 5115-POR(MINI WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718761",
+        "DeviceModel": "TS101",
+        "Location": "At Porvorim Fire Station",
+        "POI": "At Porvorim Fire Station",
+        "Datetime": "01-05-2025 01:02:40",
+        "Status": "73.829414",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8172,
+          15.487053
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Panaji",
+        "Vehicle_No": "GA 07 G 0350-PNJ(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718397",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.26 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:02:51",
+        "Power": "01-05-2025 01:02:49",
+        "Door1": "15.487053",
+        "Door2": "73.8172",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.808899,
+          15.589825
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Mapusa",
+        "Vehicle_No": "GA 07 G 2900-MAP(MINI RESCUE TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717697",
+        "DeviceModel": "TS101",
+        "Location": "At Fire Station Mapusa",
+        "POI": "At Fire Station Mapusa",
+        "Datetime": "01-05-2025 01:03:47",
+        "Status": "73.808899",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817276,
+          15.487015
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7600-FFHQ(WATER BOUSER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718077",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.26 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:03:50",
+        "Power": "01-05-2025 01:03:44",
+        "Door1": "15.487015",
+        "Door2": "73.817276",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817245,
+          15.487152
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 2002-FFHQ(TURN TABLE LADDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718145",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.27 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:03:25",
+        "Power": "01-05-2025 01:03:22",
+        "Door1": "15.487152",
+        "Door2": "73.817245",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817177,
+          15.4873
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7101-FFHQ(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717600",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.29 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:03:21",
+        "Power": "01-05-2025 01:03:16",
+        "Door1": "15.4873",
+        "Door2": "73.817177",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817116,
+          15.48722
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7677-FFHQ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718713",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.27 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:02:46",
+        "Power": "01-05-2025 01:02:43",
+        "Door1": "15.48722",
+        "Door2": "73.817116",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817322,
+          15.487555
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Panaji",
+        "Vehicle_No": "GA 07 G 1121-PNJ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718788",
+        "DeviceModel": "TS101",
+        "Location": "\"Goa College of Home Science",
+        "POI": " Dayanand Bandodkar Road",
+        "Datetime": " Opposite Parade Ground Campal",
+        "Status": " Goa (SE)\"",
+        "Speed": "0.32 km from Fire Station panaji",
+        "GPS": "01-05-2025 01:04:13",
+        "IGN": "01-05-2025 01:04:10",
+        "Power": "15.487555",
+        "Door1": "73.817322",
+        "Door2": "STOP",
+        "Door3": "0",
+        "Door4": "ON",
+        "AC": "OFF",
+        "Temperature": "ON",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8172,
+          15.486647
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 1571-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717577",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.22 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:02:27",
+        "Power": "01-05-2025 01:02:19",
+        "Door1": "15.486647",
+        "Door2": "73.8172",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.808861,
+          15.589953
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Mapusa",
+        "Vehicle_No": "GA 07 G 8101-MAP(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718796",
+        "DeviceModel": "TS101",
+        "Location": "At Fire Station Mapusa",
+        "POI": "At Fire Station Mapusa",
+        "Datetime": "01-05-2025 01:01:34",
+        "Status": "73.808861",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9700766,
+          15.2694016
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Margao",
+        "Vehicle_No": "GA 07 G 2317-MRG(EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426044",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Margoa",
+        "POI": "At Fire Station Margoa",
+        "Datetime": "01-05-2025 01:04:16",
+        "Status": "73.9700766",
+        "Speed": "STOP",
+        "GPS": "1",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8513266,
+          15.3887466
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Vasco",
+        "Vehicle_No": "GA 07 G 1570-VAS(QUICK RESPONSE FIRE TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426499",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Vasco",
+        "POI": "At Fire Station Vasco",
+        "Datetime": "01-05-2025 01:04:05",
+        "Status": "73.8513266",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.851245,
+          15.388775
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Vasco",
+        "Vehicle_No": "GA 07 G 4101-VAS(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045311949",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Vasco",
+        "POI": "At Fire Station Vasco",
+        "Datetime": "01-05-2025 01:04:24",
+        "Status": "73.851245",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8513517,
+          15.3888117
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Vasco",
+        "Vehicle_No": "GA 07 G 0819-VAS(WATER/FOAM TENDER)",
+        "Vehicle_Name": "4G",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "864180052940207",
+        "DeviceModel": "L400",
+        "Location": "At Fire Station Vasco",
+        "POI": "At Fire Station Vasco",
+        "Datetime": "01-05-2025 01:04:05",
+        "Status": "73.8513517",
+        "Speed": "IDLE",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "ON",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9699633,
+          15.2695766
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Margao",
+        "Vehicle_No": "GA 07 G 7100-MRG(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426432",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Margoa",
+        "POI": "At Fire Station Margoa",
+        "Datetime": "01-05-2025 01:03:13",
+        "Status": "73.9699633",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.95612,
+          15.1106283
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Margao",
+        "Vehicle_No": "GA 07 G 1568-MRG(QUICK RESPONSE )",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426457",
+        "DeviceModel": "LC 100",
+        "Location": "\"MDR46",
+        "POI": " Naquerim",
+        "Datetime": " Goa (SE)\"",
+        "Status": "30-04-2025 17:55:24",
+        "Speed": "15.1106283",
+        "GPS": "73.95612",
+        "IGN": "INACTIVE",
+        "Power": "9",
+        "Door1": "ON",
+        "Door2": "ON",
+        "Door3": "ON",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.970125,
+          15.2693833
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Margao",
+        "Vehicle_No": "GA 07 G 6101-MRG(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061625763",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Margoa",
+        "POI": "At Fire Station Margoa",
+        "Datetime": "01-05-2025 01:04:03",
+        "Status": "73.970125",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.96971,
+          15.2695583
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Margao",
+        "Vehicle_No": "GA 07 G 1001-MRG(AERIAL LADDER PLATFORM)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426671",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Margoa",
+        "POI": "At Fire Station Margoa",
+        "Datetime": "01-05-2025 01:04:06",
+        "Status": "73.96971",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9457578,
+          15.5901478
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Bicholim",
+        "Vehicle_No": "GA 07 G 0820-BIC(WATER TEDNER)",
+        "Vehicle_Name": "5026",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "356218602373126",
+        "DeviceModel": "JM01",
+        "Location": "At Fire Station Bicholim ",
+        "POI": "At Fire Station Bicholim ",
+        "Datetime": "01-05-2025 01:01:27",
+        "Status": "73.9457578",
+        "Speed": "RUNNING",
+        "GPS": "6",
+        "IGN": "ON",
+        "Power": "ON",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9142083,
+          15.50036
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Old Goa",
+        "Vehicle_No": "GA 07 G 5101-OLG(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426754",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Old Goa",
+        "POI": "At Fire Station Old Goa",
+        "Datetime": "01-05-2025 01:04:26",
+        "Status": "73.9142083",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9465983,
+          15.5890083
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Bicholim",
+        "Vehicle_No": "GA 07 G 3101-BIC(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045373543",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Bicholim ",
+        "POI": "At Fire Station Bicholim ",
+        "Datetime": "01-05-2025 01:04:01",
+        "Status": "73.9465983",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9467449,
+          15.5894533
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Bicholim",
+        "Vehicle_No": "GA 07 G 1941-BIC(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061620004",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Bicholim ",
+        "POI": "At Fire Station Bicholim ",
+        "Datetime": "01-05-2025 01:03:52",
+        "Status": "73.9467449",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8512133,
+          15.388775
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Vasco",
+        "Vehicle_No": "GA 07 G 2319-VAS (EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426127",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Vasco",
+        "POI": "At Fire Station Vasco",
+        "Datetime": "01-05-2025 01:04:21",
+        "Status": "73.8512133",
+        "Speed": "IDLE",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "ON",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.13864,
+          15.5309516
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Valpoi",
+        "Vehicle_No": "GA 07 G 3737-VAP(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061619626",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Valpoi ",
+        "POI": "At Fire Station Valpoi ",
+        "Datetime": "01-05-2025 01:04:13",
+        "Status": "74.13864",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0028966,
+          15.40275
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Ponda",
+        "Vehicle_No": "GA 07 G 2318-PND(EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426390",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Ponda ",
+        "POI": "At Fire Station Ponda ",
+        "Datetime": "01-05-2025 01:01:54",
+        "Status": "74.0028966",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0029216,
+          15.4025633
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Ponda",
+        "Vehicle_No": "GA 07 G 2004-PND(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426028",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Ponda ",
+        "POI": "At Fire Station Ponda ",
+        "Datetime": "01-05-2025 01:03:31",
+        "Status": "74.0029216",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0030766,
+          15.40256
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Ponda",
+        "Vehicle_No": "GA 07 G 9101-PND(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426143",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Ponda ",
+        "POI": "At Fire Station Ponda ",
+        "Datetime": "01-05-2025 01:03:49",
+        "Status": "74.0030766",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0027099,
+          15.4030733
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Ponda",
+        "Vehicle_No": "GA 07 G 9797-PND(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061625490",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Ponda ",
+        "POI": "At Fire Station Ponda ",
+        "Datetime": "01-05-2025 01:03:51",
+        "Status": "74.0027099",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0440266,
+          15.023605
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Canacona",
+        "Vehicle_No": "GA 07 G 6363-CAN(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061810829",
+        "DeviceModel": "LC 100",
+        "Location": "\"Canacona",
+        "POI": " The Lalitrajbaga ",
+        "Datetime": "Canacona",
+        "Status": "--",
+        "Speed": "30-04-2025 21:15:30",
+        "GPS": "30-04-2025 21:15:24",
+        "IGN": "15.023605",
+        "Power": "74.0440266",
+        "Door1": "INACTIVE",
+        "Door2": "0",
+        "Door3": "ON",
+        "Door4": "OFF",
+        "AC": "ON",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.04406,
+          15.0236433
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Canacona",
+        "Vehicle_No": "GA 07 G 1567-CAN(QUICK RESPONSE FT)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061619964",
+        "DeviceModel": "LC 100",
+        "Location": "\"Canacona",
+        "POI": " The Lalitrajbaga ",
+        "Datetime": "Canacona",
+        "Status": "--",
+        "Speed": "30-04-2025 18:46:02",
+        "GPS": "30-04-2025 18:45:50",
+        "IGN": "15.0236433",
+        "Power": "74.04406",
+        "Door1": "INACTIVE",
+        "Door2": "0",
+        "Door3": "ON",
+        "Door4": "OFF",
+        "AC": "ON",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9354816,
+          15.3695083
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Verna",
+        "Vehicle_No": "GA 07 G 1569-VRN(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061619758",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Verna",
+        "POI": "At Fire Station Verna",
+        "Datetime": "01-05-2025 01:04:26",
+        "Status": "73.9354816",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9352783,
+          15.369635
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Verna",
+        "Vehicle_No": "GA 07 G 9909-VRN(ADVANCE MULTI-PURPOSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045372289",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Verna",
+        "POI": "At Fire Station Verna",
+        "Datetime": "01-05-2025 01:03:45",
+        "Status": "73.9352783",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.1387533,
+          15.5309716
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Valpoi",
+        "Vehicle_No": "GA 07 G 1942-VAP(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426697",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Valpoi ",
+        "POI": "At Fire Station Valpoi ",
+        "Datetime": "01-05-2025 01:04:06",
+        "Status": "74.1387533",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.1038333,
+          15.2602633
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Curchorem",
+        "Vehicle_No": "GA 07 G 2003-CUR(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426655",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Curchorem",
+        "POI": "At Fire Station Curchorem",
+        "Datetime": "01-05-2025 01:02:53",
+        "Status": "74.1038333",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.1037766,
+          15.2603633
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Curchorem",
+        "Vehicle_No": "GA 07 G 7447-CUR(EMERGENCY RESCUE)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061625177",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Curchorem",
+        "POI": "At Fire Station Curchorem",
+        "Datetime": "01-05-2025 01:04:23",
+        "Status": "74.1037766",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.1037683,
+          15.260415
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Curchorem",
+        "Vehicle_No": "GA 07 G 7557-CUR(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045426630",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Curchorem",
+        "POI": "At Fire Station Curchorem",
+        "Datetime": "01-05-2025 01:04:16",
+        "Status": "74.1037683",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.1039233,
+          15.2603
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Curchorem",
+        "Vehicle_No": "GA 07 G 7667-CUR(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "863221045431614",
+        "DeviceModel": "LC 100",
+        "Location": "At Fire Station Curchorem",
+        "POI": "At Fire Station Curchorem",
+        "Datetime": "01-05-2025 01:04:08",
+        "Status": "74.1039233",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9725417,
+          15.46302
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Kundaim",
+        "Vehicle_No": "GA 07 G 4989-KUN(WATER TENDER)",
+        "Vehicle_Name": "G-100",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "869604066433078",
+        "DeviceModel": "G100",
+        "Location": "At Fire Station Kundaim",
+        "POI": "At Fire Station Kundaim",
+        "Datetime": "01-05-2025 01:02:36",
+        "Status": "73.9725417",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7941244,
+          15.53307
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Pilerne",
+        "Vehicle_No": "GA 07 G 2242-PIL(WATER TENDER)",
+        "Vehicle_Name": "5026",
+        "Vehicletype": "ECOMET",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "356218602322768",
+        "DeviceModel": "JM01",
+        "Location": "At Fire Station Pilerne",
+        "POI": "At Fire Station Pilerne",
+        "Datetime": "01-05-2025 01:02:03",
+        "Status": "73.7941244",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8088533,
+          15.5897567
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Mapusa",
+        "Vehicle_No": "GA 07 G 0681-MAP(QUICK RESPONSE)",
+        "Vehicle_Name": "AT 5036A-4G",
+        "Vehicletype": "ASU",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "862211072172687",
+        "DeviceModel": "L400",
+        "Location": "At Fire Station Mapusa",
+        "POI": "At Fire Station Mapusa",
+        "Datetime": "01-05-2025 01:04:24",
+        "Status": "73.8088533",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "ON",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7974089,
+          15.7165839
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Pernem",
+        "Vehicle_No": "GA 07 G 0307-PER(QUICK RESPONSE)",
+        "Vehicle_Name": "AT5032-4G",
+        "Vehicletype": "ASU",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "357803370981041",
+        "DeviceModel": "N01H",
+        "Location": "At Fire Station Pernem",
+        "POI": "At Fire Station Pernem",
+        "Datetime": "01-05-2025 01:02:24",
+        "Status": "73.7974089",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7976144,
+          15.716415
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Pernem",
+        "Vehicle_No": "GA 07 G 2101-PER(MS WATER TENDER)",
+        "Vehicle_Name": "AT5032-4G",
+        "Vehicletype": "ASU",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "357803370980423",
+        "DeviceModel": "N01H",
+        "Location": "At Fire Station Pernem",
+        "POI": "At Fire Station Pernem",
+        "Datetime": "01-05-2025 01:04:17",
+        "Status": "73.7976144",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7974989,
+          15.7164911
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Pernem",
+        "Vehicle_No": "GA 07 G 4600-PER(MINI RESCUE TENDER)",
+        "Vehicle_Name": "AT 5032-4G",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "357803370980464",
+        "DeviceModel": "N01H",
+        "Location": "At Fire Station Pernem",
+        "POI": "At Fire Station Pernem",
+        "Datetime": "01-05-2025 01:03:06",
+        "Status": "73.7974989",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0210978,
+          15.1862956
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Cuncolim",
+        "Vehicle_No": "GA 07 G 7272-CUN(WATER TENDER)",
+        "Vehicle_Name": "AT-5032-4G",
+        "Vehicletype": "ASU",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "357803370980415",
+        "DeviceModel": "N01H",
+        "Location": "At Fire Station Cuncolim",
+        "POI": "At Fire Station Cuncolim",
+        "Datetime": "01-05-2025 01:01:43",
+        "Status": "74.0210978",
+        "Speed": "STOP",
+        "GPS": "0",
+        "IGN": "ON",
+        "Power": "OFF",
+        "Door1": "ON",
+        "Door2": "--",
+        "Door3": "--",
+        "Door4": "--",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9731444,
+          15.180165
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Cuncolim",
+        "Vehicle_No": "GA07G2384- Cuncolim",
+        "Vehicle_Name": "AT 5032-4G",
+        "Vehicletype": "ASU",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "869671070072341",
+        "DeviceModel": "N01H",
+        "Location": "\"Police Outpost Assolna",
+        "POI": " MDR41",
+        "Datetime": " Assolna",
+        "Status": "01-05-2025 01:04:21",
+        "Speed": "01-05-2025 01:04:16",
+        "GPS": "15.180165",
+        "IGN": "73.9731444",
+        "Power": "RUNNING",
+        "Door1": "38",
+        "Door2": "ON",
+        "Door3": "ON",
+        "Door4": "ON",
+        "AC": "--",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    }
+  ]
 }
