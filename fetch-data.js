@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 
 // Constants
 const API_URL = 'https://gpsmiles.live//webservice?token=getLiveData&user=cnt-fire.goa@nic.in&pass=cnt@123&company=Directorate%20of%20Fire%20Emergency%20Services&format=csv';
-const OUTPUT_FILE = path.join(__dirname, '../public/data/cached-fire-trucks.json');
+const OUTPUT_FILE = path.join(__dirname, 'data/goa-fire-truck-locations.json');
 const CACHE_DIRECTORY = path.dirname(OUTPUT_FILE);
 
 // Make sure the cache directory exists
