@@ -35,6 +35,12 @@ jobs:
       
       - name: Commit and push changes
         run: |
-          git add data/goa-fire-trucks.geojson
+          # Get today's date in YYYYMMDD format
+          TODAY=$(date '+%Y%m%d')
+          GPX_FILE="data/goa-fire-trucks-gpx-${TODAY}.geojson"
+          
+          # Add both files
+          git add data/goa-fire-trucks.geojson "$GPX_FILE"
+          
           # Only commit if there are changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Refresh fire truck data" && git push) 
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Refresh fire truck data and track history" && git push) 

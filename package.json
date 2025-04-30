@@ -7,8 +7,9 @@
     "start": "node fetch-data.js"
   },
   "dependencies": {
-    "node-fetch": "^3.3.0",
-    "csv-parse": "^5.3.5"
+    "csv-parse": "^5.3.5",
+    "date-fns": "^4.1.0",
+    "node-fetch": "^3.3.0"
   },
   "type": "module"
-} 
+}
