@@ -34,6 +34,6 @@ jobs:
       
       - name: Commit and push changes
         run: |
-          git add data/goa-fire-trucks.geojson.json
+          git add data/goa-fire-trucks.geojson
           # Only commit if there are changes
           git diff --quiet && git diff --staged --quiet || (git commit -m "Refresh fire truck data" && git push) 
