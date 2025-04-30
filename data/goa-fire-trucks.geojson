@@ -1,9 +1,9 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "timestamp": "2025-04-30T18:12:42.406Z",
+    "timestamp": "2025-04-30T18:58:10.218Z",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
-    "count": 37
+    "count": 47
   },
   "features": [
     {
@@ -28,7 +28,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Pilerne",
         "POI": "At Fire Station Pilerne",
-        "Datetime": "30-04-2025 23:42:11",
+        "Datetime": "01-05-2025 00:27:43",
         "Status": "73.7939617",
         "Speed": "STOP",
         "GPS": "0",
@@ -42,6 +42,45 @@
         "Temperature": "--",
         "Fuel": "--",
         "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817429,
+          15.486755
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 0308-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717923",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.24 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:27:51",
+        "Power": "01-05-2025 00:27:49",
+        "Door1": "15.486755",
+        "Door2": "73.817429",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
         "Altitude": "--"
       }
     },
@@ -67,7 +106,7 @@
         "DeviceModel": "TS101",
         "Location": "At Porvorim Fire Station",
         "POI": "At Porvorim Fire Station",
-        "Datetime": "30-04-2025 23:42:28",
+        "Datetime": "01-05-2025 00:26:36",
         "Status": "73.829414",
         "Speed": "STOP",
         "GPS": "0",
@@ -81,6 +120,45 @@
         "Temperature": "--",
         "Fuel": "--",
         "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8172,
+          15.487053
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Panaji",
+        "Vehicle_No": "GA 07 G 0350-PNJ(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718397",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.26 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:24:50",
+        "Power": "01-05-2025 00:24:46",
+        "Door1": "15.487053",
+        "Door2": "73.8172",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
         "Altitude": "--"
       }
     },
@@ -106,7 +184,7 @@
         "DeviceModel": "TS101",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-        "Datetime": "30-04-2025 23:39:40",
+        "Datetime": "01-05-2025 00:27:44",
         "Status": "73.808899",
         "Speed": "STOP",
         "GPS": "0",
@@ -120,6 +198,240 @@
         "Temperature": "--",
         "Fuel": "--",
         "SOS": "[]",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817223,
+          15.486937
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7600-FFHQ(WATER BOUSER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718077",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.25 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:27:44",
+        "Power": "01-05-2025 00:27:42",
+        "Door1": "15.486937",
+        "Door2": "73.817223",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817245,
+          15.487152
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 2002-FFHQ(TURN TABLE LADDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718145",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.27 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:27:27",
+        "Power": "01-05-2025 00:27:20",
+        "Door1": "15.487152",
+        "Door2": "73.817245",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817177,
+          15.4873
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7101-FFHQ(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717600",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.29 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:27:16",
+        "Power": "01-05-2025 00:27:14",
+        "Door1": "15.4873",
+        "Door2": "73.817177",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817116,
+          15.48722
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 7677-FFHQ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718713",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.27 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:26:43",
+        "Power": "01-05-2025 00:26:41",
+        "Door1": "15.48722",
+        "Door2": "73.817116",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.817322,
+          15.487555
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Panaji",
+        "Vehicle_No": "GA 07 G 1121-PNJ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220718788",
+        "DeviceModel": "TS101",
+        "Location": "\"Goa College of Home Science",
+        "POI": " Dayanand Bandodkar Road",
+        "Datetime": " Opposite Parade Ground Campal",
+        "Status": " Goa (SE)\"",
+        "Speed": "0.32 km from Fire Station panaji",
+        "GPS": "01-05-2025 00:24:09",
+        "IGN": "01-05-2025 00:24:06",
+        "Power": "15.487555",
+        "Door1": "73.817322",
+        "Door2": "STOP",
+        "Door3": "0",
+        "Door4": "ON",
+        "AC": "OFF",
+        "Temperature": "ON",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8172,
+          15.486647
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Force Headquarters",
+        "Vehicle_No": "GA 07 G 1571-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "220717577",
+        "DeviceModel": "TS101",
+        "Location": "\"Caculo Mall",
+        "POI": " 16 Shanta",
+        "Datetime": " St Inez Rd",
+        "Status": " Panaji",
+        "Speed": " Goa (NW)\"",
+        "GPS": "0.22 km from Fire Station panaji",
+        "IGN": "01-05-2025 00:26:20",
+        "Power": "01-05-2025 00:26:17",
+        "Door1": "15.486647",
+        "Door2": "73.8172",
+        "Door3": "STOP",
+        "Door4": "0",
+        "AC": "ON",
+        "Temperature": "OFF",
+        "Fuel": "ON",
+        "SOS": "--",
         "Altitude": "--"
       }
     },
@@ -145,7 +457,7 @@
         "DeviceModel": "TS101",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-        "Datetime": "30-04-2025 23:41:29",
+        "Datetime": "01-05-2025 00:27:32",
         "Status": "73.808861",
         "Speed": "STOP",
         "GPS": "0",
@@ -167,8 +479,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9700683,
-          15.2692966
+          73.9701416,
+          15.2694783
         ]
       },
       "properties": {
@@ -184,8 +496,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-        "Datetime": "30-04-2025 23:42:36",
-        "Status": "73.9700683",
+        "Datetime": "01-05-2025 00:28:07",
+        "Status": "73.9701416",
         "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
@@ -223,7 +535,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-        "Datetime": "30-04-2025 23:42:29",
+        "Datetime": "01-05-2025 00:28:01",
         "Status": "73.8513266",
         "Speed": "STOP",
         "GPS": "0",
@@ -262,7 +574,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-        "Datetime": "30-04-2025 23:42:05",
+        "Datetime": "01-05-2025 00:27:21",
         "Status": "73.851245",
         "Speed": "STOP",
         "GPS": "0",
@@ -301,7 +613,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-        "Datetime": "30-04-2025 23:42:32",
+        "Datetime": "01-05-2025 00:27:31",
         "Status": "73.8513517",
         "Speed": "IDLE",
         "GPS": "0",
@@ -323,8 +635,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9701166,
-          15.2691083
+          73.9699633,
+          15.2695766
         ]
       },
       "properties": {
@@ -340,8 +652,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-        "Datetime": "30-04-2025 23:42:29",
-        "Status": "73.9701166",
+        "Datetime": "01-05-2025 00:27:56",
+        "Status": "73.9699633",
         "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
@@ -362,8 +674,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          30,
-          30
+          73.95612,
+          15.1106283
         ]
       },
       "properties": {
@@ -418,7 +730,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-        "Datetime": "30-04-2025 23:41:34",
+        "Datetime": "01-05-2025 00:27:55",
         "Status": "73.970125",
         "Speed": "STOP",
         "GPS": "0",
@@ -457,7 +769,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-        "Datetime": "30-04-2025 23:42:12",
+        "Datetime": "01-05-2025 00:28:06",
         "Status": "73.96971",
         "Speed": "STOP",
         "GPS": "0",
@@ -496,7 +808,7 @@
         "DeviceModel": "JM01",
         "Location": "At Fire Station Bicholim ",
         "POI": "At Fire Station Bicholim ",
-        "Datetime": "30-04-2025 23:30:41",
+        "Datetime": "01-05-2025 00:21:55",
         "Status": "73.9457578",
         "Speed": "RUNNING",
         "GPS": "6",
@@ -535,7 +847,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Old Goa",
         "POI": "At Fire Station Old Goa",
-        "Datetime": "30-04-2025 23:41:21",
+        "Datetime": "01-05-2025 00:27:17",
         "Status": "73.9142083",
         "Speed": "STOP",
         "GPS": "0",
@@ -557,8 +869,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.946525,
-          15.5890933
+          73.9464683,
+          15.5892399
         ]
       },
       "properties": {
@@ -574,11 +886,11 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Bicholim ",
         "POI": "At Fire Station Bicholim ",
-        "Datetime": "30-04-2025 23:41:38",
-        "Status": "73.946525",
+        "Datetime": "01-05-2025 00:28:09",
+        "Status": "73.9464683",
         "Speed": "STOP",
-        "GPS": "0",
-        "IGN": "OFF",
+        "GPS": "4",
+        "IGN": "ON",
         "Power": "OFF",
         "Door1": "ON",
         "Door2": "--",
@@ -613,7 +925,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Bicholim ",
         "POI": "At Fire Station Bicholim ",
-        "Datetime": "30-04-2025 23:42:41",
+        "Datetime": "01-05-2025 00:27:49",
         "Status": "73.9467449",
         "Speed": "STOP",
         "GPS": "0",
@@ -652,7 +964,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-        "Datetime": "30-04-2025 23:42:37",
+        "Datetime": "01-05-2025 00:28:02",
         "Status": "73.8512133",
         "Speed": "IDLE",
         "GPS": "0",
@@ -691,7 +1003,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Valpoi ",
         "POI": "At Fire Station Valpoi ",
-        "Datetime": "30-04-2025 23:42:09",
+        "Datetime": "01-05-2025 00:27:13",
         "Status": "74.13864",
         "Speed": "STOP",
         "GPS": "0",
@@ -730,7 +1042,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-        "Datetime": "30-04-2025 23:41:57",
+        "Datetime": "01-05-2025 00:26:54",
         "Status": "74.0028966",
         "Speed": "STOP",
         "GPS": "0",
@@ -769,7 +1081,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-        "Datetime": "30-04-2025 23:42:26",
+        "Datetime": "01-05-2025 00:27:31",
         "Status": "74.0029216",
         "Speed": "STOP",
         "GPS": "0",
@@ -791,8 +1103,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.0027433,
-          15.4027433
+          74.0030766,
+          15.40256
         ]
       },
       "properties": {
@@ -808,8 +1120,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-        "Datetime": "30-04-2025 23:42:12",
-        "Status": "74.0027433",
+        "Datetime": "01-05-2025 00:27:48",
+        "Status": "74.0030766",
         "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
@@ -847,7 +1159,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-        "Datetime": "30-04-2025 23:41:39",
+        "Datetime": "01-05-2025 00:27:51",
         "Status": "74.0027099",
         "Speed": "STOP",
         "GPS": "0",
@@ -869,8 +1181,86 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.93549,
-          15.3696466
+          74.0440266,
+          15.023605
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Canacona",
+        "Vehicle_No": "GA 07 G 6363-CAN(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061810829",
+        "DeviceModel": "LC 100",
+        "Location": "\"Canacona",
+        "POI": " The Lalitrajbaga ",
+        "Datetime": "Canacona",
+        "Status": "--",
+        "Speed": "30-04-2025 21:15:30",
+        "GPS": "30-04-2025 21:15:24",
+        "IGN": "15.023605",
+        "Power": "74.0440266",
+        "Door1": "INACTIVE",
+        "Door2": "0",
+        "Door3": "ON",
+        "Door4": "OFF",
+        "AC": "ON",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.04406,
+          15.0236433
+        ]
+      },
+      "properties": {
+        "Company": "Directorate of Fire Emergency Services",
+        "Branch": "Fire Station Canacona",
+        "Vehicle_No": "GA 07 G 1567-CAN(QUICK RESPONSE FT)",
+        "Vehicle_Name": "5035",
+        "Vehicletype": "Truck",
+        "Driver_First_Name": "--",
+        "Driver_Middle_Name": "--",
+        "Driver_Last_Name": "--",
+        "Imeino": "868805061619964",
+        "DeviceModel": "LC 100",
+        "Location": "\"Canacona",
+        "POI": " The Lalitrajbaga ",
+        "Datetime": "Canacona",
+        "Status": "--",
+        "Speed": "30-04-2025 18:46:02",
+        "GPS": "30-04-2025 18:45:50",
+        "IGN": "15.0236433",
+        "Power": "74.04406",
+        "Door1": "INACTIVE",
+        "Door2": "0",
+        "Door3": "ON",
+        "Door4": "OFF",
+        "AC": "ON",
+        "Temperature": "--",
+        "Fuel": "--",
+        "SOS": "--",
+        "Altitude": "--"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9354816,
+          15.3695083
         ]
       },
       "properties": {
@@ -886,8 +1276,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Verna",
         "POI": "At Fire Station Verna",
-        "Datetime": "30-04-2025 23:42:31",
-        "Status": "73.93549",
+        "Datetime": "01-05-2025 00:27:46",
+        "Status": "73.9354816",
         "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
@@ -925,7 +1315,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Verna",
         "POI": "At Fire Station Verna",
-        "Datetime": "30-04-2025 23:42:17",
+        "Datetime": "01-05-2025 00:27:43",
         "Status": "73.9352783",
         "Speed": "STOP",
         "GPS": "0",
@@ -964,7 +1354,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Valpoi ",
         "POI": "At Fire Station Valpoi ",
-        "Datetime": "30-04-2025 23:42:02",
+        "Datetime": "01-05-2025 00:28:00",
         "Status": "74.1387533",
         "Speed": "STOP",
         "GPS": "0",
@@ -986,8 +1376,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.10428,
-          15.259985
+          74.1038333,
+          15.2602633
         ]
       },
       "properties": {
@@ -1003,8 +1393,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-        "Datetime": "30-04-2025 23:42:13",
-        "Status": "74.10428",
+        "Datetime": "01-05-2025 00:27:53",
+        "Status": "74.1038333",
         "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
@@ -1042,7 +1432,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-        "Datetime": "30-04-2025 23:42:19",
+        "Datetime": "01-05-2025 00:27:53",
         "Status": "74.1037766",
         "Speed": "STOP",
         "GPS": "0",
@@ -1081,9 +1471,9 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-        "Datetime": "30-04-2025 20:52:21",
+        "Datetime": "01-05-2025 00:27:03",
         "Status": "74.1037683",
-        "Speed": "INACTIVE",
+        "Speed": "STOP",
         "GPS": "0",
         "IGN": "ON",
         "Power": "OFF",
@@ -1120,7 +1510,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-        "Datetime": "30-04-2025 23:42:30",
+        "Datetime": "01-05-2025 00:27:07",
         "Status": "74.1039233",
         "Speed": "STOP",
         "GPS": "0",
@@ -1159,11 +1549,11 @@
         "DeviceModel": "G100",
         "Location": "At Fire Station Kundaim",
         "POI": "At Fire Station Kundaim",
-        "Datetime": "30-04-2025 23:42:32",
+        "Datetime": "01-05-2025 00:27:58",
         "Status": "73.9723633",
         "Speed": "STOP",
         "GPS": "0",
-        "IGN": "ON",
+        "IGN": "OFF",
         "Power": "OFF",
         "Door1": "ON",
         "Door2": "--",
@@ -1198,7 +1588,7 @@
         "DeviceModel": "JM01",
         "Location": "At Fire Station Pilerne",
         "POI": "At Fire Station Pilerne",
-        "Datetime": "30-04-2025 23:39:25",
+        "Datetime": "01-05-2025 00:27:37",
         "Status": "73.7941244",
         "Speed": "STOP",
         "GPS": "0",
@@ -1237,7 +1627,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-        "Datetime": "30-04-2025 23:42:33",
+        "Datetime": "01-05-2025 00:28:04",
         "Status": "73.8088533",
         "Speed": "STOP",
         "GPS": "0",
@@ -1276,7 +1666,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-        "Datetime": "30-04-2025 23:42:40",
+        "Datetime": "01-05-2025 00:26:19",
         "Status": "73.7974089",
         "Speed": "STOP",
         "GPS": "0",
@@ -1315,7 +1705,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-        "Datetime": "30-04-2025 23:40:22",
+        "Datetime": "01-05-2025 00:28:09",
         "Status": "73.7976144",
         "Speed": "STOP",
         "GPS": "0",
@@ -1354,7 +1744,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-        "Datetime": "30-04-2025 23:40:52",
+        "Datetime": "01-05-2025 00:25:59",
         "Status": "73.7974989",
         "Speed": "STOP",
         "GPS": "0",
@@ -1393,7 +1783,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Cuncolim",
         "POI": "At Fire Station Cuncolim",
-        "Datetime": "30-04-2025 23:42:20",
+        "Datetime": "01-05-2025 00:25:55",
         "Status": "74.0210978",
         "Speed": "STOP",
         "GPS": "0",
@@ -1432,7 +1822,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Cuncolim",
         "POI": "At Fire Station Cuncolim",
-        "Datetime": "30-04-2025 23:42:30",
+        "Datetime": "01-05-2025 00:27:43",
         "Status": "74.0209122",
         "Speed": "STOP",
         "GPS": "0",
