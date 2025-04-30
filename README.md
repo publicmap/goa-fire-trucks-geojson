@@ -2,7 +2,10 @@
 
 This directory contains data for Goa Fire Department's GPS API data. 
 
-## Solution
+- Geojson: [data/goa-fire-trucks.geojson](data/goa-fire-trucks.geojson)
+- API URL: `https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/main/data/goa-fire-trucks.geojson`
+
+## Details
 
 We use GitHub Actions to:
 1. Fetch the API data every minute
@@ -15,15 +18,3 @@ The actual implementation consists of:
 - A script to fetch and process the API data (`fetch-data.js`)
 - A cached data file that gets updated by the workflow (`data`)
 
-## How to Use
-
-Update the `layer-config.js` file to use the cached data URL instead of the direct API:
-
-```js
-{
-    title: 'Live Fire Trucks',
-    // ... other properties ...
-    url: 'data/cached-fire-trucks.json', // Use this cached file instead of the API
-    // ... other properties ...
-}
-``` 
