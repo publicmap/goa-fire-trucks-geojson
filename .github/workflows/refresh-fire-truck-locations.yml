@@ -22,10 +22,10 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: cd cache-api && npm install
+        run: npm install
       
       - name: Fetch and process API data
-        run: cd cache-api && npm start
+        run: npm start
       
       - name: Configure Git
         run: |
