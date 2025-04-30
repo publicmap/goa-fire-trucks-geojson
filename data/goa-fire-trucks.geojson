@@ -1,11 +1,7 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-<<<<<<< HEAD
-    "timestamp": "2025-04-30T19:46:41.804Z",
-=======
-    "timestamp": "2025-04-30T19:45:59.738Z",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+    "timestamp": "2025-04-30T19:51:47.718Z",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "count": 47
   },
@@ -32,11 +28,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Pilerne",
         "POI": "At Fire Station Pilerne",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:12",
-=======
-        "Datetime": "01-05-2025 01:15:44",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:14",
         "Status": "73.7939617",
         "Speed": "STOP",
         "GPS": "0",
@@ -58,8 +50,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.817429,
-          15.486755
+          73.817314,
+          15.486675
         ]
       },
       "properties": {
@@ -78,11 +70,11 @@
         "Datetime": " St Inez Rd",
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
-        "GPS": "0.24 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:13:54",
-        "Power": "01-05-2025 01:13:51",
-        "Door1": "15.486755",
-        "Door2": "73.817429",
+        "GPS": "0.23 km from Fire Station panaji",
+        "IGN": "01-05-2025 01:19:54",
+        "Power": "01-05-2025 01:19:52",
+        "Door1": "15.486675",
+        "Door2": "73.817314",
         "Door3": "STOP",
         "Door4": "0",
         "AC": "ON",
@@ -114,7 +106,7 @@
         "DeviceModel": "TS101",
         "Location": "At Porvorim Fire Station",
         "POI": "At Porvorim Fire Station",
-        "Datetime": "01-05-2025 01:14:34",
+        "Datetime": "01-05-2025 01:20:35",
         "Status": "73.829414",
         "Speed": "STOP",
         "GPS": "0",
@@ -157,8 +149,8 @@
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
         "GPS": "0.26 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:14:57",
-        "Power": "01-05-2025 01:14:49",
+        "IGN": "01-05-2025 01:20:58",
+        "Power": "01-05-2025 01:20:50",
         "Door1": "15.487053",
         "Door2": "73.8172",
         "Door3": "STOP",
@@ -192,7 +184,7 @@
         "DeviceModel": "TS101",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-        "Datetime": "01-05-2025 01:13:47",
+        "Datetime": "01-05-2025 01:21:47",
         "Status": "73.808899",
         "Speed": "STOP",
         "GPS": "0",
@@ -235,8 +227,8 @@
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
         "GPS": "0.26 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:15:48",
-        "Power": "01-05-2025 01:15:45",
+        "IGN": "01-05-2025 01:17:48",
+        "Power": "01-05-2025 01:17:45",
         "Door1": "15.487015",
         "Door2": "73.817276",
         "Door3": "STOP",
@@ -274,8 +266,8 @@
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
         "GPS": "0.27 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:13:26",
-        "Power": "01-05-2025 01:13:23",
+        "IGN": "01-05-2025 01:21:26",
+        "Power": "01-05-2025 01:21:23",
         "Door1": "15.487152",
         "Door2": "73.817245",
         "Door3": "STOP",
@@ -313,8 +305,8 @@
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
         "GPS": "0.29 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:13:20",
-        "Power": "01-05-2025 01:13:17",
+        "IGN": "01-05-2025 01:19:20",
+        "Power": "01-05-2025 01:19:17",
         "Door1": "15.4873",
         "Door2": "73.817177",
         "Door3": "STOP",
@@ -352,8 +344,8 @@
         "Status": " Panaji",
         "Speed": " Goa (NW)\"",
         "GPS": "0.27 km from Fire Station panaji",
-        "IGN": "01-05-2025 01:14:47",
-        "Power": "01-05-2025 01:14:44",
+        "IGN": "01-05-2025 01:18:46",
+        "Power": "01-05-2025 01:18:44",
         "Door1": "15.48722",
         "Door2": "73.817116",
         "Door3": "STOP",
@@ -390,8 +382,8 @@
         "Datetime": " Opposite Parade Ground Campal",
         "Status": " Goa (SE)\"",
         "Speed": "0.32 km from Fire Station panaji",
-        "GPS": "01-05-2025 01:14:13",
-        "IGN": "01-05-2025 01:14:10",
+        "GPS": "01-05-2025 01:20:14",
+        "IGN": "01-05-2025 01:20:11",
         "Power": "15.487555",
         "Door1": "73.817322",
         "Door2": "STOP",
@@ -465,7 +457,7 @@
         "DeviceModel": "TS101",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-        "Datetime": "01-05-2025 01:15:35",
+        "Datetime": "01-05-2025 01:19:35",
         "Status": "73.808861",
         "Speed": "STOP",
         "GPS": "0",
@@ -487,13 +479,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-          73.9700683,
-          15.26932
-=======
-          73.9701983,
-          15.26919
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+          73.9701016,
+          15.26941
         ]
       },
       "properties": {
@@ -509,15 +496,10 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:12",
-        "Status": "73.9700683",
-=======
-        "Datetime": "01-05-2025 01:15:51",
-        "Status": "73.9701983",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:11",
+        "Status": "73.9701016",
         "Speed": "STOP",
-        "GPS": "3",
+        "GPS": "4",
         "IGN": "ON",
         "Power": "OFF",
         "Door1": "ON",
@@ -553,11 +535,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:02",
-=======
-        "Datetime": "01-05-2025 01:15:02",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:02",
         "Status": "73.8513266",
         "Speed": "STOP",
         "GPS": "0",
@@ -596,7 +574,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-        "Datetime": "01-05-2025 01:15:24",
+        "Datetime": "01-05-2025 01:21:47",
         "Status": "73.851245",
         "Speed": "STOP",
         "GPS": "0",
@@ -635,11 +613,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:36",
-=======
-        "Datetime": "01-05-2025 01:15:32",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:34",
         "Status": "73.8513517",
         "Speed": "IDLE",
         "GPS": "0",
@@ -678,15 +652,11 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:13",
-=======
-        "Datetime": "01-05-2025 01:15:15",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:16",
         "Status": "73.9699633",
         "Speed": "STOP",
         "GPS": "0",
-        "IGN": "OFF",
+        "IGN": "ON",
         "Power": "OFF",
         "Door1": "ON",
         "Door2": "--",
@@ -760,11 +730,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:23",
-=======
-        "Datetime": "01-05-2025 01:15:00",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:23",
         "Status": "73.970125",
         "Speed": "STOP",
         "GPS": "0",
@@ -803,11 +769,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Margoa",
         "POI": "At Fire Station Margoa",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:04",
-=======
-        "Datetime": "01-05-2025 01:15:07",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:20:05",
         "Status": "73.96971",
         "Speed": "STOP",
         "GPS": "0",
@@ -885,7 +847,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Old Goa",
         "POI": "At Fire Station Old Goa",
-        "Datetime": "01-05-2025 01:15:27",
+        "Datetime": "01-05-2025 01:20:26",
         "Status": "73.9142083",
         "Speed": "STOP",
         "GPS": "0",
@@ -907,13 +869,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-          73.9465649,
-          15.5893883
-=======
-          73.946215,
-          15.5890483
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+          73.946005,
+          15.5889533
         ]
       },
       "properties": {
@@ -929,13 +886,8 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Bicholim ",
         "POI": "At Fire Station Bicholim ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:34",
-        "Status": "73.9465649",
-=======
-        "Datetime": "01-05-2025 01:15:58",
-        "Status": "73.946215",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:41",
+        "Status": "73.946005",
         "Speed": "STOP",
         "GPS": "4",
         "IGN": "ON",
@@ -973,11 +925,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Bicholim ",
         "POI": "At Fire Station Bicholim ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:13",
-=======
-        "Datetime": "01-05-2025 01:14:51",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:20:52",
         "Status": "73.9467449",
         "Speed": "STOP",
         "GPS": "0",
@@ -1016,11 +964,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Vasco",
         "POI": "At Fire Station Vasco",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:34",
-=======
-        "Datetime": "01-05-2025 01:15:54",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:44",
         "Status": "73.8512133",
         "Speed": "IDLE",
         "GPS": "0",
@@ -1059,11 +1003,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Valpoi ",
         "POI": "At Fire Station Valpoi ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:12",
-=======
-        "Datetime": "01-05-2025 01:15:13",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:37",
         "Status": "74.13864",
         "Speed": "STOP",
         "GPS": "0",
@@ -1102,11 +1042,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:15:59",
-=======
-        "Datetime": "01-05-2025 01:15:39",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:00",
         "Status": "74.0028966",
         "Speed": "STOP",
         "GPS": "0",
@@ -1145,11 +1081,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:33",
-=======
-        "Datetime": "01-05-2025 01:15:33",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:33",
         "Status": "74.0029216",
         "Speed": "STOP",
         "GPS": "0",
@@ -1188,11 +1120,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:12",
-=======
-        "Datetime": "01-05-2025 01:14:49",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:20:50",
         "Status": "74.0030766",
         "Speed": "STOP",
         "GPS": "0",
@@ -1231,11 +1159,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Ponda ",
         "POI": "At Fire Station Ponda ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:11",
-=======
-        "Datetime": "01-05-2025 01:14:49",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:20:49",
         "Status": "74.0027099",
         "Speed": "STOP",
         "GPS": "0",
@@ -1352,7 +1276,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Verna",
         "POI": "At Fire Station Verna",
-        "Datetime": "01-05-2025 01:15:26",
+        "Datetime": "01-05-2025 01:20:27",
         "Status": "73.9354816",
         "Speed": "STOP",
         "GPS": "0",
@@ -1391,7 +1315,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Verna",
         "POI": "At Fire Station Verna",
-        "Datetime": "01-05-2025 01:15:45",
+        "Datetime": "01-05-2025 01:21:43",
         "Status": "73.9352783",
         "Speed": "STOP",
         "GPS": "0",
@@ -1430,11 +1354,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Valpoi ",
         "POI": "At Fire Station Valpoi ",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:03",
-=======
-        "Datetime": "01-05-2025 01:15:05",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:25",
         "Status": "74.1387533",
         "Speed": "STOP",
         "GPS": "0",
@@ -1473,7 +1393,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-        "Datetime": "01-05-2025 01:15:54",
+        "Datetime": "01-05-2025 01:20:54",
         "Status": "74.1038333",
         "Speed": "STOP",
         "GPS": "0",
@@ -1512,11 +1432,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:22",
-=======
-        "Datetime": "01-05-2025 01:15:23",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:23",
         "Status": "74.1037766",
         "Speed": "STOP",
         "GPS": "0",
@@ -1555,11 +1471,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:16",
-=======
-        "Datetime": "01-05-2025 01:15:17",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:18",
         "Status": "74.1037683",
         "Speed": "STOP",
         "GPS": "0",
@@ -1598,11 +1510,7 @@
         "DeviceModel": "LC 100",
         "Location": "At Fire Station Curchorem",
         "POI": "At Fire Station Curchorem",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:06",
-=======
-        "Datetime": "01-05-2025 01:15:07",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:08",
         "Status": "74.1039233",
         "Speed": "STOP",
         "GPS": "0",
@@ -1641,11 +1549,7 @@
         "DeviceModel": "G100",
         "Location": "At Fire Station Kundaim",
         "POI": "At Fire Station Kundaim",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:33",
-=======
-        "Datetime": "01-05-2025 01:15:55",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:20:33",
         "Status": "73.9725417",
         "Speed": "STOP",
         "GPS": "0",
@@ -1684,7 +1588,7 @@
         "DeviceModel": "JM01",
         "Location": "At Fire Station Pilerne",
         "POI": "At Fire Station Pilerne",
-        "Datetime": "01-05-2025 01:15:48",
+        "Datetime": "01-05-2025 01:19:14",
         "Status": "73.7941244",
         "Speed": "STOP",
         "GPS": "0",
@@ -1723,11 +1627,7 @@
         "DeviceModel": "L400",
         "Location": "At Fire Station Mapusa",
         "POI": "At Fire Station Mapusa",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:36",
-=======
-        "Datetime": "01-05-2025 01:15:57",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:21:46",
         "Status": "73.8088533",
         "Speed": "STOP",
         "GPS": "0",
@@ -1766,7 +1666,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-        "Datetime": "01-05-2025 01:14:26",
+        "Datetime": "01-05-2025 01:20:27",
         "Status": "73.7974089",
         "Speed": "STOP",
         "GPS": "0",
@@ -1805,11 +1705,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-<<<<<<< HEAD
-        "Datetime": "01-05-2025 01:16:18",
-=======
-        "Datetime": "01-05-2025 01:13:18",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+        "Datetime": "01-05-2025 01:19:19",
         "Status": "73.7976144",
         "Speed": "STOP",
         "GPS": "0",
@@ -1848,7 +1744,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Pernem",
         "POI": "At Fire Station Pernem",
-        "Datetime": "01-05-2025 01:15:08",
+        "Datetime": "01-05-2025 01:21:09",
         "Status": "73.7974989",
         "Speed": "STOP",
         "GPS": "0",
@@ -1887,7 +1783,7 @@
         "DeviceModel": "N01H",
         "Location": "At Fire Station Cuncolim",
         "POI": "At Fire Station Cuncolim",
-        "Datetime": "01-05-2025 01:14:10",
+        "Datetime": "01-05-2025 01:20:24",
         "Status": "74.0210978",
         "Speed": "STOP",
         "GPS": "0",
@@ -1909,13 +1805,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-          73.9562217,
-          15.14003
-=======
-          73.9561761,
-          15.1400944
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
+          73.9563656,
+          15.1399017
         ]
       },
       "properties": {
@@ -1932,25 +1823,14 @@
         "Location": "\"Centre Bar and Restaurant",
         "POI": " Rangalli",
         "Datetime": " Velim",
-<<<<<<< HEAD
-        "Status": "01-05-2025 01:16:31",
-        "Speed": "01-05-2025 01:16:31",
-        "GPS": "15.14003",
-        "IGN": "73.9562217",
-        "Power": "STOP",
-        "Door1": "0",
-        "Door2": "ON",
-        "Door3": "OFF",
-=======
-        "Status": "01-05-2025 01:15:58",
-        "Speed": "01-05-2025 01:15:51",
-        "GPS": "15.1400944",
-        "IGN": "73.9561761",
-        "Power": "RUNNING",
+        "Status": "01-05-2025 01:21:43",
+        "Speed": "01-05-2025 01:21:37",
+        "GPS": "15.1399017",
+        "IGN": "73.9563656",
+        "Power": "IDLE",
         "Door1": "0",
         "Door2": "ON",
         "Door3": "ON",
->>>>>>> abf202f2b5f6dcf79566a5adf279f145b3305956
         "Door4": "ON",
         "AC": "--",
         "Temperature": "--",
