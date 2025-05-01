@@ -9,7 +9,6 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { parse } from 'csv-parse/sync';
 import { format } from 'date-fns';
 
 // Get current directory
@@ -17,12 +16,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Constants
-const API_URL = 'https://gpsmiles.live//webservice?token=getLiveData&user=cnt-fire.goa@nic.in&pass=cnt@123&company=Directorate%20of%20Fire%20Emergency%20Services&format=csv';
+const API_URL = 'https://gpsmiles.live//webservice?token=getLiveData&user=cnt-fire.goa@nic.in&pass=cnt@123&company=Directorate%20of%20Fire%20Emergency%20Services&format=json';
 const OUTPUT_FILE = path.join(__dirname, 'data/goa-fire-trucks.geojson');
 const CACHE_DIRECTORY = path.dirname(OUTPUT_FILE);
 const DEBUG_LOG_FILE = path.join(__dirname, 'debug-log.txt');
 const GPX_DIRECTORY = path.join(__dirname, 'data');
 const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
+
+// Export parsed data for track creation
+export let parsedFireTrucks = [];
 
 // Make sure the cache directory exists
 if (!fs.existsSync(CACHE_DIRECTORY)) {
@@ -41,99 +43,6 @@ function debugLog(message, data = null) {
   
   console.log(message);
   fs.appendFileSync(DEBUG_LOG_FILE, logMessage);
-}
-
-// Parse CSV data for fire trucks
-function parseFiretruckCSV(csvText) {
-  if (!csvText) {
-    debugLog('CSV text is empty or null');
-    return [];
-  }
-  
-  // Log the raw CSV data
-  debugLog('Raw CSV data:', csvText);
-  
-  // Split into lines and remove empty lines
-  const lines = csvText.split(/\r?\n/).filter(line => line.trim().length > 0);
-  debugLog(`CSV split into ${lines.length} non-empty lines`);
-  
-  if (lines.length === 0) {
-    debugLog('No non-empty lines found in CSV');
-    return [];
-  }
-  
-  // Log the first few lines to see the structure
-  debugLog('First few lines of CSV:', lines.slice(0, Math.min(5, lines.length)).join('\n'));
-  
-  const rows = [];
-  let headers = [];
-  let currentIndex = 0;
-  let skippedRows = 0;
-  
-  // Process lines in groups (header followed by data)
-  while (currentIndex < lines.length) {
-    // Get headers from the current group
-    const headerLine = lines[currentIndex++];
-    debugLog(`Processing header line ${currentIndex-1}: ${headerLine}`);
-    
-    if (headerLine.startsWith('Company,')) {
-      headers = headerLine.split(',').map(h => h.trim());
-      debugLog(`Found headers: ${headers.join(', ')}`);
-    } else {
-      debugLog('Expected header line to start with "Company,"');
-    }
-    
-    // Skip if we reached the end or found "No Data Found"
-    if (currentIndex >= lines.length || lines[currentIndex].includes('No Data Found')) {
-      debugLog(`Reached end of data or found "No Data Found" at line ${currentIndex}`);
-      break;
-    }
-    
-    // Process data row
-    const dataLine = lines[currentIndex++];
-    debugLog(`Processing data line ${currentIndex-1}: ${dataLine}`);
-    
-    const values = dataLine.split(',');
-    debugLog(`Data line split into ${values.length} values`);
-    
-    // Create object with header keys
-    const row = {};
-    headers.forEach((header, index) => {
-      // Keep it simple, just use the value as is
-      let value = values[index] || '';
-      // Only remove surrounding quotes if they exist
-      if (value.startsWith('"') && value.endsWith('"')) {
-        value = value.substring(1, value.length - 1);
-      }
-      row[header] = value;
-    });
-    
-    debugLog('Parsed row:', row);
-    
-    // Extract coordinates with a multi-strategy approach
-    const coordinates = extractCoordinates(row);
-    
-    // Use the extracted coordinates if valid
-    if (coordinates.valid) {
-      row.Latitude = coordinates.lat;
-      row.Longitude = coordinates.lng;
-      rows.push(row);
-      debugLog(`Added valid row to results with coordinates: ${coordinates.lat}, ${coordinates.lng} (source: ${coordinates.source || 'unknown'})`);
-    } else {
-      skippedRows++;
-      debugLog(`INVALID ROW #${skippedRows}: Unable to extract coordinates for vehicle ${row['Vehicle_No'] || 'unknown'}`);
-      // Log a more complete representation of the row for debugging
-      const rowStr = JSON.stringify(row, null, 2);
-      debugLog(`Row data: ${rowStr}`);
-    }
-  }
-  
-  if (skippedRows > 0) {
-    debugLog(`WARNING: Skipped ${skippedRows} rows due to invalid or missing coordinates`);
-  }
-  
-  debugLog(`Finished parsing CSV, found ${rows.length} valid rows, skipped ${skippedRows} invalid rows`);
-  return rows;
 }
 
 // Helper function to extract coordinates using multiple strategies
@@ -439,7 +348,7 @@ function isValidCoordinate(value) {
 }
 
 // Main function to fetch and cache data
-async function fetchAndCacheData() {
+export async function fetchAndCacheData() {
   try {
     debugLog('Starting data fetch process');
     debugLog(`Fetching fire truck data from API: ${API_URL}`);
@@ -452,15 +361,58 @@ async function fetchAndCacheData() {
       throw new Error(`API responded with status: ${response.status}`);
     }
     
-    const csvText = await response.text();
-    debugLog(`Received response of length: ${csvText.length} bytes`);
+    const jsonData = await response.json();
+    debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 200)}...`);
     
-    // Parse CSV data
-    const rows = parseFiretruckCSV(csvText);
-    debugLog(`Parsed ${rows.length} fire truck records`);
+    // Extract vehicle data from the JSON structure
+    let rows = [];
+    if (jsonData && jsonData.root && jsonData.root.VehicleData) {
+      rows = jsonData.root.VehicleData;
+      debugLog(`Parsed ${rows.length} fire truck records from JSON`);
+    } else {
+      debugLog('No vehicle data found in JSON response or unexpected JSON structure');
+      debugLog('Full JSON response:', JSON.stringify(jsonData));
+    }
+    
+    // Save parsed data for other modules
+    parsedFireTrucks = rows;
+    
+    // Process each row to ensure coordinates are properly formatted
+    rows.forEach(row => {
+      // Ensure latitude and longitude are numeric
+      if (row.Latitude) row.Latitude = parseFloat(row.Latitude);
+      if (row.Longitude) row.Longitude = parseFloat(row.Longitude);
+      
+      // Check if we have valid coordinates
+      if (!isValidGoaCoordinate(row.Latitude, 'lat') || !isValidGoaCoordinate(row.Longitude, 'lng')) {
+        debugLog(`WARNING: Invalid coordinates for vehicle ${row.Vehicle_No}: ${row.Latitude}, ${row.Longitude}`);
+      }
+    });
+    
+    // Filter out rows with invalid coordinates
+    const validRows = rows.filter(row => 
+      isValidGoaCoordinate(row.Latitude, 'lat') && isValidGoaCoordinate(row.Longitude, 'lng')
+    );
+    
+    if (validRows.length < rows.length) {
+      debugLog(`Filtered out ${rows.length - validRows.length} records with invalid coordinates`);
+    }
     
     // Convert to GeoJSON
-    const geojson = rowsToGeoJSON(rows);
+    const geojson = {
+      type: 'FeatureCollection',
+      features: validRows.map(row => {
+        const { Latitude, Longitude, ...properties } = row;
+        return {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [Longitude, Latitude]
+          },
+          properties
+        };
+      })
+    };
     
     // Add metadata
     const result = {
@@ -468,7 +420,7 @@ async function fetchAndCacheData() {
       metadata: {
         timestamp: new Date().toISOString(),
         source: 'Directorate of Fire Emergency Services, Govt. of Goa',
-        count: rows.length
+        count: validRows.length
       },
       features: geojson.features
     };
@@ -479,13 +431,14 @@ async function fetchAndCacheData() {
     debugLog('Fire truck data cached successfully!');
     
     // Update daily GPX tracks
-    const gpxFilePath = updateDailyGpxTracks(rows);
+    const gpxFilePath = updateDailyGpxTracks(validRows);
     if (gpxFilePath) {
       debugLog(`Daily GPX tracks updated successfully at ${gpxFilePath}`);
     } else {
       debugLog('Failed to update daily GPX tracks');
     }
     
+    return validRows;
   } catch (error) {
     debugLog(`ERROR: ${error.message}`, error.stack);
     console.error('Error fetching or caching data:', error);
@@ -497,5 +450,7 @@ async function fetchAndCacheData() {
 fs.writeFileSync(DEBUG_LOG_FILE, '');
 debugLog('Debug logging initialized');
 
-// Run the main function
-fetchAndCacheData();
+// Run only if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  fetchAndCacheData();
+}
