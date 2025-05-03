@@ -5,6 +5,7 @@ on:
     - cron: '*/5 * * * *'  # Run every 5 minutes (minimum interval allowed by GitHub Actions)
                            # Note: GitHub may still delay or skip runs during high load periods
   workflow_dispatch:     # Allow manual trigger
+  repository_dispatch:
 
 jobs:
   update-data:
