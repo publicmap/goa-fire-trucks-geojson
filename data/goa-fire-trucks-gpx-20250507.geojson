@@ -4,8 +4,8 @@
     "date": "20250507",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-05-07T04:39:39.223Z",
-    "count": 47
+    "lastUpdated": "2025-05-07T04:50:21.694Z",
+    "count": 49
   },
   "features": [
     {
@@ -217,6 +217,10 @@
           [
             73.794098,
             15.532922
+          ],
+          [
+            73.810989,
+            15.514168
           ]
         ]
       },
@@ -225,7 +229,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Force Headquarters",
         "created": "07-05-2025 05:29:46",
-        "lastUpdated": "07-05-2025 10:09:36"
+        "lastUpdated": "07-05-2025 10:16:46"
       }
     },
     {
@@ -364,6 +368,10 @@
           [
             73.97006,
             15.2693466
+          ],
+          [
+            73.97006,
+            15.2694633
           ]
         ]
       },
@@ -372,7 +380,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "07-05-2025 05:29:27",
-        "lastUpdated": "07-05-2025 10:09:32"
+        "lastUpdated": "07-05-2025 10:20:17"
       }
     },
     {
@@ -395,6 +403,10 @@
           [
             73.9777016,
             15.272945
+          ],
+          [
+            73.9745033,
+            15.2723333
           ]
         ]
       },
@@ -403,7 +415,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Vasco",
         "created": "07-05-2025 05:30:17",
-        "lastUpdated": "07-05-2025 10:09:37"
+        "lastUpdated": "07-05-2025 10:19:01"
       }
     },
     {
@@ -622,6 +634,10 @@
           [
             73.9461583,
             15.5905383
+          ],
+          [
+            73.9461183,
+            15.5889283
           ]
         ]
       },
@@ -630,7 +646,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "07-05-2025 05:30:21",
-        "lastUpdated": "07-05-2025 10:09:34"
+        "lastUpdated": "07-05-2025 10:19:13"
       }
     },
     {
@@ -790,6 +806,10 @@
           [
             74.0333666,
             15.022535
+          ],
+          [
+            74.0440516,
+            15.0236883
           ]
         ]
       },
@@ -798,7 +818,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Canacona",
         "created": "07-05-2025 05:29:21",
-        "lastUpdated": "07-05-2025 09:49:10"
+        "lastUpdated": "07-05-2025 10:19:44"
       }
     },
     {
@@ -1059,6 +1079,10 @@
           [
             73.8239833,
             15.5342617
+          ],
+          [
+            73.829525,
+            15.5231083
           ]
         ]
       },
@@ -1067,7 +1091,7 @@
         "Vehicle_Name": "AT 5036A-4G",
         "Branch": "Fire Station Mapusa",
         "created": "07-05-2025 05:30:20",
-        "lastUpdated": "07-05-2025 10:09:35"
+        "lastUpdated": "07-05-2025 10:20:14"
       }
     },
     {
@@ -1175,6 +1199,44 @@
         "Branch": "Fire Station Cuncolim",
         "created": "07-05-2025 05:28:33",
         "lastUpdated": "07-05-2025 05:28:33"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.970566,
+            15.269318
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0350-MRG(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Margao",
+        "created": "07-05-2025 10:18:02",
+        "lastUpdated": "07-05-2025 10:18:02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0149089,
+            15.156005
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7272-PNJ(WATER TENDER)",
+        "Vehicle_Name": "AT-5032-4G",
+        "Branch": "Fire Station Panaji",
+        "created": "01-05-2025 12:56:35",
+        "lastUpdated": "01-05-2025 12:56:35"
       }
     }
   ]
