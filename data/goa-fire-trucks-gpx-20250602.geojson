@@ -1,0 +1,905 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "date": "20250602",
+    "source": "Directorate of Fire Emergency Services, Govt. of Goa",
+    "description": "Daily GPS tracks of fire trucks",
+    "lastUpdated": "2025-06-02T00:00:19.486Z",
+    "count": 47
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.7941,
+            15.532885
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0680-PIL(QUICK RESPONSE VEHICLE)",
+        "Vehicle_Name": "4G",
+        "Branch": "Fire Station Pilerne",
+        "created": "02-06-2025 05:29:57",
+        "lastUpdated": "02-06-2025 05:29:57"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.817299,
+            15.486478
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0308-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:28:49",
+        "lastUpdated": "02-06-2025 05:28:49"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.829353,
+            15.523012
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 5115-POR(MINI WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Porvorim",
+        "created": "02-06-2025 05:28:59",
+        "lastUpdated": "02-06-2025 05:28:59"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.970535,
+            15.269375
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0350-MRG(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Margao",
+        "created": "02-06-2025 05:30:08",
+        "lastUpdated": "02-06-2025 05:30:08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.808655,
+            15.590062
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2900-MAP(MINI RESCUE TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Mapusa",
+        "created": "02-06-2025 05:28:19",
+        "lastUpdated": "02-06-2025 05:28:19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.817406,
+            15.487067
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7600-FFHQ(WATER BOUSER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:28:27",
+        "lastUpdated": "02-06-2025 05:28:27"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.81736,
+            15.487592
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2002-FFHQ(TURN TABLE LADDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:28:37",
+        "lastUpdated": "02-06-2025 05:28:37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.817207,
+            15.487237
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7101-FFHQ(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:28:17",
+        "lastUpdated": "02-06-2025 05:28:17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8172,
+            15.487277
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7677-FFHQ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:30:13",
+        "lastUpdated": "02-06-2025 05:30:13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.817253,
+            15.487092
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1121-PNJ(EMERGENCY RESCUE)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Panaji",
+        "created": "02-06-2025 05:26:57",
+        "lastUpdated": "02-06-2025 05:26:57"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.816994,
+            15.486562
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1571-FFHQ(QUICK RESPONSE)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Force Headquarters",
+        "created": "02-06-2025 05:26:35",
+        "lastUpdated": "02-06-2025 05:26:35"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.808922,
+            15.589865
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 8101-MAP(WATER TENDER)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Mapusa",
+        "created": "02-06-2025 05:28:21",
+        "lastUpdated": "02-06-2025 05:28:21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9701333,
+            15.2693433
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2317-MRG(EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Margao",
+        "created": "02-06-2025 05:30:19",
+        "lastUpdated": "02-06-2025 05:30:19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8513183,
+            15.3887566
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1570-VAS(QUICK RESPONSE FIRE TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Vasco",
+        "created": "02-06-2025 05:30:06",
+        "lastUpdated": "02-06-2025 05:30:06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8516116,
+            15.3890783
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 4101-VAS(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Vasco",
+        "created": "02-06-2025 05:29:32",
+        "lastUpdated": "02-06-2025 05:29:32"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.851245,
+            15.3888067
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0819-VAS(WATER/FOAM TENDER)",
+        "Vehicle_Name": "4G",
+        "Branch": "Fire Station Vasco",
+        "created": "02-06-2025 05:30:11",
+        "lastUpdated": "02-06-2025 05:30:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.970255,
+            15.2693783
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7100-MRG(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Margao",
+        "created": "02-06-2025 05:29:50",
+        "lastUpdated": "02-06-2025 05:29:50"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9704666,
+            15.2693883
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1568-MRG(QUICK RESPONSE )",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Margao",
+        "created": "02-06-2025 05:29:54",
+        "lastUpdated": "02-06-2025 05:29:54"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9700933,
+            15.2693733
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 6101-MRG(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Margao",
+        "created": "30-05-2025 01:24:55",
+        "lastUpdated": "30-05-2025 01:24:55"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9699633,
+            15.2695583
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1001-MRG(AERIAL LADDER PLATFORM)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Margao",
+        "created": "02-06-2025 05:30:03",
+        "lastUpdated": "02-06-2025 05:30:03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9465944,
+            15.5894511
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0820-BIC(WATER TEDNER)",
+        "Vehicle_Name": "5026",
+        "Branch": "Fire Station Bicholim",
+        "created": "02-06-2025 05:27:20",
+        "lastUpdated": "02-06-2025 05:27:20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9139483,
+            15.5003533
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 5101-OLG(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Old Goa",
+        "created": "02-06-2025 05:30:02",
+        "lastUpdated": "02-06-2025 05:30:02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9463133,
+            15.5884933
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 3101-BIC(MS WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Bicholim",
+        "created": "02-06-2025 05:29:25",
+        "lastUpdated": "02-06-2025 05:29:25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9466966,
+            15.5894999
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1941-BIC(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Bicholim",
+        "created": "02-06-2025 05:29:33",
+        "lastUpdated": "02-06-2025 05:29:33"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8512133,
+            15.388865
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2319-VAS (EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Vasco",
+        "created": "02-06-2025 05:30:14",
+        "lastUpdated": "02-06-2025 05:30:14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.138615,
+            15.5309399
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 3737-VAP(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Valpoi",
+        "created": "02-06-2025 05:29:08",
+        "lastUpdated": "02-06-2025 05:29:08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0027833,
+            15.40275
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2318-PND(EMERGENCY RESCUE TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Ponda",
+        "created": "02-06-2025 05:29:05",
+        "lastUpdated": "02-06-2025 05:29:05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0027916,
+            15.40259
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2004-PND(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Ponda",
+        "created": "02-06-2025 05:29:14",
+        "lastUpdated": "02-06-2025 05:29:14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0028966,
+            15.402905
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 9101-PND(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Ponda",
+        "created": "02-06-2025 05:29:49",
+        "lastUpdated": "02-06-2025 05:29:49"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0028566,
+            15.40269
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 9797-PND(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Ponda",
+        "created": "02-06-2025 05:30:16",
+        "lastUpdated": "02-06-2025 05:30:16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0440516,
+            15.0235999
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 6363-CAN(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Canacona",
+        "created": "02-06-2025 04:47:21",
+        "lastUpdated": "02-06-2025 04:47:21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0441083,
+            15.0236899
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1567-CAN(QUICK RESPONSE FT)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Canacona",
+        "created": "02-06-2025 05:02:04",
+        "lastUpdated": "02-06-2025 05:02:04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9356033,
+            15.369725
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1569-VRN(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Verna",
+        "created": "02-06-2025 05:29:08",
+        "lastUpdated": "02-06-2025 05:29:08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9358233,
+            15.36959
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 9909-VRN(ADVANCE MULTI-PURPOSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Verna",
+        "created": "02-06-2025 05:30:16",
+        "lastUpdated": "02-06-2025 05:30:16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.1385983,
+            15.53117
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 1942-VAP(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Valpoi",
+        "created": "02-06-2025 05:30:11",
+        "lastUpdated": "02-06-2025 05:30:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.10376,
+            15.2602716
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2003-CUR(QUICK RESPONSE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Curchorem",
+        "created": "02-06-2025 05:29:29",
+        "lastUpdated": "02-06-2025 05:29:29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.103735,
+            15.260355
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7447-CUR(EMERGENCY RESCUE)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Curchorem",
+        "created": "02-06-2025 05:29:37",
+        "lastUpdated": "02-06-2025 05:29:37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.10393,
+            15.260405
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7557-CUR(WATER TENDER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Curchorem",
+        "created": "02-06-2025 05:29:25",
+        "lastUpdated": "02-06-2025 05:29:25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.1037183,
+            15.260335
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7667-CUR(WATER BOUSER)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Curchorem",
+        "created": "02-06-2025 05:29:11",
+        "lastUpdated": "02-06-2025 05:29:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9724367,
+            15.4627233
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 4989-KUN(WATER TENDER)",
+        "Vehicle_Name": "G-100",
+        "Branch": "Fire Station Kundaim",
+        "created": "02-06-2025 05:29:28",
+        "lastUpdated": "02-06-2025 05:29:28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.7940739,
+            15.53304
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2242-PIL(WATER TENDER)",
+        "Vehicle_Name": "5026",
+        "Branch": "Fire Station Pilerne",
+        "created": "02-06-2025 05:29:30",
+        "lastUpdated": "02-06-2025 05:29:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.80857,
+            15.58971
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0681-MAP(QUICK RESPONSE)",
+        "Vehicle_Name": "AT 5036A-4G",
+        "Branch": "Fire Station Mapusa",
+        "created": "02-06-2025 05:30:11",
+        "lastUpdated": "02-06-2025 05:30:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.7973144,
+            15.7166689
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 0307-PER(QUICK RESPONSE)",
+        "Vehicle_Name": "AT5032-4G",
+        "Branch": "Fire Station Pernem",
+        "created": "02-06-2025 05:27:19",
+        "lastUpdated": "02-06-2025 05:27:19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.7976772,
+            15.7164917
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 2101-PER(MS WATER TENDER)",
+        "Vehicle_Name": "AT5032-4G",
+        "Branch": "Fire Station Pernem",
+        "created": "02-06-2025 05:28:05",
+        "lastUpdated": "02-06-2025 05:28:05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.79756,
+            15.7165256
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 4600-PER(MINI RESCUE TENDER)",
+        "Vehicle_Name": "AT 5032-4G",
+        "Branch": "Fire Station Pernem",
+        "created": "02-06-2025 05:29:50",
+        "lastUpdated": "02-06-2025 05:29:50"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8172578,
+            15.487195
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA 07 G 7272-PNJ(WATER TENDER)",
+        "Vehicle_Name": "AT-5032-4G",
+        "Branch": "Fire Station Panaji",
+        "created": "02-06-2025 05:30:10",
+        "lastUpdated": "02-06-2025 05:30:10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0209717,
+            15.1862194
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2384- Cuncolim",
+        "Vehicle_Name": "AT 5032-4G",
+        "Branch": "Fire Station Cuncolim",
+        "created": "02-06-2025 05:29:18",
+        "lastUpdated": "02-06-2025 05:29:18"
+      }
+    }
+  ]
+}
