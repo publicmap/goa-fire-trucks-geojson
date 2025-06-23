@@ -1,7 +1,7 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "timestamp": "2025-06-23T10:12:16.565Z",
+    "timestamp": "2025-06-23T10:37:51.731Z",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "count": 47
   },
@@ -27,8 +27,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:45",
-        "Datetime": "23-06-2025 15:41:50",
+        "GPSActualTime": "23-06-2025 16:07:45",
+        "Datetime": "23-06-2025 16:07:50",
         "Status": "STOP",
         "DeviceModel": "L400",
         "Speed": "0",
@@ -56,8 +56,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.817551,
-          15.48676
+          73.817406,
+          15.486722
         ]
       },
       "properties": {
@@ -72,24 +72,24 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:23",
-        "Datetime": "23-06-2025 15:41:27",
+        "GPSActualTime": "23-06-2025 16:07:25",
+        "Datetime": "23-06-2025 16:07:28",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
         "AC": "--",
         "Imeino": "220717923",
         "Odometer": "0",
-        "POI": "0.25 km from Fire Station panaji",
+        "POI": "0.24 km from Fire Station panaji",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "42",
+        "Angle": "110",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.14",
+        "ExternalVolt": "12.11",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -101,8 +101,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.83815,
-          15.527208
+          73.836647,
+          15.52742
         ]
       },
       "properties": {
@@ -117,28 +117,28 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:37:25",
-        "Datetime": "23-06-2025 15:41:58",
+        "GPSActualTime": "23-06-2025 16:07:40",
+        "Datetime": "23-06-2025 16:07:44",
         "Status": "RUNNING",
         "DeviceModel": "TS101",
-        "Speed": "0",
+        "Speed": "32",
         "AC": "--",
         "Imeino": "220718761",
         "Odometer": "0",
-        "POI": "1.03 km from Porvorim Fire Station",
+        "POI": "0.9 km from Porvorim Fire Station",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "325",
+        "Angle": "277",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "14.18",
+        "ExternalVolt": "14.15",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Saibaba Enterprises, BB Borkar Road, Alto Porvorim, Penha de Fran�a, Goa (SE)"
+        "Location": "Shri Rama Temple, Alto Porvorim, Goa (SE)"
       }
     },
     {
@@ -162,8 +162,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:39:50",
-        "Datetime": "23-06-2025 15:39:53",
+        "GPSActualTime": "23-06-2025 16:03:52",
+        "Datetime": "23-06-2025 16:04:00",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -207,8 +207,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:41",
-        "Datetime": "23-06-2025 15:41:47",
+        "GPSActualTime": "23-06-2025 16:07:42",
+        "Datetime": "23-06-2025 16:07:48",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -224,7 +224,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.63",
+        "ExternalVolt": "12.62",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -252,8 +252,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:38:18",
-        "Datetime": "23-06-2025 15:38:22",
+        "GPSActualTime": "23-06-2025 16:06:21",
+        "Datetime": "23-06-2025 16:06:24",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -269,7 +269,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "25.41",
+        "ExternalVolt": "25.34",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -297,8 +297,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:36",
-        "Datetime": "23-06-2025 15:41:44",
+        "GPSActualTime": "23-06-2025 16:07:38",
+        "Datetime": "23-06-2025 16:07:41",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -314,7 +314,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "25.36",
+        "ExternalVolt": "25.38",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -342,8 +342,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:38:34",
-        "Datetime": "23-06-2025 15:38:37",
+        "GPSActualTime": "23-06-2025 16:06:36",
+        "Datetime": "23-06-2025 16:06:40",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -359,7 +359,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.85",
+        "ExternalVolt": "12.82",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -387,8 +387,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:39",
-        "Datetime": "23-06-2025 15:41:43",
+        "GPSActualTime": "23-06-2025 16:05:41",
+        "Datetime": "23-06-2025 16:05:44",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -404,7 +404,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.41",
+        "ExternalVolt": "12.35",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -416,8 +416,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.817322,
-          15.48715
+          73.820068,
+          15.464853
         ]
       },
       "properties": {
@@ -432,28 +432,28 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:40:50",
-        "Datetime": "23-06-2025 15:40:58",
+        "GPSActualTime": "23-06-2025 16:05:54",
+        "Datetime": "23-06-2025 16:05:57",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
         "AC": "--",
         "Imeino": "220718788",
         "Odometer": "0",
-        "POI": "0.27 km from Fire Station panaji",
+        "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "54",
+        "Angle": "212",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.66",
+        "ExternalVolt": "12.99",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Caculo Mall, 16 Shanta, St Inez Rd, Caculo Enclave, Santa Inez, Panaji, Goa (NW)"
+        "Location": "Madhuban Residential and Commercial Complex, Taleigao Rd, Nagalli Hills Colony, Dona Paula, Goa (NW)"
       }
     },
     {
@@ -461,8 +461,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.817108,
-          15.486807
+          73.957184,
+          15.26235
         ]
       },
       "properties": {
@@ -477,28 +477,28 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 14:24:46",
-        "Datetime": "23-06-2025 14:24:49",
-        "Status": "INACTIVE",
+        "GPSActualTime": "23-06-2025 16:07:14",
+        "Datetime": "23-06-2025 16:07:49",
+        "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
         "AC": "--",
         "Imeino": "220717577",
         "Odometer": "0",
-        "POI": "0.23 km from Fire Station panaji",
+        "POI": "1.62 km from Fire Station Margoa",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "78",
+        "Angle": "153",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.12",
+        "ExternalVolt": "12.63",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Caculo Mall, 16 Shanta, St Inez Rd, Caculo Enclave, Santa Inez, Panaji, Goa (NW)"
+        "Location": "Ghousiya Masjid Mosque, Shirvodem, Goa (SW)"
       }
     },
     {
@@ -522,8 +522,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:38:54",
-        "Datetime": "23-06-2025 15:38:57",
+        "GPSActualTime": "23-06-2025 16:06:56",
+        "Datetime": "23-06-2025 16:06:59",
         "Status": "STOP",
         "DeviceModel": "TS101",
         "Speed": "0",
@@ -539,7 +539,7 @@
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
-        "ExternalVolt": "12.85",
+        "ExternalVolt": "12.79",
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
@@ -551,8 +551,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.01914,
-          15.2668849
+          74.0191566,
+          15.26695
         ]
       },
       "properties": {
@@ -567,8 +567,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:06",
-        "Datetime": "23-06-2025 15:41:31",
+        "GPSActualTime": "23-06-2025 16:07:02",
+        "Datetime": "23-06-2025 16:07:45",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -612,8 +612,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:45",
-        "Datetime": "23-06-2025 15:42:16",
+        "GPSActualTime": "23-06-2025 16:06:45",
+        "Datetime": "23-06-2025 16:06:53",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -657,8 +657,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:47",
-        "Datetime": "23-06-2025 15:41:55",
+        "GPSActualTime": "23-06-2025 16:06:59",
+        "Datetime": "23-06-2025 16:07:08",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -702,8 +702,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:45",
-        "Datetime": "23-06-2025 15:41:48",
+        "GPSActualTime": "23-06-2025 16:07:45",
+        "Datetime": "23-06-2025 16:07:49",
         "Status": "IDLE",
         "DeviceModel": "L400",
         "Speed": "0",
@@ -747,8 +747,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:42:08",
-        "Datetime": "23-06-2025 15:42:16",
+        "GPSActualTime": "23-06-2025 16:06:08",
+        "Datetime": "23-06-2025 16:06:19",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -792,8 +792,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:15",
-        "Datetime": "23-06-2025 15:41:23",
+        "GPSActualTime": "23-06-2025 16:07:00",
+        "Datetime": "23-06-2025 16:07:22",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -805,7 +805,7 @@
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "93",
+        "Angle": "255",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -821,8 +821,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9701416,
-          15.26935
+          73.970085,
+          15.2693483
         ]
       },
       "properties": {
@@ -837,11 +837,11 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:26",
-        "Datetime": "23-06-2025 15:42:14",
+        "GPSActualTime": "23-06-2025 16:04:59",
+        "Datetime": "23-06-2025 16:05:18",
         "Status": "STOP",
         "DeviceModel": "LC 100",
-        "Speed": "0",
+        "Speed": "1",
         "AC": "--",
         "Imeino": "868805061625763",
         "Odometer": "17265",
@@ -850,7 +850,7 @@
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "192",
+        "Angle": "27",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -866,8 +866,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9921066,
-          15.144045
+          73.9920733,
+          15.1440083
         ]
       },
       "properties": {
@@ -882,8 +882,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:47",
-        "Datetime": "23-06-2025 15:41:54",
+        "GPSActualTime": "23-06-2025 16:07:06",
+        "Datetime": "23-06-2025 16:07:13",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -895,7 +895,7 @@
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "30",
+        "Angle": "324",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -927,8 +927,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:40:01",
-        "Datetime": "23-06-2025 15:40:02",
+        "GPSActualTime": "23-06-2025 16:05:35",
+        "Datetime": "23-06-2025 16:05:36",
         "Status": "STOP",
         "DeviceModel": "JM01",
         "Speed": "0",
@@ -972,8 +972,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:32",
-        "Datetime": "23-06-2025 15:42:01",
+        "GPSActualTime": "23-06-2025 16:06:33",
+        "Datetime": "23-06-2025 16:06:39",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1017,8 +1017,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:39",
-        "Datetime": "23-06-2025 15:42:09",
+        "GPSActualTime": "23-06-2025 16:07:40",
+        "Datetime": "23-06-2025 16:07:48",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1046,8 +1046,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.8854166,
-          15.5380966
+          73.883935,
+          15.5576716
         ]
       },
       "properties": {
@@ -1062,20 +1062,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:36",
-        "Datetime": "23-06-2025 15:41:46",
+        "GPSActualTime": "23-06-2025 16:07:18",
+        "Datetime": "23-06-2025 16:07:28",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
         "AC": "--",
         "Imeino": "868805061620004",
-        "Odometer": "21534",
+        "Odometer": "21537",
         "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "264",
+        "Angle": "231",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1083,7 +1083,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Devgi-Wado, Chodan, Caraim, Goa (NW)"
+        "Location": "Saud, Caraim, Goa (NW)"
       }
     },
     {
@@ -1107,8 +1107,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:45",
-        "Datetime": "23-06-2025 15:41:52",
+        "GPSActualTime": "23-06-2025 16:06:46",
+        "Datetime": "23-06-2025 16:06:56",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1136,8 +1136,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.094255,
-          15.4964866
+          74.05529,
+          15.5453133
         ]
       },
       "properties": {
@@ -1152,20 +1152,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:42:07",
-        "Datetime": "23-06-2025 15:42:16",
-        "Status": "IDLE",
+        "GPSActualTime": "23-06-2025 16:07:34",
+        "Datetime": "23-06-2025 16:07:48",
+        "Status": "RUNNING",
         "DeviceModel": "LC 100",
-        "Speed": "0",
+        "Speed": "41",
         "AC": "--",
         "Imeino": "868805061619626",
-        "Odometer": "19575",
+        "Odometer": "19583",
         "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "66",
+        "Angle": "324",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1173,7 +1173,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Govt High School Advoi, Birondem VP, Goa (NW)"
+        "Location": "Honda Police Station, Pissurlem, Goa (SE)"
       }
     },
     {
@@ -1181,8 +1181,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.0142666,
-          15.400485
+          74.0127766,
+          15.4028366
         ]
       },
       "properties": {
@@ -1197,20 +1197,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:47",
-        "Datetime": "23-06-2025 15:42:00",
+        "GPSActualTime": "23-06-2025 16:07:34",
+        "Datetime": "23-06-2025 16:07:49",
         "Status": "RUNNING",
         "DeviceModel": "LC 100",
-        "Speed": "19",
+        "Speed": "7",
         "AC": "--",
         "Imeino": "863221045426390",
-        "Odometer": "8804",
-        "POI": "1.26 km from Fire Station Ponda ",
+        "Odometer": "8805",
+        "POI": "1.08 km from Fire Station Ponda ",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "303",
+        "Angle": "195",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1218,7 +1218,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Kirti Hotel, Ponda, Shanti Nagar, Ponda, Goa (NW)"
+        "Location": "St.Mary’s High School, Upper Bazaar, Jayceenagar, Ponda, Goa (NW)"
       }
     },
     {
@@ -1242,8 +1242,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:16",
-        "Datetime": "23-06-2025 15:41:47",
+        "GPSActualTime": "23-06-2025 16:07:29",
+        "Datetime": "23-06-2025 16:07:35",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1287,8 +1287,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:00",
-        "Datetime": "23-06-2025 15:41:08",
+        "GPSActualTime": "23-06-2025 16:07:01",
+        "Datetime": "23-06-2025 16:07:08",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1332,8 +1332,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:42",
-        "Datetime": "23-06-2025 15:41:49",
+        "GPSActualTime": "23-06-2025 16:07:42",
+        "Datetime": "23-06-2025 16:07:51",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1361,8 +1361,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.0440183,
-          15.0236233
+          74.0444333,
+          15.02974
         ]
       },
       "properties": {
@@ -1377,20 +1377,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:40:56",
-        "Datetime": "23-06-2025 15:41:03",
-        "Status": "STOP",
+        "GPSActualTime": "23-06-2025 15:47:39",
+        "Datetime": "23-06-2025 15:47:53",
+        "Status": "RUNNING",
         "DeviceModel": "LC 100",
-        "Speed": "0",
+        "Speed": "16",
         "AC": "--",
         "Imeino": "868805061810829",
-        "Odometer": "20140",
+        "Odometer": "20141",
         "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
-        "IGN": "OFF",
+        "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "351",
+        "Angle": "96",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1467,8 +1467,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:41",
-        "Datetime": "23-06-2025 15:42:10",
+        "GPSActualTime": "23-06-2025 16:07:41",
+        "Datetime": "23-06-2025 16:07:49",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1496,8 +1496,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9357666,
-          15.36969
+          73.9360516,
+          15.3696333
         ]
       },
       "properties": {
@@ -1512,9 +1512,9 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:17",
-        "Datetime": "23-06-2025 15:41:25",
-        "Status": "STOP",
+        "GPSActualTime": "23-06-2025 16:07:37",
+        "Datetime": "23-06-2025 16:07:45",
+        "Status": "IDLE",
         "DeviceModel": "LC 100",
         "Speed": "0",
         "AC": "--",
@@ -1523,9 +1523,9 @@
         "POI": "At Fire Station Verna",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
-        "IGN": "OFF",
+        "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "315",
+        "Angle": "267",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1541,8 +1541,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.1387933,
-          15.5310366
+          74.138835,
+          15.5310466
         ]
       },
       "properties": {
@@ -1557,8 +1557,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:12",
-        "Datetime": "23-06-2025 15:41:20",
+        "GPSActualTime": "23-06-2025 16:07:12",
+        "Datetime": "23-06-2025 16:07:18",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1570,7 +1570,7 @@
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "9",
+        "Angle": "3",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1602,8 +1602,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:37",
-        "Datetime": "23-06-2025 15:41:43",
+        "GPSActualTime": "23-06-2025 16:07:37",
+        "Datetime": "23-06-2025 16:07:44",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1647,8 +1647,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:35",
-        "Datetime": "23-06-2025 15:42:06",
+        "GPSActualTime": "23-06-2025 16:07:37",
+        "Datetime": "23-06-2025 16:07:46",
         "Status": "STOP",
         "DeviceModel": "LC 100",
         "Speed": "0",
@@ -1676,8 +1676,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.1172683,
-          15.257345
+          74.1867099,
+          15.2273016
         ]
       },
       "properties": {
@@ -1692,20 +1692,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:42:00",
-        "Datetime": "23-06-2025 15:42:13",
+        "GPSActualTime": "23-06-2025 16:06:05",
+        "Datetime": "23-06-2025 16:06:22",
         "Status": "RUNNING",
         "DeviceModel": "LC 100",
-        "Speed": "4",
+        "Speed": "27",
         "AC": "--",
         "Imeino": "863221045426630",
-        "Odometer": "9203",
-        "POI": "1.5 km from Fire Station Curchorem",
+        "Odometer": "9214",
+        "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "219",
+        "Angle": "93",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1713,7 +1713,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Fatima Stores, PONTEMOL, Kakoda, Vodlemol Cacora, Goa (SE)"
+        "Location": "Uguem, Uguem, Goa (SE)"
       }
     },
     {
@@ -1721,8 +1721,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          74.14226,
-          15.2195583
+          74.1549649,
+          15.188825
         ]
       },
       "properties": {
@@ -1737,20 +1737,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:42:01",
-        "Datetime": "23-06-2025 15:42:13",
+        "GPSActualTime": "23-06-2025 16:07:14",
+        "Datetime": "23-06-2025 16:07:28",
         "Status": "RUNNING",
         "DeviceModel": "LC 100",
-        "Speed": "27",
+        "Speed": "17",
         "AC": "--",
         "Imeino": "863221045431614",
-        "Odometer": "7146",
+        "Odometer": "7150",
         "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "ON",
         "Driver_First_Name": "--",
-        "Angle": "123",
+        "Angle": "210",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1758,7 +1758,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "Dattaprasad Bar and Restaurant, MDR34, Sanguem, Goa (SW)"
+        "Location": "SRI PAIKDEV TEMPLE, ZANODEM, Sanguem, Goa (SE)"
       }
     },
     {
@@ -1766,15 +1766,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.972795,
-          15.46225
+          73.9726,
+          15.4632583
         ]
       },
       "properties": {
         "Vehicle_Name": "G-100",
         "Company": "Directorate of Fire Emergency Services",
         "Temperature": "--",
-        "GPS": "OFF",
+        "GPS": "ON",
         "Vehicle_No": "GA 07 G 4989-KUN(WATER TENDER)",
         "Door1": "--",
         "Door4": "--",
@@ -1782,20 +1782,20 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:18",
-        "Datetime": "23-06-2025 15:41:21",
+        "GPSActualTime": "23-06-2025 16:07:18",
+        "Datetime": "23-06-2025 16:07:24",
         "Status": "STOP",
         "DeviceModel": "G100",
         "Speed": "0",
         "AC": "--",
         "Imeino": "869604066433078",
-        "Odometer": "20248",
+        "Odometer": "20253",
         "POI": "At Fire Station Kundaim",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
         "IGN": "OFF",
         "Driver_First_Name": "--",
-        "Angle": "155",
+        "Angle": "159",
         "SOS": "--",
         "Fuel": [],
         "battery_percentage": "0",
@@ -1827,8 +1827,8 @@
         "Vehicletype": "ECOMET",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:51",
-        "Datetime": "23-06-2025 15:41:52",
+        "GPSActualTime": "23-06-2025 16:07:24",
+        "Datetime": "23-06-2025 16:07:25",
         "Status": "STOP",
         "DeviceModel": "JM01",
         "Speed": "0",
@@ -1872,8 +1872,8 @@
         "Vehicletype": "ASU",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:42:07",
-        "Datetime": "23-06-2025 15:42:11",
+        "GPSActualTime": "23-06-2025 16:07:39",
+        "Datetime": "23-06-2025 16:07:43",
         "Status": "STOP",
         "DeviceModel": "L400",
         "Speed": "0",
@@ -1962,8 +1962,8 @@
         "Vehicletype": "ASU",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:39:32",
-        "Datetime": "23-06-2025 15:39:32",
+        "GPSActualTime": "23-06-2025 16:06:36",
+        "Datetime": "23-06-2025 16:06:36",
         "Status": "STOP",
         "DeviceModel": "N01H",
         "Speed": "0",
@@ -2007,8 +2007,8 @@
         "Vehicletype": "Truck",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:40:18",
-        "Datetime": "23-06-2025 15:40:19",
+        "GPSActualTime": "23-06-2025 16:07:22",
+        "Datetime": "23-06-2025 16:07:23",
         "Status": "STOP",
         "DeviceModel": "N01H",
         "Speed": "0",
@@ -2052,8 +2052,8 @@
         "Vehicletype": "ASU",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:41:33",
-        "Datetime": "23-06-2025 15:41:34",
+        "GPSActualTime": "23-06-2025 16:05:38",
+        "Datetime": "23-06-2025 16:05:39",
         "Status": "STOP",
         "DeviceModel": "N01H",
         "Speed": "0",
@@ -2081,8 +2081,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          73.9937589,
-          15.1450083
+          74.0190889,
+          15.1539878
         ]
       },
       "properties": {
@@ -2097,14 +2097,14 @@
         "Vehicletype": "ASU",
         "Door2": "--",
         "Door3": "--",
-        "GPSActualTime": "23-06-2025 15:39:27",
-        "Datetime": "23-06-2025 15:39:29",
+        "GPSActualTime": "23-06-2025 16:07:07",
+        "Datetime": "23-06-2025 16:07:09",
         "Status": "STOP",
         "DeviceModel": "N01H",
         "Speed": "0",
         "AC": "--",
         "Imeino": "869671070072341",
-        "Odometer": "1556141",
+        "Odometer": "1560640",
         "POI": "--",
         "Driver_Middle_Name": "--",
         "Immobilize_State": "--",
@@ -2118,7 +2118,7 @@
         "Driver_Last_Name": "--",
         "Power": "ON",
         "Altitude": "0",
-        "Location": "State Bank of India - Fatorpa Branch, Fatorpa Rd, Fatorpa, Goa (NE)"
+        "Location": "Balli Railway Station, Bali, Cavorem, Goa (NE)"
       }
     }
   ]
