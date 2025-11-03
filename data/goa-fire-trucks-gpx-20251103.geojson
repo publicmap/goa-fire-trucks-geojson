@@ -4,7 +4,7 @@
     "date": "20251103",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-03T20:31:44.873Z",
+    "lastUpdated": "2025-11-03T20:45:04.127Z",
     "count": 52
   },
   "features": [
@@ -172,6 +172,10 @@
           [
             73.851028,
             15.468963
+          ],
+          [
+            73.845543,
+            15.488913
           ]
         ]
       },
@@ -180,7 +184,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Force Headquarters",
         "created": "04-11-2025 00:58:33",
-        "lastUpdated": "04-11-2025 02:00:07"
+        "lastUpdated": "04-11-2025 02:15:03"
       }
     },
     {
@@ -207,6 +211,10 @@
           [
             73.851006,
             15.46908
+          ],
+          [
+            73.85778,
+            15.463205
           ]
         ]
       },
@@ -215,7 +223,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Station Panaji",
         "created": "04-11-2025 00:57:03",
-        "lastUpdated": "04-11-2025 02:01:38"
+        "lastUpdated": "04-11-2025 02:13:09"
       }
     },
     {
@@ -280,6 +288,10 @@
           [
             73.9701166,
             15.26941
+          ],
+          [
+            73.9702066,
+            15.26934
           ]
         ]
       },
@@ -288,7 +300,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 00:58:27",
-        "lastUpdated": "04-11-2025 02:01:23"
+        "lastUpdated": "04-11-2025 02:14:59"
       }
     },
     {
@@ -360,6 +372,10 @@
           [
             73.9578449,
             15.2721
+          ],
+          [
+            73.957805,
+            15.2721066
           ]
         ]
       },
@@ -368,7 +384,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 00:57:45",
-        "lastUpdated": "04-11-2025 02:00:54"
+        "lastUpdated": "04-11-2025 02:15:00"
       }
     },
     {
@@ -490,6 +506,10 @@
           [
             73.9466549,
             15.58892
+          ],
+          [
+            73.9459799,
+            15.5881766
           ]
         ]
       },
@@ -498,7 +518,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 00:58:24",
-        "lastUpdated": "04-11-2025 02:00:23"
+        "lastUpdated": "04-11-2025 02:14:38"
       }
     },
     {
@@ -639,6 +659,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
