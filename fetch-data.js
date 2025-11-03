@@ -6,6 +6,7 @@
  */
 
 import fetch from 'node-fetch';
+import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,12 +17,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Constants
-const API_URL = 'https://gpsmiles.live//webservice?token=getLiveData&user=cnt-fire.goa@nic.in&pass=cnt@123&company=Directorate%20of%20Fire%20Emergency%20Services&format=json';
+const API_BASE_URL = 'https://3.7.238.246/webservice';
+const API_USERNAME = 'cnt-fire.goa@nic.in';
+const API_PASSWORD = 'cnt@123';
+const API_COMPANY_NAME = 'Directorate of Fire Emergency Services';
+const API_PROJECT_ID = 37;
 const OUTPUT_FILE = path.join(__dirname, 'data/goa-fire-trucks.geojson');
 const CACHE_DIRECTORY = path.dirname(OUTPUT_FILE);
 const DEBUG_LOG_FILE = path.join(__dirname, 'debug-log.txt');
 const GPX_DIRECTORY = path.join(__dirname, 'data');
 const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
+
+// Create HTTPS agent that allows IP addresses (for APIs that use IP instead of domain)
+// This is necessary because SSL certificates are typically issued for domain names, not IPs
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false, // Allow self-signed or IP-based certificates
+  // Note: This is a security consideration, but necessary for IP-based APIs
+});
 
 // Export parsed data for track creation
 export let parsedFireTrucks = [];
@@ -347,28 +359,168 @@ function isValidCoordinate(value) {
   return typeof value === 'number' && !isNaN(value) && isFinite(value);
 }
 
-// Main function to fetch and cache data
-export async function fetchAndCacheData() {
+// Step 1: Generate access token
+async function generateAccessToken() {
   try {
-    debugLog('Starting data fetch process');
-    debugLog(`Fetching fire truck data from API: ${API_URL}`);
+    debugLog('Step 1: Generating access token...');
+    const tokenUrl = `${API_BASE_URL}?token=generateAccessToken`;
     
-    const response = await fetch(API_URL);
+    // Try different field name variations
+    const requestVariations = [
+      { Username: API_USERNAME, password: API_PASSWORD },
+      { username: API_USERNAME, password: API_PASSWORD },
+      { Username: API_USERNAME, Password: API_PASSWORD },
+      { username: API_USERNAME, Password: API_PASSWORD },
+      { user: API_USERNAME, pass: API_PASSWORD },
+      { User: API_USERNAME, Pass: API_PASSWORD }
+    ];
     
-    debugLog(`API response status: ${response.status}`);
+    for (let i = 0; i < requestVariations.length; i++) {
+      const requestBody = requestVariations[i];
+      debugLog(`Attempt ${i + 1}: Token URL: ${tokenUrl}`);
+      debugLog(`Request body: ${JSON.stringify(requestBody)}`);
+      
+      const response = await fetch(tokenUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+        agent: httpsAgent
+      });
+      
+      debugLog(`Token generation response status: ${response.status}`);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        debugLog(`HTTP error: ${errorText}`);
+        if (i < requestVariations.length - 1) {
+          debugLog(`Trying next variation...`);
+          continue;
+        }
+        throw new Error(`Token generation failed with status ${response.status}: ${errorText}`);
+      }
+      
+      const tokenData = await response.json();
+      debugLog(`Full token response: ${JSON.stringify(tokenData)}`);
+      
+      // Check for error response format (result: 0 indicates error)
+      if (tokenData.result === 0 || tokenData.result === '0') {
+        const errorMsg = tokenData.message || 'Unknown server error';
+        if (i < requestVariations.length - 1) {
+          debugLog(`Server error with this variation, trying next: ${errorMsg}`);
+          continue;
+        }
+        throw new Error(`Server returned error: ${errorMsg}`);
+      }
+    
+      // Extract token from response
+      // The token might be in different formats, check common fields
+      let token = tokenData.token || tokenData.Token || tokenData.access_token || tokenData.accessToken;
+      
+      // Also check if result contains the token (some APIs return result: 1 with token in data)
+      if (!token && tokenData.data) {
+        token = tokenData.data.token || tokenData.data.Token || tokenData.data;
+      }
+      
+      if (!token && typeof tokenData === 'string') {
+        token = tokenData;
+      }
+      
+      // Check if result is success (1) and token is in a different field
+      if (!token && (tokenData.result === 1 || tokenData.result === '1')) {
+        // Try to find token in any field
+        for (const [key, value] of Object.entries(tokenData)) {
+          if (key !== 'result' && key !== 'message' && value && typeof value === 'string') {
+            token = value;
+            debugLog(`Found token in field '${key}'`);
+            break;
+          }
+        }
+      }
+      
+      if (!token) {
+        if (i < requestVariations.length - 1) {
+          debugLog(`Token not found in response, trying next variation...`);
+          continue;
+        }
+        throw new Error(`Token not found in response. Response: ${JSON.stringify(tokenData)}`);
+      }
+      
+      debugLog('Access token generated successfully');
+      return token;
+    }
+    
+    // If we get here, all variations failed
+    throw new Error('All authentication attempts failed. Please check credentials and API documentation.');
+  } catch (error) {
+    debugLog(`ERROR generating access token: ${error.message}`, error.stack);
+    throw error;
+  }
+}
+
+// Step 2: Fetch live data using the access token
+async function fetchLiveData(authToken) {
+  try {
+    debugLog('Step 2: Fetching live data with access token...');
+    const dataUrl = `${API_BASE_URL}?token=getTokenBaseLiveData&ProjectId=${API_PROJECT_ID}`;
+    
+    const response = await fetch(dataUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-code': authToken
+      },
+      body: JSON.stringify({
+        company_names: API_COMPANY_NAME,
+        format: 'json'
+        // Note: vehicle_nos and imei_nos can be added here if needed for specific vehicles
+        // For now, we're fetching all vehicles for the company
+      }),
+      agent: httpsAgent
+    });
+    
+    debugLog(`Live data response status: ${response.status}`);
     
     if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`Live data fetch failed with status ${response.status}: ${errorText}`);
     }
     
     const jsonData = await response.json();
     debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 200)}...`);
+    
+    return jsonData;
+  } catch (error) {
+    debugLog(`ERROR fetching live data: ${error.message}`, error.stack);
+    throw error;
+  }
+}
+
+// Main function to fetch and cache data
+export async function fetchAndCacheData() {
+  try {
+    debugLog('Starting data fetch process');
+    
+    // Step 1: Generate access token
+    const authToken = await generateAccessToken();
+    
+    // Step 2: Fetch live data
+    const jsonData = await fetchLiveData(authToken);
     
     // Extract vehicle data from the JSON structure
     let rows = [];
     if (jsonData && jsonData.root && jsonData.root.VehicleData) {
       rows = jsonData.root.VehicleData;
       debugLog(`Parsed ${rows.length} fire truck records from JSON`);
+    } else if (jsonData && Array.isArray(jsonData)) {
+      // Handle case where response is directly an array
+      rows = jsonData;
+      debugLog(`Parsed ${rows.length} fire truck records from JSON array`);
+    } else if (jsonData && jsonData.data) {
+      // Handle case where data is in a 'data' field
+      rows = Array.isArray(jsonData.data) ? jsonData.data : (jsonData.data.VehicleData || []);
+      debugLog(`Parsed ${rows.length} fire truck records from JSON data field`);
     } else {
       debugLog('No vehicle data found in JSON response or unexpected JSON structure');
       debugLog('Full JSON response:', JSON.stringify(jsonData));
