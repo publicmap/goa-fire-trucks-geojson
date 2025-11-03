@@ -2,8 +2,7 @@ name: Update Fire Truck Data
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # Temporary puase till endpoint is updated
-#    - cron: '*/5 * * * *'  # Run every 5 minutes (minimum interval allowed by GitHub Actions)
+    - cron: '*/5 * * * *'  # Run every 5 minutes (minimum interval allowed by GitHub Actions)
                            # Note: GitHub may still delay or skip runs during high load periods
   workflow_dispatch:     # Allow manual trigger
   repository_dispatch:
