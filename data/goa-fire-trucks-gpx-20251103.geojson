@@ -4,7 +4,7 @@
     "date": "20251103",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-03T21:53:03.939Z",
+    "lastUpdated": "2025-11-03T22:13:31.537Z",
     "count": 52
   },
   "features": [
@@ -336,6 +336,10 @@
           [
             73.9700116,
             15.26955
+          ],
+          [
+            73.970035,
+            15.2694533
           ]
         ]
       },
@@ -344,7 +348,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 00:58:27",
-        "lastUpdated": "04-11-2025 03:22:30"
+        "lastUpdated": "04-11-2025 03:43:07"
       }
     },
     {
@@ -428,6 +432,10 @@
           [
             73.9700683,
             15.26955
+          ],
+          [
+            73.9696783,
+            15.2695
           ]
         ]
       },
@@ -436,7 +444,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 00:57:45",
-        "lastUpdated": "04-11-2025 02:46:28"
+        "lastUpdated": "04-11-2025 03:43:10"
       }
     },
     {
@@ -586,6 +594,10 @@
           [
             73.9464433,
             15.58893
+          ],
+          [
+            73.9467366,
+            15.589235
           ]
         ]
       },
@@ -594,7 +606,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 00:58:24",
-        "lastUpdated": "04-11-2025 03:12:37"
+        "lastUpdated": "04-11-2025 03:42:39"
       }
     },
     {
@@ -735,6 +747,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
@@ -1005,6 +1025,10 @@
           [
             73.97233,
             15.4631183
+          ],
+          [
+            73.9735183,
+            15.4629183
           ]
         ]
       },
@@ -1013,7 +1037,7 @@
         "Vehicle_Name": "G-100",
         "Branch": "Fire Station Kundaim",
         "created": "04-11-2025 00:58:08",
-        "lastUpdated": "04-11-2025 03:12:16"
+        "lastUpdated": "04-11-2025 03:43:17"
       }
     },
     {
