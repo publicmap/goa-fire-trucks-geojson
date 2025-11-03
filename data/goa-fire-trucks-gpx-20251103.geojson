@@ -4,7 +4,7 @@
     "date": "20251103",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-03T19:40:30.244Z",
+    "lastUpdated": "2025-11-03T19:50:19.394Z",
     "count": 52
   },
   "features": [
@@ -191,6 +191,10 @@
           [
             73.848122,
             15.480537
+          ],
+          [
+            73.850967,
+            15.469088
           ]
         ]
       },
@@ -199,7 +203,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Station Panaji",
         "created": "04-11-2025 00:57:03",
-        "lastUpdated": "04-11-2025 01:10:24"
+        "lastUpdated": "04-11-2025 01:20:14"
       }
     },
     {
@@ -252,6 +256,10 @@
           [
             73.97006,
             15.2695216
+          ],
+          [
+            73.970085,
+            15.2693299
           ]
         ]
       },
@@ -260,7 +268,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 00:58:27",
-        "lastUpdated": "04-11-2025 01:10:25"
+        "lastUpdated": "04-11-2025 01:20:17"
       }
     },
     {
@@ -446,6 +454,10 @@
           [
             73.9466466,
             15.5893283
+          ],
+          [
+            73.9464599,
+            15.5890966
           ]
         ]
       },
@@ -454,7 +466,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 00:58:24",
-        "lastUpdated": "04-11-2025 01:09:23"
+        "lastUpdated": "04-11-2025 01:19:36"
       }
     },
     {
@@ -595,6 +607,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
