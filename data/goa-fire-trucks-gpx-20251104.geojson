@@ -4,7 +4,7 @@
     "date": "20251104",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-04T03:34:56.399Z",
+    "lastUpdated": "2025-11-04T03:57:26.195Z",
     "count": 52
   },
   "features": [
@@ -276,6 +276,10 @@
           [
             73.9701016,
             15.26934
+          ],
+          [
+            73.9701583,
+            15.269305
           ]
         ]
       },
@@ -284,7 +288,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 06:33:14",
-        "lastUpdated": "04-11-2025 09:04:52"
+        "lastUpdated": "04-11-2025 09:27:12"
       }
     },
     {
@@ -478,6 +482,10 @@
           [
             73.9463466,
             15.588885
+          ],
+          [
+            73.9462733,
+            15.5893083
           ]
         ]
       },
@@ -486,7 +494,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 06:34:05",
-        "lastUpdated": "04-11-2025 09:04:47"
+        "lastUpdated": "04-11-2025 09:27:23"
       }
     },
     {
@@ -627,6 +635,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
@@ -856,6 +872,10 @@
           [
             73.794045,
             15.5329339
+          ],
+          [
+            73.7890022,
+            15.5505289
           ]
         ]
       },
@@ -864,7 +884,7 @@
         "Vehicle_Name": "5026",
         "Branch": "Fire Station Pilerne",
         "created": "04-11-2025 06:33:03",
-        "lastUpdated": "04-11-2025 08:15:40"
+        "lastUpdated": "04-11-2025 09:27:20"
       }
     },
     {
@@ -978,6 +998,10 @@
           [
             74.0210283,
             15.1862522
+          ],
+          [
+            74.03273,
+            15.18103
           ]
         ]
       },
@@ -986,7 +1010,7 @@
         "Vehicle_Name": "AT 5032-4G",
         "Branch": "Fire Station Cuncolim",
         "created": "04-11-2025 06:31:18",
-        "lastUpdated": "04-11-2025 06:31:18"
+        "lastUpdated": "04-11-2025 09:27:07"
       }
     },
     {
