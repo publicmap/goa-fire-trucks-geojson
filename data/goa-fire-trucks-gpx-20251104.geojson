@@ -4,7 +4,7 @@
     "date": "20251104",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-04T09:40:28.832Z",
+    "lastUpdated": "2025-11-04T09:52:21.866Z",
     "count": 52
   },
   "features": [
@@ -444,6 +444,10 @@
           [
             73.9702316,
             15.2694066
+          ],
+          [
+            73.97019,
+            15.26937
           ]
         ]
       },
@@ -452,7 +456,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 06:33:14",
-        "lastUpdated": "04-11-2025 15:10:13"
+        "lastUpdated": "04-11-2025 15:21:37"
       }
     },
     {
@@ -758,6 +762,10 @@
           [
             73.946435,
             15.5890366
+          ],
+          [
+            73.9464116,
+            15.5888433
           ]
         ]
       },
@@ -766,7 +774,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 06:34:05",
-        "lastUpdated": "04-11-2025 15:10:24"
+        "lastUpdated": "04-11-2025 15:22:03"
       }
     },
     {
@@ -931,6 +939,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
@@ -1365,6 +1381,10 @@
           [
             73.9725667,
             15.462815
+          ],
+          [
+            73.9719967,
+            15.4624833
           ]
         ]
       },
@@ -1373,7 +1393,7 @@
         "Vehicle_Name": "G-100",
         "Branch": "Fire Station Kundaim",
         "created": "04-11-2025 06:33:36",
-        "lastUpdated": "04-11-2025 13:26:00"
+        "lastUpdated": "04-11-2025 15:21:08"
       }
     },
     {
@@ -1451,6 +1471,10 @@
           [
             73.7978433,
             15.7165433
+          ],
+          [
+            73.797535,
+            15.71653
           ]
         ]
       },
@@ -1459,7 +1483,7 @@
         "Vehicle_Name": "AT 5036A-4G",
         "Branch": "Fire Station Mapusa",
         "created": "04-11-2025 06:34:08",
-        "lastUpdated": "04-11-2025 15:10:21"
+        "lastUpdated": "04-11-2025 15:22:12"
       }
     },
     {
