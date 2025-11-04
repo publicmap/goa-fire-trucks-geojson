@@ -4,7 +4,7 @@
     "date": "20251104",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-04T07:57:32.442Z",
+    "lastUpdated": "2025-11-04T08:33:35.944Z",
     "count": 52
   },
   "features": [
@@ -143,6 +143,10 @@
           [
             73.816978,
             15.487162
+          ],
+          [
+            73.817047,
+            15.48721
           ]
         ]
       },
@@ -151,7 +155,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Force Headquarters",
         "created": "04-11-2025 06:31:51",
-        "lastUpdated": "04-11-2025 11:27:11"
+        "lastUpdated": "04-11-2025 14:03:23"
       }
     },
     {
@@ -294,6 +298,10 @@
           [
             73.817505,
             15.486615
+          ],
+          [
+            73.817657,
+            15.486358
           ]
         ]
       },
@@ -302,7 +310,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Force Headquarters",
         "created": "04-11-2025 06:30:37",
-        "lastUpdated": "04-11-2025 12:49:40"
+        "lastUpdated": "04-11-2025 13:55:48"
       }
     },
     {
@@ -412,6 +420,10 @@
           [
             73.9702066,
             15.2694166
+          ],
+          [
+            73.9702066,
+            15.2694349
           ]
         ]
       },
@@ -420,7 +432,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 06:33:14",
-        "lastUpdated": "04-11-2025 13:27:25"
+        "lastUpdated": "04-11-2025 14:03:25"
       }
     },
     {
@@ -714,6 +726,10 @@
           [
             73.9464599,
             15.5892216
+          ],
+          [
+            73.946045,
+            15.5893783
           ]
         ]
       },
@@ -722,7 +738,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 06:34:05",
-        "lastUpdated": "04-11-2025 13:15:49"
+        "lastUpdated": "04-11-2025 14:03:11"
       }
     },
     {
@@ -887,6 +903,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
