@@ -4,7 +4,7 @@
     "date": "20251104",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-04T08:33:35.944Z",
+    "lastUpdated": "2025-11-04T08:54:48.989Z",
     "count": 52
   },
   "features": [
@@ -16,6 +16,10 @@
           [
             73.7653567,
             15.62967
+          ],
+          [
+            73.7653967,
+            15.6290717
           ]
         ]
       },
@@ -24,7 +28,7 @@
         "Vehicle_Name": "4G",
         "Branch": "Fire Station Pilerne",
         "created": "04-11-2025 06:34:10",
-        "lastUpdated": "04-11-2025 06:34:10"
+        "lastUpdated": "04-11-2025 14:24:46"
       }
     },
     {
@@ -424,6 +428,10 @@
           [
             73.9702066,
             15.2694349
+          ],
+          [
+            73.9701666,
+            15.2693766
           ]
         ]
       },
@@ -432,7 +440,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-11-2025 06:33:14",
-        "lastUpdated": "04-11-2025 14:03:25"
+        "lastUpdated": "04-11-2025 14:24:16"
       }
     },
     {
@@ -730,6 +738,10 @@
           [
             73.946045,
             15.5893783
+          ],
+          [
+            73.9466549,
+            15.589305
           ]
         ]
       },
@@ -738,7 +750,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-11-2025 06:34:05",
-        "lastUpdated": "04-11-2025 14:03:11"
+        "lastUpdated": "04-11-2025 14:24:00"
       }
     },
     {
@@ -903,6 +915,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [
+            74.0440183,
+            15.0236116
+          ],
+          [
+            73.836105,
+            15.493872
+          ],
           [
             74.0440183,
             15.0236116
@@ -1262,6 +1282,10 @@
           [
             74.1036383,
             15.2603066
+          ],
+          [
+            74.1039066,
+            15.2602483
           ]
         ]
       },
@@ -1270,7 +1294,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Curchorem",
         "created": "04-11-2025 06:33:11",
-        "lastUpdated": "04-11-2025 11:08:46"
+        "lastUpdated": "04-11-2025 14:24:33"
       }
     },
     {
