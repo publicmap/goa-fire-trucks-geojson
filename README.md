@@ -3,7 +3,7 @@
 This directory contains data for Goa Fire Department's GPS API data. 
 
 - Geojson: [data/goa-fire-trucks.geojson](data/goa-fire-trucks.geojson)
-- API URL: `https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/main/data/goa-fire-trucks.geojson`
+- API URL: `https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/goa-fire-trucks.geojson`
 
 ## Details
 
