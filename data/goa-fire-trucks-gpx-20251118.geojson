@@ -4,8 +4,8 @@
     "date": "20251118",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-11-18T07:44:48.455Z",
-    "count": 52
+    "lastUpdated": "2025-11-18T07:54:37.016Z",
+    "count": 57
   },
   "features": [
     {
@@ -392,6 +392,10 @@
           [
             73.9701733,
             15.2694583
+          ],
+          [
+            73.9701166,
+            15.26934
           ]
         ]
       },
@@ -400,7 +404,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "18-11-2025 07:20:30",
-        "lastUpdated": "18-11-2025 13:13:53"
+        "lastUpdated": "18-11-2025 13:24:35"
       }
     },
     {
@@ -427,6 +431,10 @@
           [
             73.81788,
             15.3984366
+          ],
+          [
+            73.81949,
+            15.39929
           ]
         ]
       },
@@ -435,7 +443,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Vasco",
         "created": "18-11-2025 07:19:54",
-        "lastUpdated": "18-11-2025 13:14:38"
+        "lastUpdated": "18-11-2025 13:24:03"
       }
     },
     {
@@ -706,6 +714,10 @@
           [
             73.9465983,
             15.5894916
+          ],
+          [
+            73.9467533,
+            15.58938
           ]
         ]
       },
@@ -714,7 +726,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "18-11-2025 07:20:33",
-        "lastUpdated": "18-11-2025 13:14:12"
+        "lastUpdated": "18-11-2025 13:24:04"
       }
     },
     {
@@ -1113,6 +1125,10 @@
           [
             74.1035,
             15.2602016
+          ],
+          [
+            74.1035566,
+            15.2604866
           ]
         ]
       },
@@ -1121,7 +1137,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Curchorem",
         "created": "18-11-2025 07:20:22",
-        "lastUpdated": "18-11-2025 13:14:39"
+        "lastUpdated": "18-11-2025 13:24:23"
       }
     },
     {
@@ -1221,6 +1237,10 @@
           [
             73.9728433,
             15.463265
+          ],
+          [
+            73.9729417,
+            15.46337
           ]
         ]
       },
@@ -1229,7 +1249,7 @@
         "Vehicle_Name": "G-100",
         "Branch": "Fire Station Kundaim",
         "created": "18-11-2025 07:20:19",
-        "lastUpdated": "18-11-2025 13:01:45"
+        "lastUpdated": "18-11-2025 13:24:10"
       }
     },
     {
@@ -1566,6 +1586,101 @@
         "Branch": "Fire Force Headquarters",
         "created": "18-11-2025 07:20:42",
         "lastUpdated": "18-11-2025 13:02:11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.818237,
+            15.494033
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2506 - Mid Size (Water Tender)",
+        "Vehicle_Name": "TS101",
+        "Branch": "Fire Station Old Goa",
+        "created": "18-11-2025 13:24:31",
+        "lastUpdated": "18-11-2025 13:24:31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0579267,
+            15.5425333
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2505 - Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Valpoi",
+        "created": "18-11-2025 13:23:58",
+        "lastUpdated": "18-11-2025 13:23:58"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.94668,
+            15.58942
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2504 - Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Bicholim",
+        "created": "18-11-2025 13:23:41",
+        "lastUpdated": "18-11-2025 13:23:41"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.8086917,
+            15.5899767
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2503-Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Mapusa",
+        "created": "18-11-2025 13:24:06",
+        "lastUpdated": "18-11-2025 13:24:06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            74.0423267,
+            15.546485
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2502 - Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Force Headquarters",
+        "created": "18-11-2025 13:23:54",
+        "lastUpdated": "18-11-2025 13:23:54"
       }
     }
   ]
