@@ -4,8 +4,8 @@
     "date": "20251204",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2025-12-04T10:57:52.596Z",
-    "count": 52
+    "lastUpdated": "2025-12-04T11:24:38.209Z",
+    "count": 53
   },
   "features": [
     {
@@ -428,6 +428,10 @@
           [
             73.9702633,
             15.26914
+          ],
+          [
+            73.969865,
+            15.26947
           ]
         ]
       },
@@ -436,7 +440,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "04-12-2025 07:36:38",
-        "lastUpdated": "04-12-2025 16:27:40"
+        "lastUpdated": "04-12-2025 16:54:29"
       }
     },
     {
@@ -789,6 +793,10 @@
           [
             73.9141683,
             15.5002299
+          ],
+          [
+            73.9639483,
+            15.4736733
           ]
         ]
       },
@@ -797,7 +805,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "04-12-2025 07:36:18",
-        "lastUpdated": "04-12-2025 10:09:52"
+        "lastUpdated": "04-12-2025 16:53:44"
       }
     },
     {
@@ -909,6 +917,10 @@
           [
             74.0039383,
             15.3531466
+          ],
+          [
+            74.0030766,
+            15.4026183
           ]
         ]
       },
@@ -917,7 +929,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Ponda",
         "created": "04-12-2025 07:36:43",
-        "lastUpdated": "04-12-2025 16:27:50"
+        "lastUpdated": "04-12-2025 16:53:57"
       }
     },
     {
@@ -928,6 +940,10 @@
           [
             74.0028083,
             15.4027683
+          ],
+          [
+            74.00297,
+            15.4027016
           ]
         ]
       },
@@ -936,7 +952,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Ponda",
         "created": "04-12-2025 07:36:54",
-        "lastUpdated": "04-12-2025 07:36:54"
+        "lastUpdated": "04-12-2025 16:54:29"
       }
     },
     {
@@ -1067,6 +1083,10 @@
           [
             73.9353433,
             15.3696383
+          ],
+          [
+            73.935075,
+            15.3699783
           ]
         ]
       },
@@ -1075,7 +1095,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Verna",
         "created": "04-12-2025 07:36:30",
-        "lastUpdated": "04-12-2025 16:27:45"
+        "lastUpdated": "04-12-2025 16:54:34"
       }
     },
     {
@@ -1118,6 +1138,10 @@
           [
             74.1387199,
             15.5309633
+          ],
+          [
+            74.1389733,
+            15.5310366
           ]
         ]
       },
@@ -1126,7 +1150,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Valpoi",
         "created": "04-12-2025 07:36:46",
-        "lastUpdated": "04-12-2025 14:51:24"
+        "lastUpdated": "04-12-2025 16:54:30"
       }
     },
     {
@@ -1297,6 +1321,10 @@
           [
             73.97273,
             15.4625817
+          ],
+          [
+            73.9726483,
+            15.4622133
           ]
         ]
       },
@@ -1305,7 +1333,7 @@
         "Vehicle_Name": "G-100",
         "Branch": "Fire Station Kundaim",
         "created": "04-12-2025 07:36:53",
-        "lastUpdated": "04-12-2025 14:51:03"
+        "lastUpdated": "04-12-2025 16:54:15"
       }
     },
     {
@@ -1383,6 +1411,10 @@
           [
             73.7672767,
             15.5207133
+          ],
+          [
+            73.7563483,
+            15.5555967
           ]
         ]
       },
@@ -1391,7 +1423,7 @@
         "Vehicle_Name": "AT 5036A-4G",
         "Branch": "Fire Station Mapusa",
         "created": "04-12-2025 07:37:11",
-        "lastUpdated": "04-12-2025 16:27:47"
+        "lastUpdated": "04-12-2025 16:54:36"
       }
     },
     {
@@ -1686,6 +1718,25 @@
         "Branch": "Fire Force Headquarters",
         "created": "04-12-2025 07:36:25",
         "lastUpdated": "04-12-2025 09:34:21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.7976067,
+            15.71571
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2507 - Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Pernem",
+        "created": "04-12-2025 16:54:15",
+        "lastUpdated": "04-12-2025 16:54:15"
       }
     }
   ]
