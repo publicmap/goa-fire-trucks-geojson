@@ -1,6 +1,11 @@
 # Goa Fire Truck API
 
-This directory contains data for Goa Fire Department's GPS API data. 
+Public archive of [DFES Goa](https://dfes.goa.gov.in/)'s live fire truck data.
+
+**Available Data**
+
+- Latest data _updated every 15-60 minutes_ [(view)](https://github.com/publicmap/goa-fire-trucks-geojson/blob/data/data/goa-fire-trucks.geojson) | [(raw)](https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/goa-fire-trucks.geojson)
+
 
 - Geojson: [data/goa-fire-trucks.geojson](data/goa-fire-trucks.geojson)
 - API URL: `https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/goa-fire-trucks.geojson`
