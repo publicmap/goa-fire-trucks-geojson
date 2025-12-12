@@ -30,7 +30,9 @@ jobs:
         run: npm install
 
       - name: Test API connectivity
+        id: test-api
         run: npm test
+        continue-on-error: true
 
       - name: Checkout data branch for data directory
         run: |
@@ -39,17 +41,21 @@ jobs:
 
       - name: Fetch and process API data
         run: npm start
+        env:
+          TEST_STATUS: ${{ steps.test-api.outcome == 'success' && 'OK' || 'NOT OK' }}
 
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
-      - name: Commit and push changes to data branch
+      - name: Commit and push changes
         run: |
           # Get today's date in YYYYMMDD format
           TODAY=$(date '+%Y%m%d')
           GPX_FILE="data/goa-fire-trucks-gpx-${TODAY}.geojson"
+          CSV_FILE="data/csv/goa-fire-trucks-${TODAY}.csv"
+          COVERAGE_FILE="data/coverage.csv"
 
           # First check if any files changed
           if git status -s | grep -q "data/"; then
@@ -61,7 +67,7 @@ jobs:
             git checkout code -- data/
 
             # Add both the main data file and the daily GPX track file
-            git add data/goa-fire-trucks.geojson "$GPX_FILE"
+            git add data/goa-fire-trucks.geojson "$GPX_FILE" "$CSV_FILE" "$COVERAGE_FILE"
 
             # Commit and push the changes
             git commit -m "Refresh fire truck data and track history [skip ci]"

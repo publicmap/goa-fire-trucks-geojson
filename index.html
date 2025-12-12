@@ -126,9 +126,10 @@
         </div>
     </div>
 
+    <script src="https://d3js.org/d3-dsv.v3.min.js"></script>
     <script>
 
-        mapboxgl.accessToken = 'pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiY2l3ZmNjNXVzMDAzZzJ0cDV6b2lkOG9odSJ9.eep6sUoBS0eMN4thZUWpyQ'; // Attempting to use a token that might work for this user based on 'arun' in path.
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiY2l3ZmNjNXVzMDAzZzJ0cDV6b2lkOG9odSJ9.eep6sUoBS0eMN4thZUWpyQ';
 
         const map = new mapboxgl.Map({
             container: 'map',
@@ -144,6 +145,22 @@
         const speedFactor = 1000; // 1s real time = 1000s sim time (approx) - will adjust
 
         // UI Elements
+        const controlsDiv = document.getElementById('controls');
+        // Inject Date Selector and View Data Button
+        const dateControlRow = document.createElement('div');
+        dateControlRow.className = 'control-row';
+        dateControlRow.style.marginBottom = '10px';
+        dateControlRow.style.justifyContent = 'center';
+        dateControlRow.innerHTML = `
+            <select id="date-selector" style="padding: 8px; font-size: 1em; border-radius: 4px; border: 1px solid #ccc;">
+                <option value="">Loading dates...</option>
+            </select>
+            <button id="view-data-btn">View Data</button>
+        `;
+        controlsDiv.insertBefore(dateControlRow, controlsDiv.firstChild);
+
+        const dateSelector = document.getElementById('date-selector');
+        const viewDataBtn = document.getElementById('view-data-btn');
         const slider = document.getElementById('slider');
         const timeDisplay = document.getElementById('time-display');
         const dateDisplay = document.getElementById('date-display');
@@ -151,17 +168,117 @@
         const ticksContainer = document.getElementById('ticks-container');
 
         let vehiclePaths = new Map(); // Store full path history for each vehicle
+        let availableFiles = [];
 
         map.on('load', () => {
-            fetch('animation-data.json')
-                .then(response => response.json())
-                .then(data => {
-                    animationData = data;
-                    preprocessPaths(); // Pre-calculate paths
-                    initAnimation();
-                })
-                .catch(err => console.error('Error loading data:', err));
+            loadCoverageMetadata();
         });
+
+        function loadCoverageMetadata() {
+            fetch('data/coverage.csv')
+                .then(response => {
+                    if (!response.ok) throw new Error("Coverage file not found");
+                    return response.text();
+                })
+                .then(text => {
+                    const data = d3.csvParse(text);
+                    availableFiles = data;
+                    populateDateSelector(data);
+
+                    // Automatically load the latest available data if exists
+                    if (data.length > 0) {
+                        dateSelector.selectedIndex = 0;
+                        loadDailyData();
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading coverage metadata:', err);
+                    dateSelector.innerHTML = '<option value="">Error loading dates</option>';
+                });
+        }
+
+        function populateDateSelector(data) {
+            dateSelector.innerHTML = '';
+
+            // Filter only valid status if needed, or show all with indicators
+            // data has: Date, Filename, Updated_At, Status
+
+            data.forEach(row => {
+                const option = document.createElement('option');
+                option.value = row.Filename;
+                const statusIndicator = row.Status === 'OK' ? '✓' : (row.Status === 'NOT OK' ? '✗' : '?');
+                option.textContent = `${row.Date} (${statusIndicator})`;
+                dateSelector.appendChild(option);
+            });
+
+            if (data.length === 0) {
+                const option = document.createElement('option');
+                option.textContent = "No data available";
+                dateSelector.appendChild(option);
+            }
+        }
+
+        viewDataBtn.addEventListener('click', loadDailyData);
+
+        function loadDailyData() {
+            const filename = dateSelector.value;
+            if (!filename) return;
+
+            // Stop any current animation
+            if (isPlaying) togglePlay();
+
+            fetch(`data/csv/${filename}`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Data file ${filename} not found`);
+                    return response.text();
+                })
+                .then(text => {
+                    const rawData = d3.csvParse(text);
+                    processCsvToAnimationData(rawData);
+                })
+                .catch(err => console.error('Error loading daily data:', err));
+        }
+
+        function processCsvToAnimationData(rawData) {
+            // rawData: [{Timestamp, Vehicle_No, Latitude, Longitude, ...}, ...]
+
+            // Group by Timestamp
+            const stepsMap = new Map();
+
+            rawData.forEach(row => {
+                const time = new Date(row.Timestamp).getTime();
+                if (isNaN(time)) return;
+
+                if (!stepsMap.has(time)) {
+                    stepsMap.set(time, []);
+                }
+
+                // Convert row to vehicle object
+                stepsMap.get(time).push({
+                    id: row.Vehicle_No,
+                    lat: parseFloat(row.Latitude),
+                    lon: parseFloat(row.Longitude),
+                    status: row.Status,
+                    branch: row.Branch
+                });
+            });
+
+            // Convert to sorted array
+            const sortedTimes = Array.from(stepsMap.keys()).sort((a, b) => a - b);
+
+            const steps = sortedTimes.map(time => ({
+                time: time,
+                vehicles: stepsMap.get(time)
+            }));
+
+            animationData = {
+                steps: steps,
+                date: dateSelector.options[dateSelector.selectedIndex]?.text.split(' ')[0] || 'Unknown'
+            };
+
+            preprocessPaths();
+            initAnimation();
+        }
 
         function preprocessPaths() {
             if (!animationData || !animationData.steps) return;
@@ -180,39 +297,58 @@
                     });
                 }
             }
+            console.log(`Preprocessed paths for ${vehiclePaths.size} vehicles`);
         }
 
         function initAnimation() {
-            if (!animationData || !animationData.steps || animationData.steps.length === 0) return;
-
-            if (animationData.dates && animationData.dates.length > 1) {
-                dateDisplay.textContent = `${animationData.dates[0]} to ${animationData.dates[animationData.dates.length - 1]}`;
-            } else {
-                dateDisplay.textContent = animationData.dates ? animationData.dates[0] : animationData.date;
+            if (!animationData || !animationData.steps || animationData.steps.length === 0) {
+                alert("No valid data points found for this date.");
+                return;
             }
+
+            dateDisplay.textContent = animationData.date;
 
             const steps = animationData.steps;
             const startTime = steps[0].time;
             const endTime = steps[steps.length - 1].time;
 
+            console.log(`Animation range: ${new Date(startTime).toLocaleTimeString()} to ${new Date(endTime).toLocaleTimeString()}`);
+
             // Setup slider
-            // We will map slider 0-1000 to startTime-endTime
             slider.min = startTime;
             slider.max = endTime;
             slider.value = startTime;
-            slider.step = 1000; // 1 second steps
+            // slider.step = 1000; // 1 second steps - keep it simple, maybe smaller?
+            slider.step = 1000;
 
             // Generate ticks for data points
             ticksContainer.innerHTML = '';
             const duration = endTime - startTime;
             if (duration > 0) {
-                steps.forEach(step => {
+                // Limit ticks if too many steps
+                const stepSkip = Math.ceil(steps.length / 50);
+                steps.forEach((step, idx) => {
+                    if (idx % stepSkip !== 0) return;
                     const pct = ((step.time - startTime) / duration) * 100;
                     const tick = document.createElement('div');
                     tick.className = 'tick';
                     tick.style.left = `${pct}%`;
                     ticksContainer.appendChild(tick);
                 });
+            }
+
+            // Remove existing layers/sources if re-initializing
+            if (map.getSource('vehicles')) {
+                // If layers exist, they will use the updated source data?
+                // No, source.setData is for geojson. 
+                // We don't need to remove layers, just update source.
+                // But initAnimation adds layers. Let's check if they exist.
+                if (!map.getLayer('vehicles-trail')) {
+                    // Add source if not exists
+                }
+                // Actually safer to just update data if initialized
+                updateMap(startTime);
+                return;
             }
 
             // Add source
@@ -298,21 +434,24 @@
         }
 
         function getGeoJSONForTime(timestamp) {
+            if (!animationData) return { type: 'FeatureCollection', features: [] };
+
             const steps = animationData.steps;
 
             let idx = steps.findIndex(s => s.time > timestamp);
             if (idx === -1) idx = steps.length;
 
-            const nextStep = steps[idx];
-            const prevStep = steps[idx - 1];
+            // Safety check for idx range
+            const nextStep = idx < steps.length ? steps[idx] : null;
+            const prevStep = idx > 0 ? steps[idx - 1] : null;
 
             let activeVehicles = [];
 
             // Case 1: Before first step
             if (!prevStep) {
-                // Just return starting positions, no trails? Or empty?
-                // Return start positions
-                activeVehicles = steps[0].vehicles;
+                // activeVehicles = steps[0].vehicles;
+                // Don't show anything before start? Or show start?
+                if (steps.length > 0) activeVehicles = steps[0].vehicles;
             }
             // Case 2: After last step
             else if (!nextStep) {
@@ -351,7 +490,7 @@
                 features.push({
                     type: 'Feature',
                     geometry: {
-                        type: 'Point',
+                        type: 'Point', // Ensure Point (singular)
                         coordinates: [v.lon, v.lat]
                     },
                     properties: {
@@ -367,9 +506,22 @@
                 const path = vehiclePaths.get(v.id);
                 if (path) {
                     // Get all historical points <= current timestamp
-                    const history = path.filter(p => p.time <= timestamp).map(p => [p.lon, p.lat]);
+                    // Optimization: binary search or assumes sorted? It is sorted.
+                    // Just filtering might be slow if many points. 
+                    // Since it's sorted by time, we can just slice? 
+                    // path is array of {time, lat, lon}
 
-                    // Always add the current (interpolated) position as the last point
+                    // Simple filter for now
+                    const history = [];
+                    for (let i = 0; i < path.length; i++) {
+                        if (path[i].time <= timestamp) {
+                            history.push([path[i].lon, path[i].lat]);
+                        } else {
+                            break; // Sorted
+                        }
+                    }
+
+                    // Always add the current (interpolated) position as the last point to connect smoothly
                     history.push([v.lon, v.lat]);
 
                     if (history.length > 1) {
@@ -394,8 +546,6 @@
             };
         }
 
-        // createGeoJSON helper is removed as it's merged into getGeoJSONForTime logic
-
         function updateMap(timestamp) {
             updateTimeDisplay(timestamp);
             const geojson = getGeoJSONForTime(timestamp);
@@ -412,6 +562,7 @@
         }
 
         function togglePlay() {
+            if (!animationData) return;
             isPlaying = !isPlaying;
             playBtn.textContent = isPlaying ? 'Pause' : 'Play';
             if (isPlaying) {
@@ -423,13 +574,10 @@
         function animate(now) {
             if (!isPlaying) return;
 
-            // Advance time
-            // let's define speed: 10 minutes per second? 
-            // 1 day = 1440 mins. Reading 10 mins/sec => 144 secs (2.4 mins) for full day. Good.
-            // 10 mins = 600,000 ms. 
-            // delta * factor
-            // let's try 1 real sec = 15 mins (900s)
-            const speed = 900 * 1000; // ms per real second (so 1 real sec adds 900000 ms to sim time)
+            // Speed: 
+            // 900 * 1000 => 1 real sec = 900s sim time (15 mins) - seems nice for day view
+            // const speed = 900 * 1000; 
+            const speed = 200 * 1000; // Slower: 1 real sec = 200s (3.3 mins)
 
             const dt = (now - lastTimestamp) / 1000; // delta in seconds
             lastTimestamp = now;
@@ -438,7 +586,7 @@
             currentTime += dt * speed;
 
             if (currentTime > parseInt(slider.max)) {
-                currentTime = parseInt(slider.min); // Loop or stop? Loop for now
+                currentTime = parseInt(slider.min); // Loop
                 // isPlaying = false;
                 // playBtn.textContent = 'Play';
                 // return;
