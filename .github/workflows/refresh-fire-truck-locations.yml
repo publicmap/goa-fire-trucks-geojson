@@ -34,6 +34,9 @@ jobs:
         run: npm test
         continue-on-error: true
 
+      - name: Wait for API rate limit reset
+        run: sleep 30
+
       - name: Checkout data branch for data directory
         run: |
           git fetch origin data
