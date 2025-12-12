@@ -61,7 +61,7 @@ jobs:
           if git status -s | grep -q "data/"; then
             # Switch to data branch
             git fetch origin data
-            git checkout data
+            git checkout -B data origin/data
 
             # Copy the updated data files from our working directory
             git checkout code -- data/
@@ -80,5 +80,5 @@ jobs:
         if: success()
         run: |
           # Switch back to code branch to run test
-          git checkout code
+          git checkout -B code origin/code
           npm test
