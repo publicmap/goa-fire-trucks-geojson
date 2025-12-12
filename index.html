@@ -151,15 +151,20 @@
         dateControlRow.className = 'control-row';
         dateControlRow.style.marginBottom = '10px';
         dateControlRow.style.justifyContent = 'center';
+        dateControlRow.style.gap = '10px';
         dateControlRow.innerHTML = `
-            <select id="date-selector" style="padding: 8px; font-size: 1em; border-radius: 4px; border: 1px solid #ccc;">
-                <option value="">Loading dates...</option>
-            </select>
+            <label style="font-size: 0.9em;">From:
+                <input type="date" id="from-date-picker" style="padding: 8px; font-size: 1em; border-radius: 4px; border: 1px solid #ccc; margin-left: 5px;">
+            </label>
+            <label style="font-size: 0.9em;">To:
+                <input type="date" id="to-date-picker" style="padding: 8px; font-size: 1em; border-radius: 4px; border: 1px solid #ccc; margin-left: 5px;">
+            </label>
             <button id="view-data-btn">View Data</button>
         `;
         controlsDiv.insertBefore(dateControlRow, controlsDiv.firstChild);
 
-        const dateSelector = document.getElementById('date-selector');
+        const fromDatePicker = document.getElementById('from-date-picker');
+        const toDatePicker = document.getElementById('to-date-picker');
         const viewDataBtn = document.getElementById('view-data-btn');
         const slider = document.getElementById('slider');
         const timeDisplay = document.getElementById('time-display');
@@ -169,6 +174,7 @@
 
         let vehiclePaths = new Map(); // Store full path history for each vehicle
         let availableFiles = [];
+        let availableDatesSet = new Set(); // For quick lookup of available dates
 
         map.on('load', () => {
             loadCoverageMetadata();
@@ -183,60 +189,79 @@
                 .then(text => {
                     const data = d3.csvParse(text);
                     availableFiles = data;
-                    populateDateSelector(data);
+                    setupDatePickers(data);
 
                     // Automatically load the latest available data if exists
                     if (data.length > 0) {
-                        dateSelector.selectedIndex = 0;
-                        loadDailyData();
+                        loadDateRangeData();
                     }
                 })
                 .catch(err => {
                     console.error('Error loading coverage metadata:', err);
-                    dateSelector.innerHTML = '<option value="">Error loading dates</option>';
                 });
         }
 
-        function populateDateSelector(data) {
-            dateSelector.innerHTML = '';
+        function setupDatePickers(data) {
+            if (data.length === 0) return;
 
-            // Filter only valid status if needed, or show all with indicators
-            // data has: Date, Filename, Updated_At, Status
+            // Build set of available dates
+            availableDatesSet.clear();
+            data.forEach(row => availableDatesSet.add(row.Date));
 
-            data.forEach(row => {
-                const option = document.createElement('option');
-                option.value = row.Filename;
-                const statusIndicator = row.Status === 'OK' ? '✓' : (row.Status === 'NOT OK' ? '✗' : '?');
-                option.textContent = `${row.Date} (${statusIndicator})`;
-                dateSelector.appendChild(option);
-            });
+            // Get min and max dates (data is sorted newest first)
+            const dates = data.map(row => row.Date).sort();
+            const minDate = dates[0];
+            const maxDate = dates[dates.length - 1];
 
-            if (data.length === 0) {
-                const option = document.createElement('option');
-                option.textContent = "No data available";
-                dateSelector.appendChild(option);
-            }
+            // Set date picker constraints
+            fromDatePicker.min = minDate;
+            fromDatePicker.max = maxDate;
+            toDatePicker.min = minDate;
+            toDatePicker.max = maxDate;
+
+            // Default to most recent date for both
+            fromDatePicker.value = maxDate;
+            toDatePicker.value = maxDate;
         }
 
-        viewDataBtn.addEventListener('click', loadDailyData);
+        viewDataBtn.addEventListener('click', loadDateRangeData);
 
-        function loadDailyData() {
-            const filename = dateSelector.value;
-            if (!filename) return;
+        async function loadDateRangeData() {
+            const fromDate = fromDatePicker.value;
+            const toDate = toDatePicker.value;
+
+            if (!fromDate || !toDate) return;
 
             // Stop any current animation
             if (isPlaying) togglePlay();
 
-            fetch(`https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/csv/${filename}`)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Data file ${filename} not found`);
-                    return response.text();
-                })
-                .then(text => {
+            // Get all files between from and to (inclusive)
+            const startDate = fromDate <= toDate ? fromDate : toDate;
+            const endDate = fromDate <= toDate ? toDate : fromDate;
+
+            // Filter available files that fall within the date range
+            const filesToLoad = availableFiles
+                .filter(row => row.Date >= startDate && row.Date <= endDate)
+                .map(row => row.Filename);
+
+            console.log(`Loading ${filesToLoad.length} file(s):`, filesToLoad);
+
+            try {
+                const allData = [];
+                for (const filename of filesToLoad) {
+                    const response = await fetch(`https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/csv/${filename}`);
+                    if (!response.ok) {
+                        console.warn(`Data file ${filename} not found, skipping`);
+                        continue;
+                    }
+                    const text = await response.text();
                     const rawData = d3.csvParse(text);
-                    processCsvToAnimationData(rawData);
-                })
-                .catch(err => console.error('Error loading daily data:', err));
+                    allData.push(...rawData);
+                }
+                processCsvToAnimationData(allData);
+            } catch (err) {
+                console.error('Error loading date range data:', err);
+            }
         }
 
         function processCsvToAnimationData(rawData) {
@@ -246,7 +271,8 @@
             const stepsMap = new Map();
 
             rawData.forEach(row => {
-                const time = new Date(row.Timestamp + '+05:30').getTime();
+                // Parse timestamp directly - it already includes timezone info (Z for UTC)
+                const time = new Date(row.Timestamp).getTime();
                 if (isNaN(time)) return;
 
                 if (!stepsMap.has(time)) {
@@ -271,9 +297,14 @@
                 vehicles: stepsMap.get(time)
             }));
 
+            // Derive date range from actual data timestamps
+            const dataStartDate = steps.length > 0 ? new Date(steps[0].time).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }) : '';
+            const dataEndDate = steps.length > 0 ? new Date(steps[steps.length - 1].time).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }) : '';
+            const dateLabel = dataStartDate === dataEndDate ? dataStartDate : `${dataStartDate} to ${dataEndDate}`;
+
             animationData = {
                 steps: steps,
-                date: dateSelector.options[dateSelector.selectedIndex]?.text.split(' ')[0] || 'Unknown'
+                date: dateLabel || fromDatePicker.value || 'Unknown'
             };
 
             preprocessPaths();
@@ -559,6 +590,8 @@
             const date = new Date(timestamp);
             // Convert to IST
             timeDisplay.textContent = date.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: false });
+            // Update date display to show current date from slider
+            dateDisplay.textContent = date.toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }); // YYYY-MM-DD format
         }
 
         function togglePlay() {
