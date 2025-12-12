@@ -14,45 +14,58 @@ jobs:
       contents: write     # Need write permission to update the cached file
     
     steps:
-      - name: Checkout repository
+      - name: Checkout code branch
         uses: actions/checkout@v3
         with:
-          ref: data
+          ref: code
+          fetch-depth: 0  # Fetch all history so we can access other branches
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Test API connectivity
         run: npm test
-      
+
+      - name: Checkout data branch for data directory
+        run: |
+          git fetch origin data
+          git checkout origin/data -- data/ || mkdir -p data
+
       - name: Fetch and process API data
         run: npm start
-      
+
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-      
-      - name: Commit and push changes
+
+      - name: Commit and push changes to data branch
         run: |
           # Get today's date in YYYYMMDD format
           TODAY=$(date '+%Y%m%d')
           GPX_FILE="data/goa-fire-trucks-gpx-${TODAY}.geojson"
-          
+
           # First check if any files changed
           if git status -s | grep -q "data/"; then
+            # Switch to data branch
+            git fetch origin data
+            git checkout data
+
+            # Copy the updated data files from our working directory
+            git checkout code -- data/
+
             # Add both the main data file and the daily GPX track file
             git add data/goa-fire-trucks.geojson "$GPX_FILE"
-            
+
             # Commit and push the changes
             git commit -m "Refresh fire truck data and track history [skip ci]"
-            git push
+            git push origin data
           else
             echo "No changes detected in data files"
           fi 
