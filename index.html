@@ -175,7 +175,7 @@
         });
 
         function loadCoverageMetadata() {
-            fetch('data/coverage.csv')
+            fetch('https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/coverage.csv')
                 .then(response => {
                     if (!response.ok) throw new Error("Coverage file not found");
                     return response.text();
@@ -227,7 +227,7 @@
             // Stop any current animation
             if (isPlaying) togglePlay();
 
-            fetch(`data/csv/${filename}`)
+            fetch(`https://raw.githubusercontent.com/publicmap/goa-fire-trucks-geojson/refs/heads/data/data/csv/${filename}`)
                 .then(response => {
                     if (!response.ok) throw new Error(`Data file ${filename} not found`);
                     return response.text();
@@ -246,7 +246,7 @@
             const stepsMap = new Map();
 
             rawData.forEach(row => {
-                const time = new Date(row.Timestamp).getTime();
+                const time = new Date(row.Timestamp + '+05:30').getTime();
                 if (isNaN(time)) return;
 
                 if (!stepsMap.has(time)) {

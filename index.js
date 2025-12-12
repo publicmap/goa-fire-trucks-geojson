@@ -10,7 +10,7 @@ import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { format } from 'date-fns';
+import { format, add } from 'date-fns';
 
 // Get current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -26,7 +26,8 @@ const OUTPUT_FILE = path.join(__dirname, 'data/goa-fire-trucks.geojson');
 const CACHE_DIRECTORY = path.dirname(OUTPUT_FILE);
 const DEBUG_LOG_FILE = path.join(__dirname, 'debug-log.txt');
 const GPX_DIRECTORY = path.join(__dirname, 'data');
-const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
+// Initialized in separate function now to use IST
+// const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
 
 // Create HTTPS agent that allows IP addresses (for APIs that use IP instead of domain)
 // This is necessary because SSL certificates are typically issued for domain names, not IPs
@@ -43,9 +44,38 @@ if (!fs.existsSync(CACHE_DIRECTORY)) {
   fs.mkdirSync(CACHE_DIRECTORY, { recursive: true });
 }
 
+// Helper: Get IST Date Object (UTC+5:30)
+// Warning: This creates a Date object that LOOKS like local time but is technically
+// still holding the shifted time value relative to UTC.
+function getISTDate(dateInput = new Date()) {
+  // IST is UTC + 5:30
+  // We add the offset to the input UTC time to get a date object 
+  // where getUTCHours() etc. returns IST values.
+  return add(dateInput, { hours: 5, minutes: 30 });
+}
+
+function getISTISOString(dateInput = new Date()) {
+  const istDate = getISTDate(dateInput);
+  // toISOString returns something like 2023-12-12T10:00:00.000Z
+  // Since we shifted the time by +5:30, the "UTC" parts of this string are actually IST time.
+  // We remove the 'Z' and do NOT add the offset, as requested for compact format.
+  // Result: "2023-12-12T15:30:00.000"
+  return istDate.toISOString().replace('Z', '');
+}
+
+function getISTDayString() {
+  // Returns YYYYMMDD in IST
+  const istDate = getISTDate();
+  const iso = istDate.toISOString();
+  // We want 20231212
+  return iso.substring(0, 4) + iso.substring(5, 7) + iso.substring(8, 10);
+}
+
+const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
+
 // Helper function to log debug information
 function debugLog(message, data = null) {
-  const timestamp = new Date().toISOString();
+  const timestamp = getISTISOString();
   let logMessage = `[${timestamp}] ${message}\n`;
 
   if (data) {
@@ -255,8 +285,8 @@ function rowsToGeoJSON(rows) {
 // Add a new function for managing daily GPX tracks
 function updateDailyGpxTracks(trucks) {
   try {
-    // Generate today's date in YYYYMMDD format
-    const today = format(new Date(), 'yyyyMMdd');
+    // Generate today's date in YYYYMMDD format (IST)
+    const today = getISTDayString();
     const gpxFilePath = path.join(GPX_DIRECTORY, getGpxFilename(today));
 
     // Initialize tracks object - either from existing file or new
@@ -294,7 +324,8 @@ function updateDailyGpxTracks(trucks) {
     // Update tracks for each truck
     trucks.forEach(truck => {
       const vehicleId = truck.Vehicle_No;
-      const timestamp = truck.Datetime || new Date().toISOString();
+      // Use IST timestamp for created/updated fields if available, otherwise current IST time
+      const timestamp = truck.Datetime || getISTISOString();
       const coords = [parseFloat(truck.Longitude), parseFloat(truck.Latitude)];
 
       if (!vehicleId || !isValidCoordinate(coords[0]) || !isValidCoordinate(coords[1])) {
@@ -340,7 +371,7 @@ function updateDailyGpxTracks(trucks) {
     });
 
     // Update the metadata
-    tracksGeoJson.metadata.lastUpdated = new Date().toISOString();
+    tracksGeoJson.metadata.lastUpdated = getISTISOString();
     tracksGeoJson.metadata.count = tracksGeoJson.features.length;
 
     // Write the updated file
@@ -570,7 +601,7 @@ export async function fetchAndCacheData() {
     const result = {
       type: 'FeatureCollection',
       metadata: {
-        timestamp: new Date().toISOString(),
+        timestamp: getISTISOString(),
         source: 'Directorate of Fire Emergency Services, Govt. of Goa',
         count: validRows.length
       },
@@ -641,7 +672,7 @@ function updateDailyCsvLog(trucks) {
       fs.mkdirSync(CSV_DIRECTORY, { recursive: true });
     }
 
-    const today = format(new Date(), 'yyyyMMdd');
+    const today = getISTDayString();
     const csvFilename = `goa-fire-trucks-${today}.csv`;
     const csvFilePath = path.join(CSV_DIRECTORY, csvFilename);
 
@@ -654,7 +685,7 @@ function updateDailyCsvLog(trucks) {
       fs.writeFileSync(csvFilePath, headers.join(',') + '\n');
     }
 
-    const timestamp = new Date().toISOString();
+    const timestamp = getISTISOString();
 
     const newLines = trucks.map(truck => {
       const row = [
@@ -705,7 +736,7 @@ function updateCoverageCsv(testStatus) {
 
       const filePath = path.join(CSV_DIRECTORY, filename);
       const stats = fs.statSync(filePath);
-      const updatedAt = stats.mtime.toISOString();
+      const updatedAt = getISTISOString(stats.mtime);
 
       // Determine status for this specific file.
       // If it's today's file, we use the passed testStatus (which reflects current run).
@@ -721,7 +752,7 @@ function updateCoverageCsv(testStatus) {
       // If test failed, TODAY is NOT OK.
 
       let status = 'UNKNOWN';
-      const todayStr = format(new Date(), 'yyyyMMdd');
+      const todayStr = getISTDayString();
 
       if (dateStr === todayStr) {
         status = testStatus;
