@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fire Truck Movement Replay</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Slider container to hold input and ticks */
+        .slider-container {
+            flex-grow: 1;
+            position: relative;
+            height: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #slider {
+            width: 100%;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            /* Above ticks */
+            background: transparent;
+        }
+
+        /* Ticks styling */
+        .ticks-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            /* Height of ticks */
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .tick {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            top: 0;
+        }
+
+        #time-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .vehicle-popup {
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="controls">
+        <div class="control-row">
+            <button id="play-pause">Play</button>
+            <div id="time-display">--:--:--</div>
+            <div class="slider-container">
+                <div id="ticks-container" class="ticks-container"></div>
+                <input type="range" id="slider" min="0" max="100" value="0" step="1">
+            </div>
+        </div>
+        <div style="font-size: 0.9em; color: #666; text-align: center;">
+            Fire Truck Movement Replay • <span id="date-display">...</span> (IST)
+        </div>
+    </div>
+
+    <script>
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGxhbmVtYWQiLCJhIjoiY2l3ZmNjNXVzMDAzZzJ0cDV6b2lkOG9odSJ9.eep6sUoBS0eMN4thZUWpyQ'; // Attempting to use a token that might work for this user based on 'arun' in path.
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12', // Standard style
+            center: [74.0, 15.4], // Goa center roughly
+            zoom: 9
+        });
+
+        let animationData = null;
+        let isPlaying = false;
+        let animationFrameId = null;
+        let lastTimestamp = 0;
+        const speedFactor = 1000; // 1s real time = 1000s sim time (approx) - will adjust
+
+        // UI Elements
+        const slider = document.getElementById('slider');
+        const timeDisplay = document.getElementById('time-display');
+        const dateDisplay = document.getElementById('date-display');
+        const playBtn = document.getElementById('play-pause');
+        const ticksContainer = document.getElementById('ticks-container');
+
+        let vehiclePaths = new Map(); // Store full path history for each vehicle
+
+        map.on('load', () => {
+            fetch('animation-data.json')
+                .then(response => response.json())
+                .then(data => {
+                    animationData = data;
+                    preprocessPaths(); // Pre-calculate paths
+                    initAnimation();
+                })
+                .catch(err => console.error('Error loading data:', err));
+        });
+
+        function preprocessPaths() {
+            if (!animationData || !animationData.steps) return;
+            vehiclePaths.clear();
+
+            // Iterate through all steps to build history
+            for (const step of animationData.steps) {
+                for (const v of step.vehicles) {
+                    if (!vehiclePaths.has(v.id)) {
+                        vehiclePaths.set(v.id, []);
+                    }
+                    vehiclePaths.get(v.id).push({
+                        time: step.time,
+                        lat: v.lat,
+                        lon: v.lon
+                    });
+                }
+            }
+        }
+
+        function initAnimation() {
+            if (!animationData || !animationData.steps || animationData.steps.length === 0) return;
+
+            if (animationData.dates && animationData.dates.length > 1) {
+                dateDisplay.textContent = `${animationData.dates[0]} to ${animationData.dates[animationData.dates.length - 1]}`;
+            } else {
+                dateDisplay.textContent = animationData.dates ? animationData.dates[0] : animationData.date;
+            }
+
+            const steps = animationData.steps;
+            const startTime = steps[0].time;
+            const endTime = steps[steps.length - 1].time;
+
+            // Setup slider
+            // We will map slider 0-1000 to startTime-endTime
+            slider.min = startTime;
+            slider.max = endTime;
+            slider.value = startTime;
+            slider.step = 1000; // 1 second steps
+
+            // Generate ticks for data points
+            ticksContainer.innerHTML = '';
+            const duration = endTime - startTime;
+            if (duration > 0) {
+                steps.forEach(step => {
+                    const pct = ((step.time - startTime) / duration) * 100;
+                    const tick = document.createElement('div');
+                    tick.className = 'tick';
+                    tick.style.left = `${pct}%`;
+                    ticksContainer.appendChild(tick);
+                });
+            }
+
+            // Add source
+            map.addSource('vehicles', {
+                type: 'geojson',
+                data: getGeoJSONForTime(startTime)
+            });
+
+            // Add trail layer (LineString) - UNDER points
+            map.addLayer({
+                id: 'vehicles-trail',
+                type: 'line',
+                source: 'vehicles',
+                filter: ['==', ['get', 'type'], 'trail'],
+                paint: {
+                    'line-color': '#007cbf',
+                    'line-width': 2,
+                    'line-opacity': 0.5
+                }
+            });
+
+            // Add point layer
+            map.addLayer({
+                id: 'vehicles-point',
+                type: 'circle',
+                source: 'vehicles',
+                filter: ['==', ['get', 'type'], 'vehicle'],
+                paint: {
+                    'circle-radius': 3,
+                    'circle-color': [
+                        'match',
+                        ['get', 'status'],
+                        'active', 'red',
+                        'inactive', '#aaa',
+                        'grey' // default
+                    ],
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#fff'
+                }
+            });
+
+            // Add labels
+            map.addLayer({
+                id: 'vehicles-label',
+                type: 'symbol',
+                source: 'vehicles',
+                filter: ['==', ['get', 'type'], 'vehicle'],
+                layout: {
+                    'text-field': ['get', 'id'],
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.2],
+                    'text-anchor': 'top',
+                    'text-size': 8
+                },
+                paint: {
+                    'text-color': 'red',
+                    'text-halo-color': '#fff',
+                    'text-halo-width': 2
+                }
+            });
+
+            // Update initial time
+            updateTimeDisplay(startTime);
+
+            // Fit bounds
+            const bounds = new mapboxgl.LngLatBounds();
+            steps.forEach(step => {
+                step.vehicles.forEach(v => {
+                    bounds.extend([v.lon, v.lat]);
+                });
+            });
+            if (!bounds.isEmpty()) {
+                map.fitBounds(bounds, { padding: 50 });
+            }
+
+            // Event listeners
+            slider.addEventListener('input', (e) => {
+                const t = parseInt(e.target.value);
+                updateMap(t);
+            });
+
+            playBtn.addEventListener('click', togglePlay);
+        }
+
+        function getGeoJSONForTime(timestamp) {
+            const steps = animationData.steps;
+
+            let idx = steps.findIndex(s => s.time > timestamp);
+            if (idx === -1) idx = steps.length;
+
+            const nextStep = steps[idx];
+            const prevStep = steps[idx - 1];
+
+            let activeVehicles = [];
+
+            // Case 1: Before first step
+            if (!prevStep) {
+                // Just return starting positions, no trails? Or empty?
+                // Return start positions
+                activeVehicles = steps[0].vehicles;
+            }
+            // Case 2: After last step
+            else if (!nextStep) {
+                activeVehicles = prevStep.vehicles;
+            }
+            // Case 3: Interpolating
+            else {
+                const progress = (timestamp - prevStep.time) / (nextStep.time - prevStep.time);
+
+                const vehicleMap = new Map();
+                prevStep.vehicles.forEach(v => vehicleMap.set(v.id, { ...v }));
+
+                nextStep.vehicles.forEach(nextV => {
+                    const prevV = vehicleMap.get(nextV.id);
+                    if (prevV) {
+                        // Interpolate
+                        const lat = prevV.lat + (nextV.lat - prevV.lat) * progress;
+                        const lon = prevV.lon + (nextV.lon - prevV.lon) * progress;
+                        activeVehicles.push({
+                            ...nextV,
+                            lat,
+                            lon
+                        });
+                    } else {
+                        // Vehicle newly appeared
+                        activeVehicles.push(nextV);
+                    }
+                });
+            }
+
+            // Create Features: Points + Trails
+            const features = [];
+
+            activeVehicles.forEach(v => {
+                // Point Feature
+                features.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [v.lon, v.lat]
+                    },
+                    properties: {
+                        type: 'vehicle', // Distinction for filter
+                        id: v.id,
+                        name: v.name,
+                        status: v.status,
+                        branch: v.branch
+                    }
+                });
+
+                // Trail Feature
+                const path = vehiclePaths.get(v.id);
+                if (path) {
+                    // Get all historical points <= current timestamp
+                    const history = path.filter(p => p.time <= timestamp).map(p => [p.lon, p.lat]);
+
+                    // Always add the current (interpolated) position as the last point
+                    history.push([v.lon, v.lat]);
+
+                    if (history.length > 1) {
+                        features.push({
+                            type: 'Feature',
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: history
+                            },
+                            properties: {
+                                type: 'trail',
+                                id: v.id
+                            }
+                        });
+                    }
+                }
+            });
+
+            return {
+                type: 'FeatureCollection',
+                features: features
+            };
+        }
+
+        // createGeoJSON helper is removed as it's merged into getGeoJSONForTime logic
+
+        function updateMap(timestamp) {
+            updateTimeDisplay(timestamp);
+            const geojson = getGeoJSONForTime(timestamp);
+            const source = map.getSource('vehicles');
+            if (source) {
+                source.setData(geojson);
+            }
+        }
+
+        function updateTimeDisplay(timestamp) {
+            const date = new Date(timestamp);
+            // Convert to IST
+            timeDisplay.textContent = date.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: false });
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            playBtn.textContent = isPlaying ? 'Pause' : 'Play';
+            if (isPlaying) {
+                lastTimestamp = performance.now();
+                requestAnimationFrame(animate);
+            }
+        }
+
+        function animate(now) {
+            if (!isPlaying) return;
+
+            // Advance time
+            // let's define speed: 10 minutes per second? 
+            // 1 day = 1440 mins. Reading 10 mins/sec => 144 secs (2.4 mins) for full day. Good.
+            // 10 mins = 600,000 ms. 
+            // delta * factor
+            // let's try 1 real sec = 15 mins (900s)
+            const speed = 900 * 1000; // ms per real second (so 1 real sec adds 900000 ms to sim time)
+
+            const dt = (now - lastTimestamp) / 1000; // delta in seconds
+            lastTimestamp = now;
+
+            let currentTime = parseInt(slider.value);
+            currentTime += dt * speed;
+
+            if (currentTime > parseInt(slider.max)) {
+                currentTime = parseInt(slider.min); // Loop or stop? Loop for now
+                // isPlaying = false;
+                // playBtn.textContent = 'Play';
+                // return;
+            }
+
+            slider.value = currentTime;
+            updateMap(currentTime);
+
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+
+</html>
