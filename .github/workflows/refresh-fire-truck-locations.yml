@@ -74,4 +74,11 @@ jobs:
             git push origin data
           else
             echo "No changes detected in data files"
-          fi 
+          fi
+
+      - name: Verify data branch update with API test
+        if: success()
+        run: |
+          # Switch back to code branch to run test
+          git checkout code
+          npm test
