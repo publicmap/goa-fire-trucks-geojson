@@ -4,7 +4,8 @@
   "description": "Caching system for Goa Fire Department GPS API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node test_api.js"
   },
   "dependencies": {
     "csv-parse": "^5.3.5",
