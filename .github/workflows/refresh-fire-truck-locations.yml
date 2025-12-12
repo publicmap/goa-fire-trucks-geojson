@@ -63,10 +63,17 @@ jobs:
 
           # First check if any files changed
           if git status -s | grep -q "data/"; then
+            # IMPORTANT: Save the generated data files before switching branches
+            # The checkout will discard uncommitted changes, so we need to preserve them
+            mkdir -p /tmp/data-backup/csv
+            cp -r data/* /tmp/data-backup/
+
             # Switch to data branch
             git fetch origin data
             git checkout -B data origin/data
 
+            # Restore the generated data files
+            cp -r /tmp/data-backup/* data/
 
             # Add both the main data file and the daily GPX track file
             git add data/goa-fire-trucks.geojson "$GPX_FILE" "$CSV_FILE" "$COVERAGE_FILE"
