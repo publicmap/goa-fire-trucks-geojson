@@ -64,8 +64,6 @@ jobs:
             git fetch origin data
             git checkout -B data origin/data
 
-            # Copy the updated data files from our working directory
-            git checkout code -- data/
 
             # Add both the main data file and the daily GPX track file
             git add data/goa-fire-trucks.geojson "$GPX_FILE" "$CSV_FILE" "$COVERAGE_FILE"
