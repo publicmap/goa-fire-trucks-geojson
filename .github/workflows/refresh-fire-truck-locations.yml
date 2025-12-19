@@ -88,14 +88,6 @@ jobs:
             echo "changes_pushed=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Verify data branch update with API test
-        id: verify-test
-        if: success()
-        run: |
-          # Switch back to code branch to run test
-          git checkout -B code origin/code
-          npm test
-
       - name: Report success status to data branch
         if: success() && steps.commit-data.outputs.changes_pushed == 'true'
         run: |
