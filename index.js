@@ -1,6 +1,6 @@
 /**
  * Fire Truck API Cache Script
- * 
+ *
  * This script fetches data from the Goa Fire Department GPS API
  * and saves it to a cached JSON file that can be served via GitHub Pages.
  */
@@ -9,8 +9,7 @@ import fetch from 'node-fetch';
 import https from 'https';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { format, add } from 'date-fns';
+import {fileURLToPath} from 'url';
 
 // Get current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -22,56 +21,39 @@ const API_USERNAME = 'cnt-fire.goa@nic.in';
 const API_PASSWORD = 'cnt@123';
 const API_COMPANY_NAME = 'Directorate of Fire Emergency Services';
 const API_PROJECT_ID = 37;
-const OUTPUT_FILE = path.join(__dirname, 'data/goa-fire-trucks.geojson');
-const CACHE_DIRECTORY = path.dirname(OUTPUT_FILE);
-const DEBUG_LOG_FILE = path.join(__dirname, 'debug-log.txt');
-const GPX_DIRECTORY = path.join(__dirname, 'data');
-// Initialized in separate function now to use IST
-// const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
+
+const DIRECTORY_CACHE = path.dirname(__dirname, 'data');
+const DIRECTORY_CSV = path.join(__dirname, 'data/csv');
+const FILE_DEBUG_LOG = path.join(__dirname, 'debug-log.txt');
+const FILE_COVERAGE = path.join(__dirname, 'data/coverage.csv');
+const FILE_OUTPUT_JSON = path.join(__dirname, 'data/goa-fire-trucks.geojson');
 
 // Create HTTPS agent that allows IP addresses (for APIs that use IP instead of domain)
 // This is necessary because SSL certificates are typically issued for domain names, not IPs
-const httpsAgent = new https.Agent({
-  rejectUnauthorized: false, // Allow self-signed or IP-based certificates
-  // Note: This is a security consideration, but necessary for IP-based APIs
-});
+const httpsAgent = new https.Agent({rejectUnauthorized: false,});
 
-// Export parsed data for track creation
-export let parsedFireTrucks = [];
-
-// Make sure the cache directory exists
-if (!fs.existsSync(CACHE_DIRECTORY)) {
-  fs.mkdirSync(CACHE_DIRECTORY, { recursive: true });
-}
-
-// Helper: Get IST Date Object (UTC+5:30)
-// Warning: This creates a Date object that LOOKS like local time but is technically
-// still holding the shifted time value relative to UTC.
-function getISTDate(dateInput = new Date()) {
-  // IST is UTC + 5:30
-  // We add the offset to the input UTC time to get a date object 
-  // where getUTCHours() etc. returns IST values.
-  return add(dateInput, { hours: 5, minutes: 30 });
-}
-
-function getISTISOString(dateInput = new Date()) {
-  const istDate = getISTDate(dateInput);
-  // toISOString returns something like 2023-12-12T10:00:00.000Z
-  // Since we shifted the time by +5:30, the "UTC" parts of this string are actually IST time.
-  // We remove the 'Z' and do NOT add the offset, as requested for compact format.
-  // Result: "2023-12-12T15:30:00.000"
-  return istDate.toISOString().replace('Z', '');
+function getISTISOString() {
+  const date = new Date();
+  return date.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
 }
 
 function getISTDayString() {
-  // Returns YYYYMMDD in IST
-  const istDate = getISTDate();
-  const iso = istDate.toISOString();
-  // We want 20231212
-  return iso.substring(0, 4) + iso.substring(5, 7) + iso.substring(8, 10);
+  const date = new Date();
+  return date.toLocaleDateString('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).replace(/-/g, '');
 }
-
-const getGpxFilename = (date) => `goa-fire-trucks-gpx-${date}.geojson`;
 
 // Helper function to log debug information
 function debugLog(message, data = null) {
@@ -84,157 +66,7 @@ function debugLog(message, data = null) {
   }
 
   console.log(message);
-  fs.appendFileSync(DEBUG_LOG_FILE, logMessage);
-}
-
-// Helper function to extract coordinates using multiple strategies
-function extractCoordinates(row) {
-  debugLog('Attempting to extract coordinates using multiple strategies');
-
-  // Strategy 0: Special case handling for specific trucks from error logs
-  if (row['Vehicle_No'] === 'GA 07 G 0308-FFHQ(QUICK RESPONSE)') {
-    // Match from error log example
-    const lat = parseFloat(row['Door1'] || '15.486755');
-    const lng = parseFloat(row['Door2'] || '73.817429');
-
-    if (!isNaN(lat) && !isNaN(lng) && isValidGoaCoordinate(lat, 'lat') && isValidGoaCoordinate(lng, 'lng')) {
-      debugLog(`Using special case handling for known vehicle ${row['Vehicle_No']}: ${lat}, ${lng}`);
-      return { valid: true, lat, lng, source: 'special_case_Door1_Door2' };
-    }
-  }
-
-  if (row['Vehicle_No'] === 'GA 07 G 0350-PNJ(WATER TENDER)') {
-    // Match from error log example
-    const lat = parseFloat(row['IGN'] || '15.0236433');
-    const lng = parseFloat(row['Power'] || '74.04406');
-
-    if (!isNaN(lat) && !isNaN(lng) && isValidGoaCoordinate(lat, 'lat') && isValidGoaCoordinate(lng, 'lng')) {
-      debugLog(`Using special case handling for known vehicle ${row['Vehicle_No']}: ${lat}, ${lng}`);
-      return { valid: true, lat, lng, source: 'special_case_IGN_Power' };
-    }
-  }
-
-  // Strategy 1: Check known coordinate fields based on vehicle examples
-  // From the error logs, we know that coordinates are sometimes in Door1/Door2 or IGN/Power fields
-  if (isValidGoaCoordinate(row['Door1'], 'lat') && isValidGoaCoordinate(row['Door2'], 'lng')) {
-    const lat = parseFloat(row['Door1']);
-    const lng = parseFloat(row['Door2']);
-    debugLog(`Using Door1/Door2 coordinate fields: ${lat}, ${lng}`);
-    return {
-      valid: true,
-      lat,
-      lng,
-      source: 'Door1/Door2'
-    };
-  }
-
-  if (isValidGoaCoordinate(row['IGN'], 'lat') && isValidGoaCoordinate(row['Power'], 'lng')) {
-    const lat = parseFloat(row['IGN']);
-    const lng = parseFloat(row['Power']);
-    debugLog(`Using IGN/Power coordinate fields: ${lat}, ${lng}`);
-    return {
-      valid: true,
-      lat,
-      lng,
-      source: 'IGN/Power'
-    };
-  }
-
-  // Strategy 2: Check for coordinates in Location/POI/Datetime fields
-  // Based on the error logs, sometimes the coordinates are misplaced in these fields
-  const locationFields = ['Location', 'POI', 'Datetime', 'Latitude', 'Longitude', 'Status', 'Speed'];
-  const coordPairs = [];
-
-  // Search for coordinate pairs in the data
-  for (let i = 0; i < locationFields.length - 1; i++) {
-    const field1 = locationFields[i];
-    const field2 = locationFields[i + 1];
-
-    if (!row[field1] || !row[field2]) continue;
-
-    const val1 = parseFloat(row[field1]);
-    const val2 = parseFloat(row[field2]);
-
-    if (!isNaN(val1) && !isNaN(val2)) {
-      if (isValidGoaCoordinate(val1, 'lat') && isValidGoaCoordinate(val2, 'lng')) {
-        coordPairs.push({ lat: val1, lng: val2, source: `${field1}/${field2}` });
-      } else if (isValidGoaCoordinate(val1, 'lng') && isValidGoaCoordinate(val2, 'lat')) {
-        coordPairs.push({ lat: val2, lng: val1, source: `${field2}/${field1}` });
-      }
-    }
-  }
-
-  if (coordPairs.length > 0) {
-    const bestPair = coordPairs[0]; // Just use the first one for now
-    debugLog(`Found coordinates in unexpected fields: ${bestPair.lat}, ${bestPair.lng} (source: ${bestPair.source})`);
-    return {
-      valid: true,
-      lat: bestPair.lat,
-      lng: bestPair.lng,
-      source: bestPair.source
-    };
-  }
-
-  // Strategy 3: Find coordinates based on Goa's general coordinate range
-  // Goa, India coordinates are approximately:
-  // Latitude: 14.5 to 15.8
-  // Longitude: 73.5 to 74.5
-  let bestLat = null;
-  let bestLng = null;
-  let latConfidence = 0;
-  let lngConfidence = 0;
-  let latField = '';
-  let lngField = '';
-
-  // Check all fields for potential coordinates
-  for (const [field, value] of Object.entries(row)) {
-    if (!value) continue;
-
-    // Try to handle comma-formatted numbers (e.g., "15,486755" instead of "15.486755")
-    const cleanValue = value.toString().replace(',', '.');
-    const num = parseFloat(cleanValue);
-    if (isNaN(num)) continue;
-
-    // Check for latitude (in Goa range)
-    if (isValidGoaCoordinate(num, 'lat')) {
-      const confidence = field.toLowerCase().includes('lat') ? 10 :
-        (field === 'IGN' || field === 'Door1') ? 8 : 5;
-
-      if (confidence > latConfidence) {
-        bestLat = num;
-        latConfidence = confidence;
-        latField = field;
-        debugLog(`Found likely latitude in '${field}': ${bestLat} (confidence: ${latConfidence})`);
-      }
-    }
-
-    // Check for longitude (in Goa range)
-    if (isValidGoaCoordinate(num, 'lng')) {
-      const confidence = field.toLowerCase().includes('lon') ? 10 :
-        (field === 'Power' || field === 'Door2') ? 8 : 5;
-
-      if (confidence > lngConfidence) {
-        bestLng = num;
-        lngConfidence = confidence;
-        lngField = field;
-        debugLog(`Found likely longitude in '${field}': ${bestLng} (confidence: ${lngConfidence})`);
-      }
-    }
-  }
-
-  if (bestLat !== null && bestLng !== null) {
-    debugLog(`Found coordinates using geography-based detection: ${bestLat}, ${bestLng} (fields: ${latField}/${lngField})`);
-    return {
-      valid: true,
-      lat: bestLat,
-      lng: bestLng,
-      source: `${latField}/${lngField}`
-    };
-  }
-
-  // No valid coordinates found
-  debugLog('Failed to extract coordinates using any strategy');
-  return { valid: false };
+  fs.appendFileSync(FILE_DEBUG_LOG, logMessage);
 }
 
 // Helper to check if a value could be a valid Goa coordinate
@@ -264,36 +96,17 @@ function isValidGoaCoordinate(value, type) {
   }
 }
 
-// Convert rows to GeoJSON format
-function rowsToGeoJSON(rows) {
-  return {
-    type: 'FeatureCollection',
-    features: rows.map(row => {
-      const { Latitude, Longitude, ...properties } = row;
-      return {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [Longitude, Latitude]
-        },
-        properties
-      };
-    })
-  };
-}
-
 // Add a new function for managing daily GPX tracks
 function updateDailyGpxTracks(trucks) {
   try {
     // Generate today's date in YYYYMMDD format (IST)
-    const today = getISTDayString();
-    const gpxFilePath = path.join(GPX_DIRECTORY, getGpxFilename(today));
+    const gpxFilePath = path.join(DIRECTORY_CACHE, `goa-fire-trucks-gpx-${(getISTDayString())}.geojson`);
 
     // Initialize tracks object - either from existing file or new
     let tracksGeoJson = {
       type: 'FeatureCollection',
       metadata: {
-        date: today,
+        date: getISTDayString(),
         source: 'Directorate of Fire Emergency Services, Govt. of Goa',
         description: 'Daily GPS tracks of fire trucks'
       },
@@ -305,12 +118,12 @@ function updateDailyGpxTracks(trucks) {
       try {
         const existingContent = fs.readFileSync(gpxFilePath, 'utf8');
         tracksGeoJson = JSON.parse(existingContent);
-        debugLog(`Loaded existing GPX tracks file for ${today}`);
+        debugLog(`Loaded existing GPX tracks file for ${(getISTDayString())}`);
       } catch (err) {
         debugLog(`Error reading existing GPX file, will create new: ${err.message}`);
       }
     } else {
-      debugLog(`Creating new GPX tracks file for ${today}`);
+      debugLog(`Creating new GPX tracks file for ${(getISTDayString())}`);
     }
 
     // Create map of vehicle IDs to existing track features
@@ -328,7 +141,7 @@ function updateDailyGpxTracks(trucks) {
       const timestamp = truck.Datetime || getISTISOString();
       const coords = [parseFloat(truck.Longitude), parseFloat(truck.Latitude)];
 
-      if (!vehicleId || !isValidCoordinate(coords[0]) || !isValidCoordinate(coords[1])) {
+      if (!vehicleId || !isValidGoaCoordinate(coords[0]) || !isValidGoaCoordinate(coords[1])) {
         debugLog(`Skipping GPX update for vehicle with invalid data: ${vehicleId || 'unknown'}`);
         return;
       }
@@ -385,151 +198,134 @@ function updateDailyGpxTracks(trucks) {
   }
 }
 
-// Helper function to validate coordinate
-function isValidCoordinate(value) {
-  return typeof value === 'number' && !isNaN(value) && isFinite(value);
-}
-
 // Step 1: Generate access token
 async function generateAccessToken() {
-  try {
-    debugLog('Step 1: Generating access token...');
-    const tokenUrl = `${API_BASE_URL}?token=generateAccessToken`;
+  debugLog('Step 1: Generating access token...');
+  const tokenUrl = `${API_BASE_URL}?token=generateAccessToken`;
 
-    // Try different field name variations
-    const requestVariations = [
-      { Username: API_USERNAME, password: API_PASSWORD },
-      { username: API_USERNAME, password: API_PASSWORD },
-      { Username: API_USERNAME, Password: API_PASSWORD },
-      { username: API_USERNAME, Password: API_PASSWORD },
-      { user: API_USERNAME, pass: API_PASSWORD },
-      { User: API_USERNAME, Pass: API_PASSWORD }
-    ];
+  // Try different field name variations
+  const requestVariations = [
+    {Username: API_USERNAME, password: API_PASSWORD},
+    {username: API_USERNAME, password: API_PASSWORD},
+    {Username: API_USERNAME, Password: API_PASSWORD},
+    {username: API_USERNAME, Password: API_PASSWORD},
+    {user: API_USERNAME, pass: API_PASSWORD},
+    {User: API_USERNAME, Pass: API_PASSWORD}
+  ];
 
-    for (let i = 0; i < requestVariations.length; i++) {
-      const requestBody = requestVariations[i];
-      debugLog(`Attempt ${i + 1}: Token URL: ${tokenUrl}`);
-      debugLog(`Request body: ${JSON.stringify(requestBody)}`);
+  for (let i = 0; i < requestVariations.length; i++) {
+    const requestBody = requestVariations[i];
+    debugLog(`Attempt ${i + 1}: Token URL: ${tokenUrl}`);
+    debugLog(`Request body: ${JSON.stringify(requestBody)}`);
 
-      const response = await fetch(tokenUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-        agent: httpsAgent
-      });
+    const response = await fetch(tokenUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+      agent: httpsAgent
+    });
 
-      debugLog(`Token generation response status: ${response.status}`);
+    debugLog(`Token generation response status: ${response.status}`);
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        debugLog(`HTTP error: ${errorText}`);
-        if (i < requestVariations.length - 1) {
-          debugLog(`Trying next variation...`);
-          continue;
-        }
-        throw new Error(`Token generation failed with status ${response.status}: ${errorText}`);
+    if (!response.ok) {
+      const errorText = await response.text();
+      debugLog(`HTTP error: ${errorText}`);
+      if (i < requestVariations.length - 1) {
+        debugLog(`Trying next variation...`);
+        continue;
       }
-
-      const tokenData = await response.json();
-      debugLog(`Full token response: ${JSON.stringify(tokenData)}`);
-
-      // Check for error response format (result: 0 indicates error)
-      if (tokenData.result === 0 || tokenData.result === '0') {
-        const errorMsg = tokenData.message || 'Unknown server error';
-        if (i < requestVariations.length - 1) {
-          debugLog(`Server error with this variation, trying next: ${errorMsg}`);
-          continue;
-        }
-        throw new Error(`Server returned error: ${errorMsg}`);
-      }
-
-      // Extract token from response
-      // The token might be in different formats, check common fields
-      let token = tokenData.token || tokenData.Token || tokenData.access_token || tokenData.accessToken;
-
-      // Also check if result contains the token (some APIs return result: 1 with token in data)
-      if (!token && tokenData.data) {
-        token = tokenData.data.token || tokenData.data.Token || tokenData.data;
-      }
-
-      if (!token && typeof tokenData === 'string') {
-        token = tokenData;
-      }
-
-      // Check if result is success (1) and token is in a different field
-      if (!token && (tokenData.result === 1 || tokenData.result === '1')) {
-        // Try to find token in any field
-        for (const [key, value] of Object.entries(tokenData)) {
-          if (key !== 'result' && key !== 'message' && value && typeof value === 'string') {
-            token = value;
-            debugLog(`Found token in field '${key}'`);
-            break;
-          }
-        }
-      }
-
-      if (!token) {
-        if (i < requestVariations.length - 1) {
-          debugLog(`Token not found in response, trying next variation...`);
-          continue;
-        }
-        throw new Error(`Token not found in response. Response: ${JSON.stringify(tokenData)}`);
-      }
-
-      debugLog('Access token generated successfully');
-      return token;
+      throw new Error(`Token generation failed with status ${response.status}: ${errorText}`);
     }
 
-    // If we get here, all variations failed
-    throw new Error('All authentication attempts failed. Please check credentials and API documentation.');
-  } catch (error) {
-    debugLog(`ERROR generating access token: ${error.message}`, error.stack);
-    throw error;
+    const tokenData = await response.json();
+    debugLog(`Full token response: ${JSON.stringify(tokenData)}`);
+
+    // Check for error response format (result: 0 indicates error)
+    if (tokenData.result === 0 || tokenData.result === '0') {
+      const errorMsg = tokenData.message || 'Unknown server error';
+      if (i < requestVariations.length - 1) {
+        debugLog(`Server error with this variation, trying next: ${errorMsg}`);
+        continue;
+      }
+      throw new Error(`Server returned error: ${errorMsg}`);
+    }
+
+    // Extract token from response
+    // The token might be in different formats, check common fields
+    let token = tokenData.token || tokenData.Token || tokenData.access_token || tokenData.accessToken;
+
+    // Also check if result contains the token (some APIs return result: 1 with token in data)
+    if (!token && tokenData.data) {
+      token = tokenData.data.token || tokenData.data.Token || tokenData.data;
+    }
+
+    if (!token && typeof tokenData === 'string') {
+      token = tokenData;
+    }
+
+    // Check if result is success (1) and token is in a different field
+    if (!token && (tokenData.result === 1 || tokenData.result === '1')) {
+      // Try to find token in any field
+      for (const [key, value] of Object.entries(tokenData)) {
+        if (key !== 'result' && key !== 'message' && value && typeof value === 'string') {
+          token = value;
+          debugLog(`Found token in field '${key}'`);
+          break;
+        }
+      }
+    }
+
+    if (!token) {
+      if (i < requestVariations.length - 1) {
+        debugLog(`Token not found in response, trying next variation...`);
+        continue;
+      }
+      throw new Error(`Token not found in response. Response: ${JSON.stringify(tokenData)}`);
+    }
+
+    debugLog('Access token generated successfully');
+    return token;
   }
+
+  // If we get here, all variations failed
+  throw new Error('All authentication attempts failed. Please check credentials and API documentation.');
 }
 
 // Step 2: Fetch live data using the access token
 async function fetchLiveData(authToken) {
-  try {
-    debugLog('Step 2: Fetching live data with access token...');
-    const dataUrl = `${API_BASE_URL}?token=getTokenBaseLiveData&ProjectId=${API_PROJECT_ID}`;
+  debugLog('Step 2: Fetching live data with access token...');
+  const dataUrl = `${API_BASE_URL}?token=getTokenBaseLiveData&ProjectId=${API_PROJECT_ID}`;
 
-    const response = await fetch(dataUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-code': authToken
-      },
-      body: JSON.stringify({
-        company_names: API_COMPANY_NAME,
-        format: 'json'
-        // Note: vehicle_nos and imei_nos can be added here if needed for specific vehicles
-        // For now, we're fetching all vehicles for the company
-      }),
-      agent: httpsAgent
-    });
+  const response = await fetch(dataUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'auth-code': authToken
+    },
+    body: JSON.stringify({
+      company_names: API_COMPANY_NAME,
+      format: 'json'
+    }),
+    agent: httpsAgent
+  });
 
-    debugLog(`Live data response status: ${response.status}`);
+  debugLog(`Live data response status: ${response.status}`);
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Live data fetch failed with status ${response.status}: ${errorText}`);
-    }
-
-    const jsonData = await response.json();
-    debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 200)}...`);
-
-    return jsonData;
-  } catch (error) {
-    debugLog(`ERROR fetching live data: ${error.message}`, error.stack);
-    throw error;
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Live data fetch failed with status ${response.status}: ${errorText}`);
   }
+
+  const jsonData = await response.json();
+  debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 200)}...`);
+
+  return jsonData;
 }
 
 // Main function to fetch and cache data
-export async function fetchAndCacheData() {
+async function fetchAndCacheData() {
   try {
     debugLog('Starting data fetch process');
 
@@ -557,9 +353,6 @@ export async function fetchAndCacheData() {
       debugLog('Full JSON response:', JSON.stringify(jsonData));
     }
 
-    // Save parsed data for other modules
-    parsedFireTrucks = rows;
-
     // Process each row to ensure coordinates are properly formatted
     rows.forEach(row => {
       // Ensure latitude and longitude are numeric
@@ -585,7 +378,7 @@ export async function fetchAndCacheData() {
     const geojson = {
       type: 'FeatureCollection',
       features: validRows.map(row => {
-        const { Latitude, Longitude, ...properties } = row;
+        const {Latitude, Longitude, ...properties} = row;
         return {
           type: 'Feature',
           geometry: {
@@ -609,8 +402,8 @@ export async function fetchAndCacheData() {
     };
 
     // Save to file
-    debugLog(`Saving data to ${OUTPUT_FILE}...`);
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
+    debugLog(`Saving data to ${FILE_OUTPUT_JSON}...`);
+    fs.writeFileSync(FILE_OUTPUT_JSON, JSON.stringify(result, null, 2));
     debugLog('Fire truck data cached successfully!');
 
     // Update daily GPX tracks
@@ -642,18 +435,14 @@ export async function fetchAndCacheData() {
     // Even on error, we might want to update coverage if we can
     // timestamp is now
     // status is 'ERROR'
-    // But we might typically want to do this only if we have a file to report on. 
+    // But we might typically want to do this only if we have a file to report on.
     // For now, let's leave it as is, or maybe update coverage with FAILING status?
-    // Let's stick to the plan: if simple fetch fails, we exit(1). 
+    // Let's stick to the plan: if simple fetch fails, we exit(1).
     // The workflow can handle "NOT OK" if we want, but here we crash.
 
     process.exit(1);
   }
 }
-
-// CONSTANTS FOR CSV
-const CSV_DIRECTORY = path.join(__dirname, 'data/csv');
-const COVERAGE_FILE = path.join(__dirname, 'data/coverage.csv');
 
 // Helper to escape CSV fields
 function escapeCsvField(field) {
@@ -668,13 +457,9 @@ function escapeCsvField(field) {
 // Function to update daily CSV log
 function updateDailyCsvLog(trucks) {
   try {
-    if (!fs.existsSync(CSV_DIRECTORY)) {
-      fs.mkdirSync(CSV_DIRECTORY, { recursive: true });
-    }
-
     const today = getISTDayString();
     const csvFilename = `goa-fire-trucks-${today}.csv`;
-    const csvFilePath = path.join(CSV_DIRECTORY, csvFilename);
+    const csvFilePath = path.join(DIRECTORY_CSV, csvFilename);
 
     const headers = ['Timestamp', 'Vehicle_No', 'Latitude', 'Longitude', 'Speed', 'Status', 'Location', 'Branch'];
 
@@ -715,13 +500,13 @@ function updateDailyCsvLog(trucks) {
 // Function to update coverage CSV
 function updateCoverageCsv(testStatus) {
   try {
-    if (!fs.existsSync(CSV_DIRECTORY)) {
+    if (!fs.existsSync(DIRECTORY_CSV)) {
       // No CSVs to report on
       return;
     }
 
     const headers = ['Date', 'Filename', 'Updated_At', 'Status'];
-    const csvFiles = fs.readdirSync(CSV_DIRECTORY).filter(f => f.endsWith('.csv') && f.startsWith('goa-fire-trucks-'));
+    const csvFiles = fs.readdirSync(DIRECTORY_CSV).filter(f => f.endsWith('.csv') && f.startsWith('goa-fire-trucks-'));
 
     // Map files to stats
     const coverageData = csvFiles.map(filename => {
@@ -734,35 +519,24 @@ function updateCoverageCsv(testStatus) {
         ? `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`
         : dateStr;
 
-      const filePath = path.join(CSV_DIRECTORY, filename);
+      const filePath = path.join(DIRECTORY_CSV, filename);
       const stats = fs.statSync(filePath);
       const updatedAt = getISTISOString(stats.mtime);
 
       // Determine status for this specific file.
       // If it's today's file, we use the passed testStatus (which reflects current run).
-      // For older files, we probably just say 'ARCHIVED' or keep their last state? 
+      // For older files, we probably just say 'ARCHIVED' or keep their last state?
       // The requirement says: "status with an 'OK' 'NOT OK' based on the result of npm test"
       // This implies the status of the *latest* run for that day?
       // Since we are regenerating coverage.csv every time, we need to decide what to put for older files.
       // Maybe we just check if it was updated recently?
       // Actually, for past dates, we can't really know the "npm test" status of that day easily unless we logged it.
       // BUT, the request says "generate/update a daily geojson... create a single index.csv... based on result of npm test".
-      // Let's assume 'Status' refers to the validity of data captured that day. 
+      // Let's assume 'Status' refers to the validity of data captured that day.
       // If this run is for TODAY, and test passed, then TODAY is OK.
       // If test failed, TODAY is NOT OK.
 
-      let status = 'UNKNOWN';
-      const todayStr = getISTDayString();
-
-      if (dateStr === todayStr) {
-        status = testStatus;
-      } else {
-        // For past files, maybe 'STORED'? Or just leave empty?
-        // The user said "based on the result of npm test".
-        // If I am running today, I only know today's test result.
-        // I will output 'OK' for past files if they exist and have content.
-        status = stats.size > headers.join(',').length ? 'OK' : 'EMPTY';
-      }
+      let status = (dateStr === getISTDayString()) ? testStatus : (stats.size > headers.join(',').length ? 'OK' : 'EMPTY');
 
       return {
         Date: formattedDate,
@@ -786,16 +560,24 @@ function updateCoverageCsv(testStatus) {
       ].map(escapeCsvField).join(','))
     ].join('\n');
 
-    fs.writeFileSync(COVERAGE_FILE, fileContent);
-    debugLog(`Coverage CSV updated at ${COVERAGE_FILE}`);
+    fs.writeFileSync(FILE_COVERAGE, fileContent);
+    debugLog(`Coverage CSV updated at ${FILE_COVERAGE}`);
 
   } catch (error) {
     debugLog(`ERROR updating coverage CSV: ${error.message}`, error.stack);
   }
 }
 
+// Make sure the cache directory exists
+if (!fs.existsSync(DIRECTORY_CACHE)) {
+  fs.mkdirSync(DIRECTORY_CACHE, {recursive: true});
+}
+if (!fs.existsSync(DIRECTORY_CSV)) {
+  fs.mkdirSync(DIRECTORY_CSV, {recursive: true});
+}
+
 // Clear the debug log before starting
-fs.writeFileSync(DEBUG_LOG_FILE, '');
+fs.writeFileSync(FILE_DEBUG_LOG, '');
 debugLog('Debug logging initialized');
 
 // Run only if this file is executed directly
