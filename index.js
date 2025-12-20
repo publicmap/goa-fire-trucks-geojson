@@ -35,15 +35,7 @@ const httpsAgent = new https.Agent({ rejectUnauthorized: false, });
 
 function getISTISOString() {
   const date = new Date();
-  return date.toLocaleString('en-IN', {
-    timeZone: 'Asia/Kolkata',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
+  return date.toISOString();
 }
 
 function getISTDayString() {
@@ -366,11 +358,6 @@ function updateDailyCsvLog(trucks) {
 
 // Function to update coverage CSV
 function updateCoverageCsv(testStatus) {
-  if (!fs.existsSync(DIRECTORY_CSV)) {
-    // No CSVs to report on
-    return;
-  }
-
   const headers = ['Date', 'Filename', 'Updated_At', 'Status'];
   const csvFiles = fs.readdirSync(DIRECTORY_CSV).filter(f => f.endsWith('.csv') && f.startsWith('goa-fire-trucks-'));
 
@@ -517,8 +504,7 @@ async function fetchAndCacheData() {
 
     // Update Coverage CSV
     // Get test status from env var or default to 'UNKNOWN'
-    const testStatus = process.env.TEST_STATUS || 'UNKNOWN';
-    updateCoverageCsv(testStatus);
+    updateCoverageCsv(process.env.TEST_STATUS || 'UNKNOWN');
 
   } catch (error) {
     debugLog(`ERROR: ${error.message}`, error.stack);
