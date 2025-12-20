@@ -30,7 +30,7 @@ const FILE_OUTPUT_JSON = path.join(__dirname, 'data/goa-fire-trucks.geojson');
 
 // Create HTTPS agent that allows IP addresses (for APIs that use IP instead of domain)
 // This is necessary because SSL certificates are typically issued for domain names, not IPs
-const httpsAgent = new https.Agent({rejectUnauthorized: false,});
+const httpsAgent = new https.Agent({ rejectUnauthorized: false, });
 
 function getISTISOString() {
   const date = new Date();
@@ -98,104 +98,95 @@ function isValidGoaCoordinate(value, type) {
 
 // Add a new function for managing daily GPX tracks
 function updateDailyGpxTracks(trucks) {
-  try {
-    // Generate today's date in YYYYMMDD format (IST)
-    const gpxFilePath = path.join(DIRECTORY_CACHE, `goa-fire-trucks-gpx-${(getISTDayString())}.geojson`);
+  // Generate today's date in YYYYMMDD format (IST)
+  const gpxFilePath = path.join(DIRECTORY_CACHE, `goa-fire-trucks-gpx-${(getISTDayString())}.geojson`);
 
-    // Initialize tracks object - either from existing file or new
-    let tracksGeoJson = {
-      type: 'FeatureCollection',
-      metadata: {
-        date: getISTDayString(),
-        source: 'Directorate of Fire Emergency Services, Govt. of Goa',
-        description: 'Daily GPS tracks of fire trucks'
-      },
-      features: []
-    };
+  // Initialize tracks object - either from existing file or new
+  let tracksGeoJson = {
+    type: 'FeatureCollection',
+    metadata: {
+      date: getISTDayString(),
+      source: 'Directorate of Fire Emergency Services, Govt. of Goa',
+      description: 'Daily GPS tracks of fire trucks'
+    },
+    features: []
+  };
 
-    // Load existing tracks file if it exists
-    if (fs.existsSync(gpxFilePath)) {
-      try {
-        const existingContent = fs.readFileSync(gpxFilePath, 'utf8');
-        tracksGeoJson = JSON.parse(existingContent);
-        debugLog(`Loaded existing GPX tracks file for ${(getISTDayString())}`);
-      } catch (err) {
-        debugLog(`Error reading existing GPX file, will create new: ${err.message}`);
-      }
-    } else {
-      debugLog(`Creating new GPX tracks file for ${(getISTDayString())}`);
+  // Load existing tracks file if it exists
+  if (fs.existsSync(gpxFilePath)) {
+    const existingContent = fs.readFileSync(gpxFilePath, 'utf8');
+    tracksGeoJson = JSON.parse(existingContent);
+    debugLog(`Loaded existing GPX tracks file for ${(getISTDayString())}`);
+  } else {
+    debugLog(`Creating new GPX tracks file for ${(getISTDayString())}`);
+  }
+
+  // Create map of vehicle IDs to existing track features
+  const vehicleTrackMap = {};
+  tracksGeoJson.features.forEach((feature, index) => {
+    if (feature.properties && feature.properties.Vehicle_No) {
+      vehicleTrackMap[feature.properties.Vehicle_No] = index;
+    }
+  });
+
+  // Update tracks for each truck
+  trucks.forEach(truck => {
+    const vehicleId = truck.Vehicle_No;
+    // Use IST timestamp for created/updated fields if available, otherwise current IST time
+    const timestamp = truck.Datetime || getISTISOString();
+    const coords = [parseFloat(truck.Longitude), parseFloat(truck.Latitude)];
+
+    if (!vehicleId || !isValidGoaCoordinate(coords[0]) || !isValidGoaCoordinate(coords[1])) {
+      debugLog(`Skipping GPX update for vehicle with invalid data: ${vehicleId || 'unknown'}`);
+      return;
     }
 
-    // Create map of vehicle IDs to existing track features
-    const vehicleTrackMap = {};
-    tracksGeoJson.features.forEach((feature, index) => {
-      if (feature.properties && feature.properties.Vehicle_No) {
-        vehicleTrackMap[feature.properties.Vehicle_No] = index;
+    // Check if this vehicle already has a track
+    if (vehicleTrackMap.hasOwnProperty(vehicleId)) {
+      // Update existing track
+      const featureIndex = vehicleTrackMap[vehicleId];
+      const feature = tracksGeoJson.features[featureIndex];
+
+      // Add point to coordinates if it's not a duplicate of the last point
+      const existingCoords = feature.geometry.coordinates;
+      const lastCoord = existingCoords.length > 0 ? existingCoords[existingCoords.length - 1] : null;
+
+      // Only add if coordinates are different from the last point (avoid duplicates when stationary)
+      if (!lastCoord || lastCoord[0] !== coords[0] || lastCoord[1] !== coords[1]) {
+        feature.geometry.coordinates.push(coords);
+        feature.properties.lastUpdated = timestamp;
       }
-    });
-
-    // Update tracks for each truck
-    trucks.forEach(truck => {
-      const vehicleId = truck.Vehicle_No;
-      // Use IST timestamp for created/updated fields if available, otherwise current IST time
-      const timestamp = truck.Datetime || getISTISOString();
-      const coords = [parseFloat(truck.Longitude), parseFloat(truck.Latitude)];
-
-      if (!vehicleId || !isValidGoaCoordinate(coords[0]) || !isValidGoaCoordinate(coords[1])) {
-        debugLog(`Skipping GPX update for vehicle with invalid data: ${vehicleId || 'unknown'}`);
-        return;
-      }
-
-      // Check if this vehicle already has a track
-      if (vehicleTrackMap.hasOwnProperty(vehicleId)) {
-        // Update existing track
-        const featureIndex = vehicleTrackMap[vehicleId];
-        const feature = tracksGeoJson.features[featureIndex];
-
-        // Add point to coordinates if it's not a duplicate of the last point
-        const existingCoords = feature.geometry.coordinates;
-        const lastCoord = existingCoords.length > 0 ? existingCoords[existingCoords.length - 1] : null;
-
-        // Only add if coordinates are different from the last point (avoid duplicates when stationary)
-        if (!lastCoord || lastCoord[0] !== coords[0] || lastCoord[1] !== coords[1]) {
-          feature.geometry.coordinates.push(coords);
-          feature.properties.lastUpdated = timestamp;
+    } else {
+      // Create new track for this vehicle
+      const newFeature = {
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: [coords]
+        },
+        properties: {
+          Vehicle_No: vehicleId,
+          Vehicle_Name: truck.Vehicle_Name || '',
+          Branch: truck.Branch || '',
+          created: timestamp,
+          lastUpdated: timestamp
         }
-      } else {
-        // Create new track for this vehicle
-        const newFeature = {
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: [coords]
-          },
-          properties: {
-            Vehicle_No: vehicleId,
-            Vehicle_Name: truck.Vehicle_Name || '',
-            Branch: truck.Branch || '',
-            created: timestamp,
-            lastUpdated: timestamp
-          }
-        };
+      };
 
-        tracksGeoJson.features.push(newFeature);
-        vehicleTrackMap[vehicleId] = tracksGeoJson.features.length - 1;
-      }
-    });
+      tracksGeoJson.features.push(newFeature);
+      vehicleTrackMap[vehicleId] = tracksGeoJson.features.length - 1;
+    }
+  });
 
-    // Update the metadata
-    tracksGeoJson.metadata.lastUpdated = getISTISOString();
-    tracksGeoJson.metadata.count = tracksGeoJson.features.length;
+  // Update the metadata
+  tracksGeoJson.metadata.lastUpdated = getISTISOString();
+  tracksGeoJson.metadata.count = tracksGeoJson.features.length;
 
-    // Write the updated file
-    fs.writeFileSync(gpxFilePath, JSON.stringify(tracksGeoJson, null, 2));
-    debugLog(`Updated GPX tracks file with ${tracksGeoJson.features.length} vehicle tracks`);
+  // Write the updated file
+  fs.writeFileSync(gpxFilePath, JSON.stringify(tracksGeoJson, null, 2));
+  debugLog(`Updated GPX tracks file with ${tracksGeoJson.features.length} vehicle tracks`);
 
-    return gpxFilePath;
-  } catch (error) {
-    debugLog(`ERROR updating GPX tracks: ${error.message}`, error.stack);
-    return null;
-  }
+  return gpxFilePath;
 }
 
 // Step 1: Generate access token
@@ -205,12 +196,12 @@ async function generateAccessToken() {
 
   // Try different field name variations
   const requestVariations = [
-    {Username: API_USERNAME, password: API_PASSWORD},
-    {username: API_USERNAME, password: API_PASSWORD},
-    {Username: API_USERNAME, Password: API_PASSWORD},
-    {username: API_USERNAME, Password: API_PASSWORD},
-    {user: API_USERNAME, pass: API_PASSWORD},
-    {User: API_USERNAME, Pass: API_PASSWORD}
+    { Username: API_USERNAME, password: API_PASSWORD },
+    { username: API_USERNAME, password: API_PASSWORD },
+    { Username: API_USERNAME, Password: API_PASSWORD },
+    { username: API_USERNAME, Password: API_PASSWORD },
+    { user: API_USERNAME, pass: API_PASSWORD },
+    { User: API_USERNAME, Pass: API_PASSWORD }
   ];
 
   for (let i = 0; i < requestVariations.length; i++) {
@@ -324,6 +315,120 @@ async function fetchLiveData(authToken) {
   return jsonData;
 }
 
+// Helper to escape CSV fields
+function escapeCsvField(field) {
+  if (field === null || field === undefined) return '';
+  const stringField = String(field);
+  if (stringField.includes(',') || stringField.includes('"') || stringField.includes('\n')) {
+    return `"${stringField.replace(/"/g, '""')}"`;
+  }
+  return stringField;
+}
+
+// Function to update daily CSV log
+function updateDailyCsvLog(trucks) {
+  const today = getISTDayString();
+  const csvFilename = `goa-fire-trucks-${today}.csv`;
+  const csvFilePath = path.join(DIRECTORY_CSV, csvFilename);
+
+  const headers = ['Timestamp', 'Vehicle_No', 'Latitude', 'Longitude', 'Speed', 'Status', 'Location', 'Branch'];
+
+  let isNewFile = !fs.existsSync(csvFilePath);
+
+  // If file doesn't exist, write headers
+  if (isNewFile) {
+    fs.writeFileSync(csvFilePath, headers.join(',') + '\n');
+  }
+
+  const timestamp = getISTISOString();
+
+  const newLines = trucks.map(truck => {
+    const row = [
+      timestamp,
+      truck.Vehicle_No,
+      truck.Latitude,
+      truck.Longitude,
+      truck.Speed,
+      truck.Status,
+      truck.Location,
+      truck.Branch
+    ];
+    return row.map(escapeCsvField).join(',');
+  });
+
+  if (newLines.length > 0) {
+    fs.appendFileSync(csvFilePath, newLines.join('\n') + '\n');
+  }
+
+  return csvFilePath;
+}
+
+// Function to update coverage CSV
+function updateCoverageCsv(testStatus) {
+  if (!fs.existsSync(DIRECTORY_CSV)) {
+    // No CSVs to report on
+    return;
+  }
+
+  const headers = ['Date', 'Filename', 'Updated_At', 'Status'];
+  const csvFiles = fs.readdirSync(DIRECTORY_CSV).filter(f => f.endsWith('.csv') && f.startsWith('goa-fire-trucks-'));
+
+  // Map files to stats
+  const coverageData = csvFiles.map(filename => {
+    // filename format: goa-fire-trucks-YYYYMMDD.csv
+    // Extract date
+    const match = filename.match(/goa-fire-trucks-(\d{8})\.csv/);
+    const dateStr = match ? match[1] : 'Unknown';
+    // Format date to YYYY-MM-DD for readability
+    const formattedDate = dateStr !== 'Unknown'
+      ? `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`
+      : dateStr;
+
+    const filePath = path.join(DIRECTORY_CSV, filename);
+    const stats = fs.statSync(filePath);
+    const updatedAt = getISTISOString(stats.mtime);
+
+    // Determine status for this specific file.
+    // If it's today's file, we use the passed testStatus (which reflects current run).
+    // For older files, we probably just say 'ARCHIVED' or keep their last state?
+    // The requirement says: "status with an 'OK' 'NOT OK' based on the result of npm test"
+    // This implies the status of the *latest* run for that day?
+    // Since we are regenerating coverage.csv every time, we need to decide what to put for older files.
+    // Maybe we just check if it was updated recently?
+    // Actually, for past dates, we can't really know the "npm test" status of that day easily unless we logged it.
+    // BUT, the request says "generate/update a daily geojson... create a single index.csv... based on result of npm test".
+    // Let's assume 'Status' refers to the validity of data captured that day.
+    // If this run is for TODAY, and test passed, then TODAY is OK.
+    // If test failed, TODAY is NOT OK.
+
+    let status = (dateStr === getISTDayString()) ? testStatus : (stats.size > headers.join(',').length ? 'OK' : 'EMPTY');
+
+    return {
+      Date: formattedDate,
+      Filename: filename,
+      Updated_At: updatedAt,
+      Status: status
+    };
+  });
+
+  // Sort by date descending
+  coverageData.sort((a, b) => b.Date.localeCompare(a.Date));
+
+  // Write coverage.csv
+  const fileContent = [
+    headers.join(','),
+    ...coverageData.map(row => [
+      row.Date,
+      row.Filename,
+      row.Updated_At,
+      row.Status
+    ].map(escapeCsvField).join(','))
+  ].join('\n');
+
+  fs.writeFileSync(FILE_COVERAGE, fileContent);
+  debugLog(`Coverage CSV updated at ${FILE_COVERAGE}`);
+}
+
 // Main function to fetch and cache data
 async function fetchAndCacheData() {
   try {
@@ -378,7 +483,7 @@ async function fetchAndCacheData() {
     const geojson = {
       type: 'FeatureCollection',
       features: validRows.map(row => {
-        const {Latitude, Longitude, ...properties} = row;
+        const { Latitude, Longitude, ...properties } = row;
         return {
           type: 'Feature',
           geometry: {
@@ -444,136 +549,12 @@ async function fetchAndCacheData() {
   }
 }
 
-// Helper to escape CSV fields
-function escapeCsvField(field) {
-  if (field === null || field === undefined) return '';
-  const stringField = String(field);
-  if (stringField.includes(',') || stringField.includes('"') || stringField.includes('\n')) {
-    return `"${stringField.replace(/"/g, '""')}"`;
-  }
-  return stringField;
-}
-
-// Function to update daily CSV log
-function updateDailyCsvLog(trucks) {
-  try {
-    const today = getISTDayString();
-    const csvFilename = `goa-fire-trucks-${today}.csv`;
-    const csvFilePath = path.join(DIRECTORY_CSV, csvFilename);
-
-    const headers = ['Timestamp', 'Vehicle_No', 'Latitude', 'Longitude', 'Speed', 'Status', 'Location', 'Branch'];
-
-    let isNewFile = !fs.existsSync(csvFilePath);
-
-    // If file doesn't exist, write headers
-    if (isNewFile) {
-      fs.writeFileSync(csvFilePath, headers.join(',') + '\n');
-    }
-
-    const timestamp = getISTISOString();
-
-    const newLines = trucks.map(truck => {
-      const row = [
-        timestamp,
-        truck.Vehicle_No,
-        truck.Latitude,
-        truck.Longitude,
-        truck.Speed,
-        truck.Status,
-        truck.Location,
-        truck.Branch
-      ];
-      return row.map(escapeCsvField).join(',');
-    });
-
-    if (newLines.length > 0) {
-      fs.appendFileSync(csvFilePath, newLines.join('\n') + '\n');
-    }
-
-    return csvFilePath;
-  } catch (error) {
-    debugLog(`ERROR updating daily CSV log: ${error.message}`, error.stack);
-    return null;
-  }
-}
-
-// Function to update coverage CSV
-function updateCoverageCsv(testStatus) {
-  try {
-    if (!fs.existsSync(DIRECTORY_CSV)) {
-      // No CSVs to report on
-      return;
-    }
-
-    const headers = ['Date', 'Filename', 'Updated_At', 'Status'];
-    const csvFiles = fs.readdirSync(DIRECTORY_CSV).filter(f => f.endsWith('.csv') && f.startsWith('goa-fire-trucks-'));
-
-    // Map files to stats
-    const coverageData = csvFiles.map(filename => {
-      // filename format: goa-fire-trucks-YYYYMMDD.csv
-      // Extract date
-      const match = filename.match(/goa-fire-trucks-(\d{8})\.csv/);
-      const dateStr = match ? match[1] : 'Unknown';
-      // Format date to YYYY-MM-DD for readability
-      const formattedDate = dateStr !== 'Unknown'
-        ? `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`
-        : dateStr;
-
-      const filePath = path.join(DIRECTORY_CSV, filename);
-      const stats = fs.statSync(filePath);
-      const updatedAt = getISTISOString(stats.mtime);
-
-      // Determine status for this specific file.
-      // If it's today's file, we use the passed testStatus (which reflects current run).
-      // For older files, we probably just say 'ARCHIVED' or keep their last state?
-      // The requirement says: "status with an 'OK' 'NOT OK' based on the result of npm test"
-      // This implies the status of the *latest* run for that day?
-      // Since we are regenerating coverage.csv every time, we need to decide what to put for older files.
-      // Maybe we just check if it was updated recently?
-      // Actually, for past dates, we can't really know the "npm test" status of that day easily unless we logged it.
-      // BUT, the request says "generate/update a daily geojson... create a single index.csv... based on result of npm test".
-      // Let's assume 'Status' refers to the validity of data captured that day.
-      // If this run is for TODAY, and test passed, then TODAY is OK.
-      // If test failed, TODAY is NOT OK.
-
-      let status = (dateStr === getISTDayString()) ? testStatus : (stats.size > headers.join(',').length ? 'OK' : 'EMPTY');
-
-      return {
-        Date: formattedDate,
-        Filename: filename,
-        Updated_At: updatedAt,
-        Status: status
-      };
-    });
-
-    // Sort by date descending
-    coverageData.sort((a, b) => b.Date.localeCompare(a.Date));
-
-    // Write coverage.csv
-    const fileContent = [
-      headers.join(','),
-      ...coverageData.map(row => [
-        row.Date,
-        row.Filename,
-        row.Updated_At,
-        row.Status
-      ].map(escapeCsvField).join(','))
-    ].join('\n');
-
-    fs.writeFileSync(FILE_COVERAGE, fileContent);
-    debugLog(`Coverage CSV updated at ${FILE_COVERAGE}`);
-
-  } catch (error) {
-    debugLog(`ERROR updating coverage CSV: ${error.message}`, error.stack);
-  }
-}
-
 // Make sure the cache directory exists
 if (!fs.existsSync(DIRECTORY_CACHE)) {
-  fs.mkdirSync(DIRECTORY_CACHE, {recursive: true});
+  fs.mkdirSync(DIRECTORY_CACHE, { recursive: true });
 }
 if (!fs.existsSync(DIRECTORY_CSV)) {
-  fs.mkdirSync(DIRECTORY_CSV, {recursive: true});
+  fs.mkdirSync(DIRECTORY_CSV, { recursive: true });
 }
 
 // Clear the debug log before starting

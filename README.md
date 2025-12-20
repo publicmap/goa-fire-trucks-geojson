@@ -22,7 +22,7 @@ We use GitHub Actions to:
 2. Archive in CSV and GeoJSON format
 
 The actual implementation consists of:
-- A GitHub Actions workflow (`.github/workflows/`) that runs on a 15 minute schedule
+- A GitHub Actions workflow (`.github/workflows/`) that runs on a minute schedule
 - A script to fetch and process the API data (`index.js`)
 - A /data directory that gets updated by the workflow in the `data` branch
 
