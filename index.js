@@ -27,6 +27,7 @@ const DIRECTORY_CSV = path.join(__dirname, 'data/csv');
 const FILE_DEBUG_LOG = path.join(__dirname, 'debug-log.txt');
 const FILE_COVERAGE = path.join(__dirname, 'data/coverage.csv');
 const FILE_OUTPUT_JSON = path.join(__dirname, 'data/goa-fire-trucks.geojson');
+const FILE_OUTPUT_GPX = path.join(__dirname, 'data/goa-fire-trucks-gpx-YMD.geojson');
 
 // Create HTTPS agent that allows IP addresses (for APIs that use IP instead of domain)
 // This is necessary because SSL certificates are typically issued for domain names, not IPs
@@ -99,7 +100,7 @@ function isValidGoaCoordinate(value, type) {
 // Add a new function for managing daily GPX tracks
 function updateDailyGpxTracks(trucks) {
   // Generate today's date in YYYYMMDD format (IST)
-  const gpxFilePath = path.join(DIRECTORY_CACHE, `goa-fire-trucks-gpx-${(getISTDayString())}.geojson`);
+  const gpxFilePath = FILE_OUTPUT_GPX.replace('YMD', getISTDayString());
 
   // Initialize tracks object - either from existing file or new
   let tracksGeoJson = {
@@ -445,35 +446,22 @@ async function fetchAndCacheData() {
     if (jsonData && jsonData.root && jsonData.root.VehicleData) {
       rows = jsonData.root.VehicleData;
       debugLog(`Parsed ${rows.length} fire truck records from JSON`);
-    } else if (jsonData && Array.isArray(jsonData)) {
-      // Handle case where response is directly an array
-      rows = jsonData;
-      debugLog(`Parsed ${rows.length} fire truck records from JSON array`);
-    } else if (jsonData && jsonData.data) {
-      // Handle case where data is in a 'data' field
-      rows = Array.isArray(jsonData.data) ? jsonData.data : (jsonData.data.VehicleData || []);
-      debugLog(`Parsed ${rows.length} fire truck records from JSON data field`);
     } else {
       debugLog('No vehicle data found in JSON response or unexpected JSON structure');
       debugLog('Full JSON response:', JSON.stringify(jsonData));
     }
 
-    // Process each row to ensure coordinates are properly formatted
-    rows.forEach(row => {
-      // Ensure latitude and longitude are numeric
-      if (row.Latitude) row.Latitude = parseFloat(row.Latitude);
-      if (row.Longitude) row.Longitude = parseFloat(row.Longitude);
-
-      // Check if we have valid coordinates
-      if (!isValidGoaCoordinate(row.Latitude, 'lat') || !isValidGoaCoordinate(row.Longitude, 'lng')) {
-        debugLog(`WARNING: Invalid coordinates for vehicle ${row.Vehicle_No}: ${row.Latitude}, ${row.Longitude}`);
-      }
-    });
-
     // Filter out rows with invalid coordinates
-    const validRows = rows.filter(row =>
-      isValidGoaCoordinate(row.Latitude, 'lat') && isValidGoaCoordinate(row.Longitude, 'lng')
-    );
+    const validRows = rows.filter(function(row) {
+        row.Latitude = parseFloat(row.Latitude) || 0;
+        row.Longitude = parseFloat(row.Longitude) || 0;
+
+        // Check if we have valid coordinates
+        if (!isValidGoaCoordinate(row.Latitude, 'lat') || !isValidGoaCoordinate(row.Longitude, 'lng')) {
+          debugLog(`WARNING: Invalid coordinates for vehicle ${row.Vehicle_No}: ${row.Latitude}, ${row.Longitude}`);
+        }
+      return isValidGoaCoordinate(row.Latitude, 'lat') && isValidGoaCoordinate(row.Longitude, 'lng');
+    });
 
     if (validRows.length < rows.length) {
       debugLog(`Filtered out ${rows.length - validRows.length} records with invalid coordinates`);
@@ -508,7 +496,7 @@ async function fetchAndCacheData() {
 
     // Save to file
     debugLog(`Saving data to ${FILE_OUTPUT_JSON}...`);
-    fs.writeFileSync(FILE_OUTPUT_JSON, JSON.stringify(result, null, 2));
+    fs.writeFileSync(FILE_OUTPUT_JSON, JSON.stringify(result, null, 0));
     debugLog('Fire truck data cached successfully!');
 
     // Update daily GPX tracks
@@ -532,7 +520,6 @@ async function fetchAndCacheData() {
     const testStatus = process.env.TEST_STATUS || 'UNKNOWN';
     updateCoverageCsv(testStatus);
 
-    return validRows;
   } catch (error) {
     debugLog(`ERROR: ${error.message}`, error.stack);
     console.error('Error fetching or caching data:', error);
