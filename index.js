@@ -303,7 +303,7 @@ async function fetchLiveData(authToken) {
   }
 
   const jsonData = await response.json();
-  debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 200)}...`);
+  debugLog(`Received JSON response: ${JSON.stringify(jsonData).substring(0, 500)}...`);
 
   return jsonData;
 }
@@ -521,6 +521,8 @@ async function fetchAndCacheData() {
     process.exit(1);
   }
 }
+
+process.env.TZ = 'Asia/Kolkata';
 
 // Make sure the cache directory exists
 if (!fs.existsSync(DIRECTORY_CACHE)) {
