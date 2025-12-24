@@ -126,7 +126,7 @@ function updateDailyGpxTracks(trucks) {
   trucks.forEach(truck => {
     const vehicleId = truck.Vehicle_No;
     // Use IST timestamp for created/updated fields if available, otherwise current IST time
-    const timestamp = truck.Datetime || getISTISOString();
+    const timestamp = truck.Datetime+'+05:30' || getISTISOString();
     const coords = [parseFloat(truck.Longitude), parseFloat(truck.Latitude)];
 
     if (!vehicleId || !isValidGoaCoordinate(coords[0]) || !isValidGoaCoordinate(coords[1])) {
@@ -321,16 +321,11 @@ function escapeCsvField(field) {
 // Function to update daily CSV log
 function updateDailyCsvLog(trucks) {
   const today = getISTDayString();
-  const csvFilename = `goa-fire-trucks-${today}.csv`;
-  const csvFilePath = path.join(DIRECTORY_CSV, csvFilename);
-
-  const headers = ['Timestamp', 'Vehicle_No', 'Latitude', 'Longitude', 'Speed', 'Status', 'Location', 'Branch'];
-
-  let isNewFile = !fs.existsSync(csvFilePath);
+  const csvFilePath = path.join(DIRECTORY_CSV, `goa-fire-trucks-${today}.csv`);
 
   // If file doesn't exist, write headers
-  if (isNewFile) {
-    fs.writeFileSync(csvFilePath, headers.join(',') + '\n');
+  if (!fs.existsSync(csvFilePath)) {
+    fs.writeFileSync(csvFilePath, ['Timestamp', 'Vehicle_No', 'Latitude', 'Longitude', 'Speed', 'Status', 'Location', 'Branch'].join(',') + '\n');
   }
 
   const timestamp = getISTISOString();
@@ -496,11 +491,7 @@ async function fetchAndCacheData() {
 
     // Update Daily CSV Log
     const csvFilePath = updateDailyCsvLog(validRows);
-    if (csvFilePath) {
-      debugLog(`Daily CSV log updated successfully at ${csvFilePath}`);
-    } else {
-      debugLog('Failed to update daily CSV log');
-    }
+    debugLog(`Daily CSV log updated successfully at ${csvFilePath}`);
 
     // Update Coverage CSV
     // Get test status from env var or default to 'UNKNOWN'
