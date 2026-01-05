@@ -4,7 +4,7 @@
     "date": "20260105",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2026-01-05T03:44:10.908Z",
+    "lastUpdated": "2026-01-05T03:45:08.326Z",
     "count": 52
   },
   "features": [
@@ -2010,6 +2010,10 @@
           [
             73.9411616,
             15.5865166
+          ],
+          [
+            73.9411616,
+            15.5865116
           ]
         ]
       },
@@ -2018,7 +2022,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "05-01-2026 05:29:19+05:30",
-        "lastUpdated": "05-01-2026 09:14:05+05:30"
+        "lastUpdated": "05-01-2026 09:14:18+05:30"
       }
     },
     {
@@ -3025,6 +3029,10 @@
           [
             73.806445,
             15.5846233
+          ],
+          [
+            73.80647,
+            15.5846067
           ]
         ]
       },
@@ -3033,7 +3041,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Force Headquarters",
         "created": "05-01-2026 05:30:15+05:30",
-        "lastUpdated": "05-01-2026 09:05:08+05:30"
+        "lastUpdated": "05-01-2026 09:14:58+05:30"
       }
     }
   ]
