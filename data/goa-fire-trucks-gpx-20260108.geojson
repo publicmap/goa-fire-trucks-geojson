@@ -4,8 +4,8 @@
     "date": "20260108",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2026-01-08T06:32:26.412Z",
-    "count": 55
+    "lastUpdated": "2026-01-08T06:33:30.477Z",
+    "count": 57
   },
   "features": [
     {
@@ -1349,6 +1349,10 @@
           [
             73.817848,
             15.594203
+          ],
+          [
+            73.820641,
+            15.596832
           ]
         ]
       },
@@ -1357,7 +1361,7 @@
         "Vehicle_Name": "TS101",
         "Branch": "Fire Station Mapusa",
         "created": "08-01-2026 05:30:20+05:30",
-        "lastUpdated": "08-01-2026 12:02:22+05:30"
+        "lastUpdated": "08-01-2026 12:03:21+05:30"
       }
     },
     {
@@ -2592,6 +2596,10 @@
           [
             73.9700683,
             15.2694533
+          ],
+          [
+            73.9703366,
+            15.26949
           ]
         ]
       },
@@ -2600,7 +2608,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "08-01-2026 05:30:21+05:30",
-        "lastUpdated": "08-01-2026 12:02:06+05:30"
+        "lastUpdated": "08-01-2026 12:03:26+05:30"
       }
     },
     {
@@ -3426,6 +3434,10 @@
           [
             73.9466383,
             15.5894933
+          ],
+          [
+            73.946875,
+            15.5896283
           ]
         ]
       },
@@ -3434,7 +3446,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Bicholim",
         "created": "08-01-2026 05:29:09+05:30",
-        "lastUpdated": "08-01-2026 12:02:24+05:30"
+        "lastUpdated": "08-01-2026 12:03:27+05:30"
       }
     },
     {
@@ -3808,6 +3820,10 @@
           [
             74.0600266,
             15.4186483
+          ],
+          [
+            74.0617833,
+            15.41818
           ]
         ]
       },
@@ -3816,7 +3832,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Ponda",
         "created": "08-01-2026 05:30:13+05:30",
-        "lastUpdated": "08-01-2026 12:02:20+05:30"
+        "lastUpdated": "08-01-2026 12:03:19+05:30"
       }
     },
     {
@@ -5803,6 +5819,44 @@
         "Branch": "Fire Station Old Goa",
         "created": "08-01-2026 12:02:11+05:30",
         "lastUpdated": "08-01-2026 12:02:11+05:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.9293217,
+            15.61261
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2504 - BIC Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Bicholim",
+        "created": "08-01-2026 12:03:25+05:30",
+        "lastUpdated": "08-01-2026 12:03:25+05:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.822745,
+            15.6138067
+          ]
+        ]
+      },
+      "properties": {
+        "Vehicle_No": "GA07G2503- MAP Mid Size (Water Tender)",
+        "Vehicle_Name": "5035",
+        "Branch": "Fire Station Mapusa",
+        "created": "08-01-2026 12:03:26+05:30",
+        "lastUpdated": "08-01-2026 12:03:26+05:30"
       }
     }
   ]
