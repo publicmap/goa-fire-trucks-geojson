@@ -4,7 +4,7 @@
     "date": "20260113",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2026-01-13T03:41:01.192Z",
+    "lastUpdated": "2026-01-13T03:42:02.436Z",
     "count": 52
   },
   "features": [
@@ -2329,6 +2329,10 @@
           [
             74.1038166,
             15.2604283
+          ],
+          [
+            74.1036866,
+            15.2604616
           ]
         ]
       },
@@ -2337,7 +2341,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Curchorem",
         "created": "13-01-2026 05:28:58+05:30",
-        "lastUpdated": "13-01-2026 05:30:59+05:30"
+        "lastUpdated": "13-01-2026 09:11:59+05:30"
       }
     },
     {
@@ -2917,6 +2921,10 @@
           [
             73.817375,
             15.48683
+          ],
+          [
+            73.8175867,
+            15.4870333
           ]
         ]
       },
@@ -2925,7 +2933,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Force Headquarters",
         "created": "13-01-2026 05:29:16+05:30",
-        "lastUpdated": "13-01-2026 09:10:44+05:30"
+        "lastUpdated": "13-01-2026 09:11:39+05:30"
       }
     }
   ]
