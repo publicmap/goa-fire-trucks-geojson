@@ -20,8 +20,7 @@ jobs:
             package.json
             package-lock.json
             index.js
-            README.md
-            LICENSE
+            data/
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
