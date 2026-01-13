@@ -33,7 +33,7 @@ jobs:
 
       - name: Checkout data branch for data directory
         run: |
-          git fetch origin data
+          git fetch --depth=1 origin data
           git checkout origin/data -- data/ || mkdir -p data
 
       - name: Fetch and process API data
@@ -63,7 +63,7 @@ jobs:
             cp -r data/* /tmp/data-backup/
 
             # Switch to data branch
-            git fetch origin data
+            git fetch --depth=1 origin data
             git checkout -B data origin/data
 
             # Restore the generated data files
