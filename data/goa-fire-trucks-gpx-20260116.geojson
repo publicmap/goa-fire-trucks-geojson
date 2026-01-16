@@ -4,7 +4,7 @@
     "date": "20260116",
     "source": "Directorate of Fire Emergency Services, Govt. of Goa",
     "description": "Daily GPS tracks of fire trucks",
-    "lastUpdated": "2026-01-16T03:56:37.449Z",
+    "lastUpdated": "2026-01-16T03:57:37.171Z",
     "count": 52
   },
   "features": [
@@ -1732,6 +1732,10 @@
           [
             73.9699633,
             15.2693466
+          ],
+          [
+            73.96993,
+            15.269315
           ]
         ]
       },
@@ -1740,7 +1744,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Station Margao",
         "created": "16-01-2026 05:29:24+05:30",
-        "lastUpdated": "16-01-2026 09:25:47+05:30"
+        "lastUpdated": "16-01-2026 09:27:18+05:30"
       }
     },
     {
@@ -3585,6 +3589,10 @@
           [
             73.8222983,
             15.4965717
+          ],
+          [
+            73.821005,
+            15.495835
           ]
         ]
       },
@@ -3593,7 +3601,7 @@
         "Vehicle_Name": "5035",
         "Branch": "Fire Force Headquarters",
         "created": "16-01-2026 05:30:03+05:30",
-        "lastUpdated": "16-01-2026 09:26:26+05:30"
+        "lastUpdated": "16-01-2026 09:27:24+05:30"
       }
     }
   ]
